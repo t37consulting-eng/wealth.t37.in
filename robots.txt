@@ -1,0 +1,49 @@
+# Robots.txt for https://wealth.t37.in
+
+# Standard Search Crawlers
+User-agent: *
+Allow: /
+Allow: /assets/
+Allow: /data/articles.json
+Disallow: /editor
+Disallow: /editor.html
+Disallow: /scripts/
+
+# AI Search & LLM Engines (Google Gemini, OpenAI ChatGPT, Perplexity, Anthropic Claude, Apple Intelligence)
+User-agent: Google-Extended
+Allow: /
+Disallow: /editor
+Disallow: /editor.html
+
+User-agent: GPTBot
+Allow: /
+Disallow: /editor
+Disallow: /editor.html
+
+User-agent: ChatGPT-User
+Allow: /
+Disallow: /editor
+Disallow: /editor.html
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /editor
+Disallow: /editor.html
+
+User-agent: ClaudeBot
+Allow: /
+Disallow: /editor
+Disallow: /editor.html
+
+User-agent: Applebot-Extended
+Allow: /
+Disallow: /editor
+Disallow: /editor.html
+
+User-agent: CCBot
+Allow: /
+Disallow: /editor
+Disallow: /editor.html
+
+# XML Sitemap
+Sitemap: https://wealth.t37.in/sitemap.xml

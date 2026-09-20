@@ -1,6 +1,7 @@
 /**
  * T37 WEALTH - MAIN APPLICATION SCRIPT
  * Finshots-inspired editorial blog engine
+ * Mobile-First, SEO & AI Search Optimized
  */
 
 (function () {
@@ -57,6 +58,7 @@
   const searchResults = document.getElementById('search-results');
   const mobileMenuBtn = document.getElementById('mobile-menu-btn');
   const mobileNavDrawer = document.getElementById('mobile-nav-drawer');
+  const mobileNavBackdrop = document.getElementById('mobile-nav-backdrop');
 
   // Format Date (e.g., "Sep 21, 2026")
   function formatDate(dateStr) {
@@ -97,7 +99,7 @@
     const config = CATEGORY_META[catKey] || CATEGORY_META['latest'];
     currentCategory = catKey;
 
-    // Update nav active states
+    // Update nav active states (both desktop and mobile)
     navLinks.forEach(link => {
       if (link.dataset.category === catKey) {
         link.classList.add('active');
@@ -174,12 +176,59 @@
     });
   }
 
+  // Inject NewsArticle Schema for SEO & AI Search Engines
+  function injectArticleSchema(article) {
+    let existing = document.getElementById('article-schema');
+    if (!existing) {
+      existing = document.createElement('script');
+      existing.id = 'article-schema';
+      existing.type = 'application/ld+json';
+      document.head.appendChild(existing);
+    }
+    const cleanText = (article.content || '').replace(/<[^>]+>/g, ' ').slice(0, 500);
+    existing.textContent = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": article.title,
+      "image": [window.location.origin + "/" + article.thumbnail],
+      "datePublished": article.datetime,
+      "dateModified": article.datetime,
+      "author": [{
+        "@type": "Person",
+        "name": article.author || "T37 Research Desk"
+      }],
+      "publisher": {
+        "@type": "Organization",
+        "name": "T37 Wealth",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://wealth.t37.in/assets/logo.png"
+        }
+      },
+      "description": article.excerpt || cleanText,
+      "articleBody": cleanText,
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": window.location.origin + "/#article/" + article.slug
+      }
+    });
+  }
+
+  function removeArticleSchema() {
+    const existing = document.getElementById('article-schema');
+    if (existing) existing.remove();
+  }
+
   // Open Full Article Reader
   function openArticle(slug, pushState = true) {
     const article = allArticles.find(a => a.slug === slug || a.id === slug);
     if (!article) return;
 
     activeArticle = article;
+    injectArticleSchema(article);
+
+    // Update document title for SEO & tabs
+    document.title = `${article.title} | T37 Wealth`;
 
     // Generate Related Articles
     const related = allArticles
@@ -238,16 +287,13 @@
         </div>
         
         <div class="share-buttons">
-          <a class="share-btn" href="https://twitter.com/intent/tweet?text=${shareTitle}&url=${shareUrl}" target="_blank" rel="noopener noreferrer" title="Share on X">
+          <a class="share-btn" href="https://twitter.com/intent/tweet?text=${shareTitle}&url=${shareUrl}" target="_blank" rel="noopener noreferrer" title="Share on X" aria-label="Share on X">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
           </a>
-          <a class="share-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=${shareUrl}" target="_blank" rel="noopener noreferrer" title="Share on LinkedIn">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-          </a>
-          <a class="share-btn" href="https://api.whatsapp.com/send?text=${shareTitle}%20${shareUrl}" target="_blank" rel="noopener noreferrer" title="Share on WhatsApp">
+          <a class="share-btn" href="https://api.whatsapp.com/send?text=${shareTitle}%20${shareUrl}" target="_blank" rel="noopener noreferrer" title="Share on WhatsApp" aria-label="Share on WhatsApp">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
           </a>
-          <button class="share-btn" id="copy-link-btn" title="Copy Link">
+          <button class="share-btn" id="copy-link-btn" title="Copy Link" aria-label="Copy Link">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
           </button>
         </div>
@@ -299,6 +345,8 @@
     readerModal.classList.remove('active');
     document.body.style.overflow = '';
     activeArticle = null;
+    removeArticleSchema();
+    document.title = 'T37 Wealth | Financial Insights, Markets, Crypto & Algo Trading';
 
     if (updateUrl) {
       if (currentCategory === 'latest') {
@@ -398,15 +446,29 @@
     }
   }
 
+  // Mobile Menu Controls
+  function toggleMobileMenu() {
+    const isOpen = mobileNavDrawer.classList.toggle('open');
+    mobileNavBackdrop.classList.toggle('open', isOpen);
+  }
+
+  function closeMobileMenu() {
+    mobileNavDrawer.classList.remove('open');
+    mobileNavBackdrop.classList.remove('open');
+  }
+
   // Event Listeners
   navLinks.forEach(link => {
     link.addEventListener('click', (e) => {
       e.preventDefault();
       const cat = link.dataset.category;
       setCategory(cat);
-      mobileNavDrawer.classList.remove('open');
+      closeMobileMenu();
     });
   });
+
+  mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+  mobileNavBackdrop.addEventListener('click', closeMobileMenu);
 
   closeReaderBtn.addEventListener('click', () => closeReader());
   backBtn.addEventListener('click', () => closeReader());
@@ -433,16 +495,12 @@
     if (e.key === 'Escape') {
       if (searchModal.classList.contains('active')) closeSearch();
       else if (readerModal.classList.contains('active')) closeReader();
+      else closeMobileMenu();
     }
     if (e.key === '/' && !['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) {
       e.preventDefault();
       openSearch();
     }
-  });
-
-  // Mobile Menu Toggle
-  mobileMenuBtn.addEventListener('click', () => {
-    mobileNavDrawer.classList.toggle('open');
   });
 
   // Popstate / Hashchange

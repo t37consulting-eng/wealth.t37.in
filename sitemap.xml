@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <!-- Main Hub -->
+  <url>
+    <loc>https://wealth.t37.in/</loc>
+    <lastmod>2026-09-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://wealth.t37.in/#latest</loc>
+    <lastmod>2026-09-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://wealth.t37.in/#markets</loc>
+    <lastmod>2026-09-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://wealth.t37.in/#crypto</loc>
+    <lastmod>2026-09-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://wealth.t37.in/#personal-finance</loc>
+    <lastmod>2026-09-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://wealth.t37.in/#algo-trading</loc>
+    <lastmod>2026-09-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://wealth.t37.in/#article/nse-ipo-fairly-valued-explainer</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://wealth.t37.in/assets/thumbnails/markets-nse-ipo.svg</image:loc>
+      <image:title>Is NSE’s IPO Really Fairly Valued? An Explainer on the Exchange's Mega Listing</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://wealth.t37.in/#article/us-treasury-bond-buybacks-liquidity</loc>
+    <lastmod>2026-09-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://wealth.t37.in/assets/thumbnails/markets-treasury-buyback.svg</image:loc>
+      <image:title>US Treasury Bond Buybacks: Why Washington is Buying Its Own Debt</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://wealth.t37.in/#article/india-semiconductor-manufacturing-push</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://wealth.t37.in/assets/thumbnails/markets-semiconductor.svg</image:loc>
+      <image:title>India's Semiconductor Push: From Blueprint to Silicon Reality</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://wealth.t37.in/#article/fii-fund-flows-rotation-dynamics</loc>
+    <lastmod>2026-09-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://wealth.t37.in/assets/thumbnails/markets-fii-flows.svg</image:loc>
+      <image:title>Why Foreign Institutional Investors (FIIs) Are Rebalancing Portfolios</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://wealth.t37.in/#article/fmcg-margin-paradox-volume-slump</loc>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://wealth.t37.in/assets/thumbnails/markets-fmcg-margins.svg</image:loc>
+      <image:title>The FMCG Margin Paradox: Volume Slumps vs Premiumization Gains</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://wealth.t37.in/#article/bitcoin-halving-cycles-institutional-etf-inflows</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://wealth.t37.in/assets/thumbnails/crypto-btc-halving.svg</image:loc>
+      <image:title>Bitcoin Halving Cycles: How Institutional ETF Inflows Altered the Math</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://wealth.t37.in/#article/ethereum-layer-2-gas-economics-blobspace</loc>
+    <lastmod>2026-09-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://wealth.t37.in/assets/thumbnails/crypto-eth-l2.svg</image:loc>
+      <image:title>Ethereum Layer 2 Gas Economics: The Impact of Blob Space</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://wealth.t37.in/#article/stablecoins-trillion-dollar-global-settlement</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://wealth.t37.in/assets/thumbnails/crypto-stablecoins.svg</image:loc>
+      <image:title>Stablecoins as Global Clearinghouses: The Trillion-Dollar Settlement Shift</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://wealth.t37.in/#article/defi-real-yield-protocol-cash-flows</loc>
+    <lastmod>2026-09-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://wealth.t37.in/assets/thumbnails/crypto-defi-yield.svg</image:loc>
+      <image:title>The Decentralized Finance (DeFi) Real Yield Shift</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://wealth.t37.in/#article/crypto-regulatory-frameworks-global-divergence</loc>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://wealth.t37.in/assets/thumbnails/crypto-regulations.svg</image:loc>
+      <image:title>Crypto Regulatory Frameworks: The Global Divergence</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://wealth.t37.in/#article/direct-mutual-funds-vs-regular-sip-difference</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://wealth.t37.in/assets/thumbnails/personal-finance-mutual-funds.svg</image:loc>
+      <image:title>Direct Mutual Funds vs Regular: The ₹1.2 Crore Compounding Difference</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://wealth.t37.in/#article/50-30-20-budgeting-rule-inflation-adaptation</loc>
+    <lastmod>2026-09-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://wealth.t37.in/assets/thumbnails/personal-finance-budgeting.svg</image:loc>
+      <image:title>The 50/30/20 Budgeting Rule: Recalibrating for Modern Inflation</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://wealth.t37.in/#article/term-insurance-fine-print-claims-rejection</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://wealth.t37.in/assets/thumbnails/personal-finance-insurance.svg</image:loc>
+      <image:title>Term Insurance Fine Print: Exclusions Every Policyholder Must Verify</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://wealth.t37.in/#article/nps-vs-ppf-vs-epf-tax-optimization-2026</loc>
+    <lastmod>2026-09-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://wealth.t37.in/assets/thumbnails/personal-finance-taxation.svg</image:loc>
+      <image:title>NPS vs PPF vs EPF: Optimizing Tax Slabs Under the New Tax Regime</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://wealth.t37.in/#article/psychology-of-market-drawdowns-loss-aversion</loc>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://wealth.t37.in/assets/thumbnails/personal-finance-behavioral.svg</image:loc>
+      <image:title>The Psychology of Market Drawdowns: Staying Invested When Red</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://wealth.t37.in/#article/mean-reversion-python-statistical-arbitrage</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://wealth.t37.in/assets/thumbnails/algo-mean-reversion.svg</image:loc>
+      <image:title>Mean Reversion in Python: Statistical Arbitrage on Index Pairs</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://wealth.t37.in/#article/vwap-order-flow-secrets-institutional-execution</loc>
+    <lastmod>2026-09-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://wealth.t37.in/assets/thumbnails/algo-vwap-orderflow.svg</image:loc>
+      <image:title>Order Flow &amp; Volume-Weighted Average Price (VWAP) Secrets</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://wealth.t37.in/#article/5-fatal-backtesting-pitfalls-quant-trading</loc>
+    <lastmod>2026-09-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://wealth.t37.in/assets/thumbnails/algo-backtest-pitfalls.svg</image:loc>
+      <image:title>The 5 Fatal Backtesting Pitfalls: Lookahead Bias and Overfitting</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://wealth.t37.in/#article/automating-position-sizing-kelly-criterion</loc>
+    <lastmod>2026-09-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://wealth.t37.in/assets/thumbnails/algo-kelly-criterion.svg</image:loc>
+      <image:title>Automating Dynamic Position Sizing with the Kelly Criterion</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://wealth.t37.in/#article/building-low-latency-event-driven-execution-engine</loc>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://wealth.t37.in/assets/thumbnails/algo-execution-engine.svg</image:loc>
+      <image:title>Building a Low-Latency Event-Driven Execution Engine in Python</image:title>
+    </image:image>
+  </url>
+</urlset>
