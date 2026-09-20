@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T37 Wealth | Strategic Investment & Advisory</title>
+    <meta name="description" content="T37 Wealth provides institutional-grade portfolio management and private wealth advisory.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar -->
+    <header class="header">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <span class="logo-badge">T37</span>
+                <span class="logo-text">Wealth</span>
+            </a>
+            <nav class="nav-links">
+                <a href="#services">Services</a>
+                <a href="#calculator">Calculator</a>
+                <a href="#performance">Performance</a>
+                <a href="#contact" class="btn btn-outline">Schedule Consultation</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <div class="badge">Institutional-Grade Private Wealth</div>
+            <h1 class="hero-title">Precision wealth management designed for generational growth.</h1>
+            <p class="hero-subtitle">
+                At T37 Wealth, we engineer customized portfolio strategies, private equity access, and algorithmic asset allocation tailored to your financial horizons.
+            </p>
+            <div class="hero-actions">
+                <a href="#calculator" class="btn btn-primary">Try Investment Calculator</a>
+                <a href="#services" class="btn btn-secondary">Explore Services</a>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-num">$1.4B+</span>
+                    <span class="stat-label">Assets Advised</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-num">18.4%</span>
+                    <span class="stat-label">5-Yr Avg Net IRR</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-num">99.2%</span>
+                    <span class="stat-label">Client Retention</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-num">24/7</span>
+                    <span class="stat-label">Dedicated Advisory</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Core Disciplines</span>
+                <h2>End-to-End Asset Management</h2>
+                <p>Comprehensive solutions tailored for family offices, high-net-worth individuals, and corporate treasuries.</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">📊</div>
+                    <h3>Global Equities & Fixed Income</h3>
+                    <p>Dynamic tactical asset allocation combining deep fundamental analysis with algorithmic risk modeling.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🏛️</div>
+                    <h3>Private Equity & Real Assets</h3>
+                    <p>Exclusive co-investment opportunities across early-stage technology, industrial infrastructure, and prime real estate.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🛡️</div>
+                    <h3>Estate & Trust Architecture</h3>
+                    <p>Cross-jurisdictional tax optimization, legacy planning, and multi-generational wealth preservation frameworks.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Calculator Section -->
+    <section id="calculator" class="calculator-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Interactive Modeling</span>
+                <h2>Portfolio Compound Growth Calculator</h2>
+                <p>Forecast the growth of your investments based on capital commitment and duration.</p>
+            </div>
+
+            <div class="calculator-card">
+                <div class="calc-inputs">
+                    <div class="form-group">
+                        <label for="initialAmount">Initial Investment ($): <span id="initialAmountVal" class="val-highlight">$50,000</span></label>
+                        <input type="range" id="initialAmount" min="5000" max="1000000" step="5000" value="50000">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="monthlyContribution">Monthly Contribution ($): <span id="monthlyVal" class="val-highlight">$1,000</span></label>
+                        <input type="range" id="monthlyContribution" min="0" max="25000" step="250" value="1000">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="expectedReturn">Expected Annual Return (%): <span id="returnVal" class="val-highlight">12%</span></label>
+                        <input type="range" id="expectedReturn" min="4" max="24" step="0.5" value="12">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="investmentYears">Investment Horizon: <span id="yearsVal" class="val-highlight">10 Years</span></label>
+                        <input type="range" id="investmentYears" min="1" max="30" step="1" value="10">
+                    </div>
+                </div>
+
+                <div class="calc-results">
+                    <div class="result-box">
+                        <span class="result-label">Projected Future Value</span>
+                        <h3 id="futureValueResult" class="result-value">$386,412</h3>
+                    </div>
+                    <div class="result-breakdown">
+                        <div class="breakdown-item">
+                            <span>Total Principal Contributed:</span>
+                            <strong id="totalPrincipalResult">$170,000</strong>
+                        </div>
+                        <div class="breakdown-item">
+                            <span>Total Compound Interest:</span>
+                            <strong id="totalInterestResult" class="text-green">$216,412</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- API Health / System Check (Serverless Integration) -->
+    <section class="api-demo">
+        <div class="container">
+            <div class="api-card">
+                <div class="api-info">
+                    <h4>Cloud Serverless API Integration</h4>
+                    <p>Backed by Python runtime on Vercel Edge Serverless functions.</p>
+                </div>
+                <button id="checkApiBtn" class="btn btn-sm btn-outline">Check API Status</button>
+            </div>
+            <div id="apiResult" class="api-result hidden"></div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <p>&copy; <span id="currentYear">2026</span> T37 Wealth. All rights reserved. Deployed seamlessly via Vercel & GitHub.</p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Advisory</a>
+                <a href="https://github.com/t37consulting-eng/wealth.t37.in" target="_blank" rel="noopener">GitHub Repository</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+{
+  "name": "wealth-t37-in",
+  "version": "1.0.0",
+  "description": "T37 Wealth - Private Wealth Advisory & Portfolio Analytics",
+  "scripts": {
+    "start": "npx serve ."
+  },
+  "keywords": [
+    "wealth",
+    "advisory",
+    "vercel",
+    "python",
+    "html"
+  ],
+  "author": "t37consulting-eng"
+}
