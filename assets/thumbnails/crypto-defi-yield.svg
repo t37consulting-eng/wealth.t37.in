@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="100%" height="100%">
+  <defs>
+    <linearGradient id="grad_crypto" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#581c87"/>
+      <stop offset="100%" stop-color="#9333ea"/>
+    </linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.06"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="450" fill="url(#grad_crypto)"/>
+  <rect width="800" height="450" fill="url(#grid)"/>
+  
+  
+            <!-- Liquidity Pool & Growth Sprout -->
+            <rect x="250" y="150" width="300" height="180" rx="24" fill="#3b0764" stroke="#c084fc" stroke-width="6"/>
+            <!-- Stacking Tokens -->
+            <ellipse cx="330" cy="260" rx="45" ry="16" fill="#a855f7"/>
+            <ellipse cx="330" cy="245" rx="45" ry="16" fill="#c084fc"/>
+            <ellipse cx="330" cy="230" rx="45" ry="16" fill="#e9d5ff"/>
+            <ellipse cx="470" cy="240" rx="45" ry="16" fill="#34d399"/>
+            <ellipse cx="470" cy="220" rx="45" ry="16" fill="#6ee7b7"/>
+            <!-- Yield Percentage Badge -->
+            <rect x="350" y="110" width="100" height="46" rx="12" fill="#10b981"/>
+            <text x="400" y="142" font-family="system-ui, sans-serif" font-size="22" font-weight="900" fill="#ffffff" text-anchor="middle">REAL %</text>
+        
+  
+  <!-- Subtle Category Tag on graphic -->
+  <g transform="translate(40, 40)">
+    <rect x="0" y="0" width="160" height="32" rx="16" fill="#ffffff" opacity="0.18"/>
+    <text x="80" y="21" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#ffffff" text-anchor="middle" letter-spacing="0.5">DEFI PROTOCOLS</text>
+  </g>
+</svg>

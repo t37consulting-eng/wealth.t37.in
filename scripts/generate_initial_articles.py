@@ -1,0 +1,680 @@
+import json
+import os
+
+ARTICLES = [
+    # --- MARKETS (5 Articles) ---
+    {
+        "id": "nse-ipo-fairly-valued-explainer",
+        "title": "Is NSE’s IPO Really Fairly Valued? An Explainer on the Exchange's Mega Listing",
+        "slug": "nse-ipo-fairly-valued-explainer",
+        "category": "Markets",
+        "subCategory": "Capital Markets",
+        "author": "T37 Research Desk",
+        "datetime": "2026-09-21T02:00:00Z",
+        "readTime": "4 min read",
+        "thumbnail": "assets/thumbnails/markets-nse-ipo.svg",
+        "excerpt": "A deep dive into the National Stock Exchange’s long-awaited public listing: unraveling trading revenue multiples, colocation revenue, and regulatory scrutiny.",
+        "keyTakeaways": [
+            "NSE commands over 90% market share in equity derivatives and 70%+ in cash market turnover in India.",
+            "Valuations in unlisted grey markets hover around 35-40x P/E, on par with global peers like CME and Nasdaq.",
+            "Regulatory compliance and fee rationalization from SEBI remain the biggest overhangs for long-term margins."
+        ],
+        "content": """
+<p class="lead">For nearly a decade, the initial public offering (IPO) of the National Stock Exchange of India (NSE) has felt like Godot—much discussed, perpetually expected, yet never quite arriving. But as the regulatory clearances finally fall into place, retail and institutional investors alike are asking one fundamental question: Is the pricing justified?</p>
+
+<h3>The Monopoly Engine</h3>
+<p>To understand the NSE's economics, you have to appreciate the staggering network effects of a dominant modern financial exchange. In India, liquidity begets liquidity. Once traders, market makers, and algorithmic execution desks set up their fiber-optic colocation racks inside the exchange's data centers, migrating to another venue becomes prohibitively costly.</p>
+
+<div class="callout-box">
+  <h4>Key Metric to Watch</h4>
+  <p>NSE clocks an average daily turnover exceeding ₹140 lakh crore in index and stock options. Over 85% of total exchange revenue flows directly from transaction charges and colocation subscriptions.</p>
+</div>
+
+<p>Because exchanges have high fixed overhead costs (matching engines, surveillance algorithms, infrastructure) and negligible marginal costs per additional contract traded, operating leverage is ferocious. Operating margins frequently hover near 70%.</p>
+
+<h3>The Valuation Conundrum</h3>
+<p>In unlisted markets, NSE's shares have traded between ₹5,500 and ₹6,500, implying a valuation north of ₹3 lakh crore ($36+ billion). How does this benchmark against global counterparts?</p>
+
+<ul>
+  <li><strong>CME Group (US):</strong> Trades at ~24x forward P/E, with a mature GDP growth backdrop.</li>
+  <li><strong>B3 (Brazil):</strong> Trades around 18x P/E, weighed down by emerging market risk premiums.</li>
+  <li><strong>BSE (India):</strong> Re-rated dramatically from 25x to 45x as options market share surged with Sensex contracts.</li>
+</ul>
+
+<p>While the Indian retail investing wave shows structural durability, regulatory interventions—such as increasing contract sizes, curbing retail speculative frenzy, and revising transaction slabs—could dampen volume velocity.</p>
+
+<h3>The Bottom Line</h3>
+<p>NSE is not just another financial services stock; it is a vital tollbooth on India’s formalizing capital markets. While long-term compounding potential is undeniable, buying at peak cyclical euphoria requires cautious discipline.</p>
+"""
+    },
+    {
+        "id": "us-treasury-bond-buybacks-liquidity",
+        "title": "US Treasury Bond Buybacks: Why Washington is Buying Its Own Debt",
+        "slug": "us-treasury-bond-buybacks-liquidity",
+        "category": "Markets",
+        "subCategory": "Macroeconomics",
+        "author": "T37 Research Desk",
+        "datetime": "2026-09-20T14:30:00Z",
+        "readTime": "3 min read",
+        "thumbnail": "assets/thumbnails/markets-treasury-buyback.svg",
+        "excerpt": "The US Treasury has initiated regular debt buybacks for the first time in over twenty years. Here is what liquidity lubrication means for global yields.",
+        "keyTakeaways": [
+            "The US Treasury conducts buybacks to retire illiquid 'off-the-run' bonds and replace them with liquid 'on-the-run' benchmark issues.",
+            "This mechanism reduces market fragmentation and prevents sudden dislocations in the $27 trillion sovereign bond market.",
+            "Unlike quantitative easing (QE), buybacks are debt-neutral and funded through newly issued bills rather than money printing."
+        ],
+        "content": """
+<p class="lead">When a publicly traded company announces a share buyback, investors cheer. But when the world’s largest borrower—the United States Department of the Treasury—announces it is buying back its own debt securities, eyebrows are raised across Wall Street and Dalal Street.</p>
+
+<h3>Why Buy Back Debt When You Are $35 Trillion in the Red?</h3>
+<p>It sounds counterintuitive. Why buy existing bonds when federal deficits demand massive new bond sales every quarter? The answer boils down to one word: <strong>liquidity</strong>.</p>
+
+<p>When the Treasury auctions a brand new 10-year note, that security is called <em>"on-the-run"</em>. It is wildly popular, actively traded by primary dealers, and commands razor-thin bid-ask spreads. But roll the clock forward three years: that note is now an <em>"off-the-run"</em> 7-year instrument. Trading volumes dry up, institutional buyers look elsewhere, and the bond sits dormant on dealer balance sheets.</p>
+
+<div class="callout-box">
+  <h4>How the Mechanism Works</h4>
+  <p>The Treasury purchases discounted, illiquid off-the-run bonds from banks and finances the repurchase by auctioning fresh Treasury bills (T-bills) or benchmark issues. The net debt remains unchanged, but the plumbing flows smoothly.</p>
+</div>
+
+<h3>Impact on Global Emerging Markets</h3>
+<p>For emerging markets like India, orderly Treasury functioning is critical. Whenever US government bond market liquidity seizes up (as seen during the March 2020 dash-for-cash), global investors dump emerging market equities, triggering rapid dollar repatriation and rupee volatility.</p>
+
+<p>By establishing a dependable buyer-of-last-resort for aging notes, the US Treasury stabilizes the risk-free rate upon which all global assets are priced.</p>
+"""
+    },
+    {
+        "id": "india-semiconductor-manufacturing-push",
+        "title": "India's Semiconductor Push: From Blueprint to Silicon Reality",
+        "slug": "india-semiconductor-manufacturing-push",
+        "category": "Markets",
+        "subCategory": "Industry Trends",
+        "author": "T37 Research Desk",
+        "datetime": "2026-09-19T11:00:00Z",
+        "readTime": "4 min read",
+        "thumbnail": "assets/thumbnails/markets-semiconductor.svg",
+        "excerpt": "With over $10 billion in government subsidies and mega fabrication facilities breaking ground in Dholera and Sanand, can India replicate its software success in microchips?",
+        "keyTakeaways": [
+            "Tata Electronics and Powerchip (PSMC) have commenced construction on India's first commercial commercial fab unit.",
+            "Initial production focuses on 28nm and 40nm nodes, targeting high-volume automotive, power management, and defense electronics.",
+            "Water purity, continuous uninterrupted power, and chemicals supply chain represent the real hurdles, not capital."
+        ],
+        "content": """
+<p class="lead">Every modern automobile, smartphone, missile guidance system, and renewable inverter runs on semiconductor silicon. For decades, India designed the world’s chips in Bengaluru, Hyderabad, and Noida—yet manufactured virtually none of them. That paradigm is undergoing an unprecedented structural pivot.</p>
+
+<h3>The Multi-Billion Dollar Fab Race</h3>
+<p>Under the India Semiconductor Mission (ISM), the central government committed 50% capital subsidies for fab facilities, with state governments adding another 20-25%. This aggressive subsidy regime has unlocked private capex from conglomerates including Tata Sons and Murugappa Group.</p>
+
+<p>Rather than chasing bleeding-edge 2nm smartphone processors dominated by TSMC in Taiwan, Indian facilities are deliberately targeting mature 28nm, 40nm, and 90nm nodes. These workhorse chips power electric vehicles, smart meters, industrial automation, and consumer white goods—sectors where domestic Indian demand is expanding at 18% CAGR.</p>
+
+<h3>The Real Bottlenecks Beyond Capital</h3>
+<p>Building a chip foundry requires more than concrete and cash:</p>
+<ul>
+  <li><strong>Ultra-Pure Water (UPW):</strong> A single mid-scale fab consumes up to 5 million gallons of ultra-pure water daily.</li>
+  <li><strong>Power Quality:</strong> A millisecond voltage flicker can ruin a 90-day silicon wafer production batch.</li>
+  <li><strong>Specialty Gases:</strong> Specialized inputs like silane, phosphine, and semiconductor-grade argon must be sourced and transported without contamination.</li>
+</ul>
+
+<p>If India successfully establishes domestic assembly, testing, and packaging (ATMP) alongside foundry capacity, the geopolitical and economic payoff will echo India’s IT boom of the 1990s.</p>
+"""
+    },
+    {
+        "id": "fii-fund-flows-rotation-dynamics",
+        "title": "Why Foreign Institutional Investors (FIIs) Are Rebalancing Portfolios",
+        "slug": "fii-fund-flows-rotation-dynamics",
+        "category": "Markets",
+        "subCategory": "Institutional Flows",
+        "author": "T37 Research Desk",
+        "datetime": "2026-09-18T09:15:00Z",
+        "readTime": "3 min read",
+        "thumbnail": "assets/thumbnails/markets-fii-flows.svg",
+        "excerpt": "Analyzing monthly FII net flows, currency hedging dynamics, and the underlying triggers behind capital rotation between emerging markets.",
+        "keyTakeaways": [
+            "FII selling in Indian equities often reflects asset allocation rebalancing rather than deteriorating domestic fundamentals.",
+            "Domestic Institutional Investors (DIIs), fueled by monthly SIP inflows exceeding ₹24,000 crore, have formed a durable domestic floor.",
+            "Currency carry-trade unwindings and US Dollar Index (DXY) spikes remain the primary catalysts for short-term foreign outflows."
+        ],
+        "content": """
+<p class="lead">For years, the Indian stock market operated under an immutable rule: when Foreign Institutional Investors (FIIs) bought, markets skyrocketed; when they sold, markets cratered. In recent years, that script has been rewritten.</p>
+
+<h3>The Rise of the Domestic Cushion</h3>
+<p>Indian retail investors, investing systematically through mutual fund SIPs, now inject billions of dollars into equity markets each month. This steady counter-cyclical bid has repeatedly absorbed aggressive foreign selling without triggering systemic collapses.</p>
+
+<div class="callout-box">
+  <h4>The Allocation Equation</h4>
+  <p>Global funds manage their emerging market portfolios against benchmarks like the MSCI Emerging Markets Index. If Chinese equities trade at 9x forward earnings while Nifty trades at 22x, institutional asset allocators are mandated to trim winners and rebalance into undervalued regions.</p>
+</div>
+
+<h3>Currency Carry Trades & Interest Differentials</h3>
+<p>FII flows are heavily sensitive to interest rate differentials between the US Federal Reserve and the Reserve Bank of India (RBI). When US yields stay higher for longer, the cost of currency hedging erodes foreign dollar returns, incentivizing institutional treasuries to park capital in risk-free US paper.</p>
+<p>For long-term equity investors, tracking FII panic often yields prime opportunities to accumulate world-class Indian franchises at temporary cyclical discounts.</p>
+"""
+    },
+    {
+        "id": "fmcg-margin-paradox-volume-slump",
+        "title": "The FMCG Margin Paradox: Volume Slumps vs Premiumization Gains",
+        "slug": "fmcg-margin-paradox-volume-slump",
+        "category": "Markets",
+        "subCategory": "Corporate Earnings",
+        "author": "T37 Research Desk",
+        "datetime": "2026-09-17T15:45:00Z",
+        "readTime": "4 min read",
+        "thumbnail": "assets/thumbnails/markets-fmcg-margins.svg",
+        "excerpt": "Rural consumption shows persistent sensitivity while urban luxury and quick commerce skyrocket. How India's consumer giants are handling the two-speed consumer economy.",
+        "keyTakeaways": [
+            "Mass-market FMCG volumes have experienced muted growth due to food inflation pressures on lower-income household budgets.",
+            "In contrast, premium categories (specialty skincare, dark chocolates, gourmet foods) are growing at 20%+ rates.",
+            "Quick-commerce platforms (Blinkit, Zepto, Instamart) are capturing channel share from traditional kirana stores at record pace."
+        ],
+        "content": """
+<p class="lead">Walk down a quiet street in a Tier-3 town, and kirana shop owners will tell you sales of standard ₹5 biscuit packets and small detergent sachets have slowed down. Step into a gated community in Gurgaon or Bengaluru, and a Zepto or Blinkit rider arrives every 8 minutes carrying artisanal coffee and cold-pressed juices. Welcome to the two-speed Indian consumption story.</p>
+
+<h3>The Two Indias of FMCG</h3>
+<p>Consumer goods giants like Hindustan Unilever, Nestlé, and Dabur find themselves caught between two divergent realities. The bottom 60% of the economic pyramid has borne the brunt of elevated food inflation, curtailing discretionary spending. Meanwhile, the top 15% enjoys rising stock portfolios, property appreciation, and salary hikes, driving an insatiable demand for premium products.</p>
+
+<h3>The Channel Shift: Kirana vs Quick-Commerce</h3>
+<p>Traditional FMCG distribution depended on 3-tier wholesale networks reaching 12 million mom-and-pop kiranas. Today, quick-commerce dark stores bypass wholesale intermediaries entirely, demanding higher trade discounts while providing direct consumer telemetry to brands.</p>
+<p>Firms with pricing power and nimble direct-to-consumer pipelines continue expanding operating margins, while players reliant solely on commodity mass-volume fight margin compression.</p>
+"""
+    },
+
+    # --- CRYPTO (5 Articles) ---
+    {
+        "id": "bitcoin-halving-cycles-institutional-etf-inflows",
+        "title": "Bitcoin Halving Cycles: How Institutional ETF Inflows Altered the Math",
+        "slug": "bitcoin-halving-cycles-institutional-etf-inflows",
+        "category": "Crypto",
+        "subCategory": "Market Structure",
+        "author": "T37 Quantitative Desk",
+        "datetime": "2026-09-21T01:15:00Z",
+        "readTime": "4 min read",
+        "thumbnail": "assets/thumbnails/crypto-btc-halving.svg",
+        "excerpt": "Traditional 4-year halving cycle models relied on retail cycles and miner liquidation pressure. Spot ETFs and institutional custodial reserves have fundamentally altered price dynamics.",
+        "keyTakeaways": [
+            "Spot Bitcoin ETFs now absorb multiples of daily newly minted miner supply during peak institutional accumulation weeks.",
+            "Traditional post-halving 500-day rallies are compressing as sovereign wealth funds and pension desks enter with structured rebalancing mandates.",
+            "Exchange reserves of BTC have plummeted to multi-year lows, amplifying supply inelasticity during upside surges."
+        ],
+        "content": """
+<p class="lead">For over a decade, Bitcoin's macroeconomic cadence was governed by a deterministic line in Satoshi Nakamoto's code: every 210,000 blocks (~4 years), the block subsidy awarded to miners cuts in half. But the post-2024 landscape has witnessed a structural break from historical precedent.</p>
+
+<h3>The Supply Squeeze Equation</h3>
+<p>Following the latest halving, daily new issuance dropped to roughly 450 BTC per day (or ~164,000 BTC annually). Against this capped trickle, Wall Street spot ETF issuers (BlackRock, Fidelity, Bitwise) regularly absorb between 2,000 and 5,000 BTC per day during periods of sustained inflows.</p>
+
+<div class="callout-box">
+  <h4>The Structural Multiplier</h4>
+  <p>When daily net institutional purchases exceed daily newly minted supply by 5x to 10x, buyers must bid directly into illiquid secondary market order books, creating sharp convex price reactions.</p>
+</div>
+
+<h3>The Shift from Retail Euphoria to Balance Sheet Hedging</h3>
+<p>In previous cycles (2017 and 2021), price discovery was catalyzed by leveraged retail derivatives on offshore exchanges. Today, institutional custodial reserves dominate. Corporate treasuries and sovereign wealth funds treat digital gold not as a speculative chip, but as an uncorrelated sovereign hedge against fiat debasement.</p>
+"""
+    },
+    {
+        "id": "ethereum-layer-2-gas-economics-blobspace",
+        "title": "Ethereum Layer 2 Gas Economics: The Impact of Blob Space",
+        "slug": "ethereum-layer-2-gas-economics-blobspace",
+        "category": "Crypto",
+        "subCategory": "Blockchain Tech",
+        "author": "T37 Quantitative Desk",
+        "datetime": "2026-09-20T10:00:00Z",
+        "readTime": "3 min read",
+        "thumbnail": "assets/thumbnails/crypto-eth-l2.svg",
+        "excerpt": "Layer 2 rollups now settle transactions for fractions of a cent using blob space. But what does ultra-cheap data availability mean for Layer 1 fee burn and staking yield?",
+        "keyTakeaways": [
+            "EIP-4844 introduced dedicated ephemeral data blobs, slashing rollup posting costs by over 90%.",
+            "Rollup transaction volumes on Arbitrum, Base, and Optimism have expanded 10x, but L1 base fees remain compressed.",
+            "The long-term economic thesis requires either L2 blob saturation or massive growth in high-value L1 financial settlement."
+        ],
+        "content": """
+<p class="lead">Remember paying $50 to swap tokens on Uniswap during the height of the 2021 bull run? Today, transacting on Ethereum's leading Layer 2 networks—such as Arbitrum, Base, and Optimism—costs less than two cents. That monumental leap in user experience was powered by one architectural breakthrough: <strong>Blob Space</strong>.</p>
+
+<h3>How Proto-Danksharding Solved the Data Bottleneck</h3>
+<p>Previously, rollups had to compress thousands of transactions and post them directly to Ethereum's expensive `calldata` storage, competing with ordinary L1 users for gas. With proto-danksharding, Ethereum created temporary data sidecars called "blobs". Blobs persist on the network for just 18 days—long enough for fraud proofs or validity checks—before being pruned.</p>
+
+<h3>The Economic Dilemma for L1 Stakers</h3>
+<p>While users celebrated negligible fees, the upgrade triggered an intriguing macroeconomic dilemma for ETH holders:</p>
+<ul>
+  <li><strong>EIP-1559 Fee Burn:</strong> When L1 gas fees drop, fewer ETH are burned, nudging net token issuance slightly positive.</li>
+  <li><strong>Staking Yields:</strong> Validator priority fees diminish when network congestion moves off the main chain.</li>
+</ul>
+<p>The bull case relies on a classic Jevons paradox: making transactions virtually free stimulates such a colossal explosion in decentralized applications, gaming, and tokenized real-world assets (RWAs) that blob space eventually becomes saturated, restoring sustainable value accrual to Ethereum.</p>
+"""
+    },
+    {
+        "id": "stablecoins-trillion-dollar-global-settlement",
+        "title": "Stablecoins as Global Clearinghouses: The Trillion-Dollar Settlement Shift",
+        "slug": "stablecoins-trillion-dollar-global-settlement",
+        "category": "Crypto",
+        "subCategory": "Digital Assets",
+        "author": "T37 Research Desk",
+        "datetime": "2026-09-19T13:40:00Z",
+        "readTime": "3 min read",
+        "thumbnail": "assets/thumbnails/crypto-stablecoins.svg",
+        "excerpt": "USDT and USDC now settle more annualized volume than Visa. We examine cross-border remittance cost savings, Treasury bill holdings, and central bank responses.",
+        "keyTakeaways": [
+            "Global stablecoin transaction volumes exceeded $12 trillion annualized in 2026, driven primarily by emerging market commerce.",
+            "Tether and Circle have emerged as top-20 global holders of US short-term Treasury bills, surpassing major sovereign nations.",
+            "Regulatory frameworks are shifting from enforcement crackdowns to licensing compliant institutional dollar issuers."
+        ],
+        "content": """
+<p class="lead">If you want to understand where genuine cryptocurrency adoption is occurring right now, look past speculative meme coins and look at the quiet revolution of fiat-backed digital dollars.</p>
+
+<h3>The Unstoppable Dollarization of Emerging Markets</h3>
+<p>In countries grappling with double-digit domestic inflation or strict capital controls—such as Argentina, Turkey, Nigeria, and parts of Southeast Asia—merchants and freelancers no longer wait for slow wire transfers through legacy SWIFT correspondent banking. They accept USDT or USDC directly to a mobile crypto wallet in 3 seconds flat.</p>
+
+<div class="callout-box">
+  <h4>Sovereign Debt Players</h4>
+  <p>With stablecoin market capitalization surpassing $220 billion, reserve custodians hold massive portfolios of 3-month US Treasury bills, earning 4-5% risk-free yields while paying 0% interest on outstanding tokens. It is arguably the most profitable financial business model ever devised.</p>
+</div>
+
+<p>Far from displacing the US Dollar, stablecoins have inadvertently extended American monetary hegemony into the digital age, anchoring global cross-border payments firmly in greenback-denominated units.</p>
+"""
+    },
+    {
+        "id": "defi-real-yield-protocol-cash-flows",
+        "title": "The Decentralized Finance (DeFi) Real Yield Shift",
+        "slug": "defi-real-yield-protocol-cash-flows",
+        "category": "Crypto",
+        "subCategory": "DeFi Analysis",
+        "author": "T37 Quantitative Desk",
+        "datetime": "2026-09-18T16:15:00Z",
+        "readTime": "4 min read",
+        "thumbnail": "assets/thumbnails/crypto-defi-yield.svg",
+        "excerpt": "Moving away from hyper-inflationary token emissions to sustainable organic fee generation: how leading automated market makers and money markets survived the crypto winter.",
+        "keyTakeaways": [
+            "DeFi 1.0 relied on unsustainable liquidity mining subsidies where token inflation paid for mercenary capital.",
+            "DeFi 2.0 protocols prioritize 'real yield' funded exclusively by transaction fees, liquidation penalties, and borrowing interest.",
+            "Token buybacks and fee-switch activations are turning protocols into cash-flow productive decentralized companies."
+        ],
+        "content": """
+<p class="lead">During the 2020-2021 "DeFi Summer," decentralized protocols promised 1,000% Annual Percentage Yields (APYs). It did not take a PhD in finance to realize the obvious catch: those yields were paid in freshly minted native tokens that dropped 99% in value once mercenary liquidity providers dumped them.</p>
+
+<h3>The Maturation to Organic Cash Flow</h3>
+<p>Today's battle-tested DeFi protocols operate on traditional economic principles. Lending markets like Aave, decentralized exchange engines like Uniswap, and liquid staking systems like Lido generate billions of dollars in gross annualized fees. When users borrow, trade, or stake, real economic value changes hands.</p>
+
+<p>Leading DAOs have initiated "fee switch" governance proposals, channeling protocol fees into systematic token buy-and-burn mechanics or direct USDC dividend distributions to stakers. By grounding valuations in discounted cash flow (DCF) models rather than narrative buzzwords, decentralized finance has finally earned a seat at the serious institutional table.</p>
+"""
+    },
+    {
+        "id": "crypto-regulatory-frameworks-global-divergence",
+        "title": "Crypto Regulatory Frameworks: The Global Divergence",
+        "slug": "crypto-regulatory-frameworks-global-divergence",
+        "category": "Crypto",
+        "subCategory": "Policy & Law",
+        "author": "T37 Research Desk",
+        "datetime": "2026-09-17T08:30:00Z",
+        "readTime": "3 min read",
+        "thumbnail": "assets/thumbnails/crypto-regulations.svg",
+        "excerpt": "How the EU's MiCA, Dubai's VARA, Singapore's MAS, and US court decisions are carving out distinct competitive jurisdictions for digital asset operations.",
+        "keyTakeaways": [
+            "The European Union's Markets in Crypto-Assets (MiCA) regulation established the first unified 27-nation compliance regime.",
+            "Dubai (VARA) and Singapore have captured significant fintech entrepreneurship through clear, transparent sandbox licensing.",
+            "Jurisdictional arbitrage is forcing legacy financial hubs to modernize their securities classifications or risk losing fintech talent."
+        ],
+        "content": """
+<p class="lead">The era of regulatory ambiguity in digital assets is effectively over. In its place, a competitive geopolitical landscape has emerged, where sovereign jurisdictions compete to attract Web3 innovation, capital, and tax revenues while protecting consumer deposits.</p>
+
+<h3>The European Blueprint: MiCA</h3>
+<p>The EU's comprehensive MiCA framework went into full effect, mandating strict capital reserve standards for stablecoin issuers, standardized anti-money laundering (AML) protocols, and clear disclosure guidelines for crypto asset service providers (CASPs). A single passport license in France or Germany grants seamless access to all 450 million European consumers.</p>
+
+<h3>The Middle East & Asia Pacific Hubs</h3>
+<p>Meanwhile, Dubai's Virtual Assets Regulatory Authority (VARA) and the Monetary Authority of Singapore (MAS) have positioned their jurisdictions as the premier centers for quantitative trading firms, institutional custodians, and decentralized infrastructure developers. Clear rules of engagement have replaced the uncertain "regulation by enforcement" approach, setting the stage for predictable institutional growth.</p>
+"""
+    },
+
+    # --- PERSONAL FINANCE (5 Articles) ---
+    {
+        "id": "direct-mutual-funds-vs-regular-sip-difference",
+        "title": "Direct Mutual Funds vs Regular: The ₹1.2 Crore Compounding Difference",
+        "slug": "direct-mutual-funds-vs-regular-sip-difference",
+        "category": "Personal Finance",
+        "subCategory": "Wealth Building",
+        "author": "T37 Advisory",
+        "datetime": "2026-09-21T03:00:00Z",
+        "readTime": "3 min read",
+        "thumbnail": "assets/thumbnails/personal-finance-mutual-funds.svg",
+        "excerpt": "A 1% distributor commission sounds harmless until you compound it over a 25-year SIP horizon. Here are the exact numbers that could change your retirement corpus.",
+        "keyTakeaways": [
+            "Regular mutual funds charge an embedded distributor commission of 0.75% to 1.5% every single year, regardless of market performance.",
+            "Over a 25-year ₹25,000 monthly SIP at 12% annualized return, switching to Direct plans saves over ₹1.2 crore in fees.",
+            "Platforms like Zerodha Coin, Groww, and MF Central allow 100% free direct investing with zero distributor commissions."
+        ],
+        "content": """
+<p class="lead">If your bank relationship manager or distributor suggested a mutual fund scheme for your portfolio, chances are virtually 100% that they placed you into a <strong>Regular Plan</strong> rather than a <strong>Direct Plan</strong>. They did not do this out of malice; they did it because the Regular Plan pays them a recurring commission taken straight out of your investments every single day.</p>
+
+<h3>The Mathematics of the 1% Leakage</h3>
+<p>Let's run the exact mathematics. Assume you start a disciplined SIP of ₹25,000 per month for 25 years, expecting an equity compounding rate of 12% per annum before expense deductions:</p>
+
+<div class="callout-box">
+  <h4>The 25-Year Corpus Comparison</h4>
+  <ul>
+    <li><strong>Direct Plan (Expense Ratio 0.6%):</strong> Net return 11.4% → Final Corpus: <strong>₹4.12 Crore</strong></li>
+    <li><strong>Regular Plan (Expense Ratio 1.6%):</strong> Net return 10.4% → Final Corpus: <strong>₹2.88 Crore</strong></li>
+    <li><strong>The Gap:</strong> You forfeit <strong>₹1.24 Crore</strong> in lifetime compounding wealth to your intermediary!</li>
+  </ul>
+</div>
+
+<p>That distributor fee isn't charged only on your profits; it is sliced from your total accumulated asset value 365 days a year, even when the market crashes 20%.</p>
+
+<h3>How to Switch Today</h3>
+<p>Check your latest Mutual Fund Consolidated Account Statement (CAS). If you see the word "Regular" next to your fund names, you are paying this unnecessary toll. Switching to "Direct" takes less than 10 minutes on modern direct platforms, instantly unlocking full compounding power for your financial freedom.</p>
+"""
+    },
+    {
+        "id": "50-30-20-budgeting-rule-inflation-adaptation",
+        "title": "The 50/30/20 Budgeting Rule: Recalibrating for Modern Inflation",
+        "slug": "50-30-20-budgeting-rule-inflation-adaptation",
+        "category": "Personal Finance",
+        "subCategory": "Financial Planning",
+        "author": "T37 Advisory",
+        "datetime": "2026-09-20T11:45:00Z",
+        "readTime": "3 min read",
+        "thumbnail": "assets/thumbnails/personal-finance-budgeting.svg",
+        "excerpt": "Why 50% for needs fails in metropolitan rental markets, and how dynamic budgeting frameworks safeguard your savings rate in 2026.",
+        "keyTakeaways": [
+            "Senator Elizabeth Warren's classic 50/30/20 rule allocated 50% to needs, 30% to wants, and 20% to savings.",
+            "Rising metropolitan housing rentals and urban commuting costs frequently push essential living expenses to 60-65% of take-home pay.",
+            "The revised 'Inverted 30/50/20' framework automates investments first before discretionary lifestyle creep takes over."
+        ],
+        "content": """
+<p class="lead">For over two decades, financial textbooks preached the golden rule of budgeting: 50% of your take-home pay for essential Needs, 30% for discretionary Wants, and 20% for Savings. But try telling a young professional renting an apartment in Mumbai, Bengaluru, or Delhi NCR that rent, utilities, groceries, and medical insurance should only total 50% of their salary.</p>
+
+<h3>The Realities of Modern Urban Cost of Living</h3>
+<p>Between soaring urban real estate rentals, quality healthcare premiums, and education inflation, essential expenses routinely consume 60% or more of net monthly compensation. When people find it impossible to stick to the textbook 50%, they often abandon budgeting entirely.</p>
+
+<h3>The Modern Solution: The Inverted Budget</h3>
+<p>Instead of calculating your savings from whatever crumbs remain at the end of the month, flip the formula upside down:</p>
+<ol>
+  <li><strong>Automate Savings First (25-30%):</strong> Schedule your mutual fund SIPs, PPF contributions, and emergency fund transfers on the 2nd day after your salary credit.</li>
+  <li><strong>Obligations & Needs (50-55%):</strong> Cover rent, loan EMIs, groceries, utility bills, and insurance premiums.</li>
+  <li><strong>Guilt-Free Spending (The Remainder):</strong> Whatever sits in your discretionary account can be spent on dining out, travel, gadgets, and concerts without financial guilt.</li>
+</ol>
+<p>When your future self is paid first, lifestyle inflation can never compromise your long-term compounding.</p>
+"""
+    },
+    {
+        "id": "term-insurance-fine-print-claims-rejection",
+        "title": "Term Insurance Fine Print: Exclusions Every Policyholder Must Verify",
+        "slug": "term-insurance-fine-print-claims-rejection",
+        "category": "Personal Finance",
+        "subCategory": "Risk Management",
+        "author": "T37 Advisory",
+        "datetime": "2026-09-19T07:20:00Z",
+        "readTime": "4 min read",
+        "thumbnail": "assets/thumbnails/personal-finance-insurance.svg",
+        "excerpt": "Non-disclosure clauses, pre-existing conditions, lifestyle definitions, and claim settlement metrics: how to guarantee your family's payout is never contested.",
+        "keyTakeaways": [
+            "Section 45 of the Indian Insurance Act guarantees that no life insurance claim can be rejected after 3 consecutive policy years on grounds of misstatement.",
+            "Failing to declare occasional smoking, family medical history, or existing retail policies is the #1 cause of early claim rejections.",
+            "Always opt for pure plain-vanilla term plans rather than expensive return-of-premium (TROP) or ULIP hybrid products."
+        ],
+        "content": """
+<p class="lead">Buying a ₹2 Crore term insurance policy costs less than ₹1,500 a month for a healthy 30-year-old. It is the single most cost-effective financial safety net you will ever purchase. Yet, thousands of bereaved families face traumatizing claim disputes every year due to avoidable errors during the application phase.</p>
+
+<h3>The Cardinal Rule: Full Disclosure Beats Lower Premiums</h3>
+<p>Some applicants casually tick "No" when asked if they have ever smoked a cigarette, consumed alcohol, or undergone routine surgery, hoping to save ₹2,000 on annual premiums. This is financial suicide for your dependents.</p>
+<p>If an insurer discovers even an accidental omission during a claim investigation, they possess legal grounds to repudiate the contract. Over-disclose everything: mild hypertension, parent diabetes, past diagnostic tests, and existing policies from other companies.</p>
+
+<div class="callout-box">
+  <h4>The 3-Year Incontestability Shield (Section 45)</h4>
+  <p>Under Indian insurance law, once a life insurance policy has been in force continuously for three full years, the insurer cannot question or reject the claim on any grounds whatsoever, including fraud or non-disclosure. Surviving those initial 36 months with honest disclosures makes your policy bulletproof.</p>
+</div>
+
+<h3>Avoid the "Return of Premium" Trap</h3>
+<p>Insurance agents aggressively push "Term Return of Premium" (TROP) plans, claiming "you get all your money back if you survive!" What they hide is that TROP costs nearly 3x more. If you invest that premium difference into a simple index fund over 30 years, you will accumulate far more wealth than the meager refund the insurer returns.</p>
+"""
+    },
+    {
+        "id": "nps-vs-ppf-vs-epf-tax-optimization-2026",
+        "title": "NPS vs PPF vs EPF: Optimizing Tax Slabs Under the New Tax Regime",
+        "slug": "nps-vs-ppf-vs-epf-tax-optimization-2026",
+        "category": "Personal Finance",
+        "subCategory": "Tax Planning",
+        "author": "T37 Advisory",
+        "datetime": "2026-09-18T12:30:00Z",
+        "readTime": "4 min read",
+        "thumbnail": "assets/thumbnails/personal-finance-taxation.svg",
+        "excerpt": "Evaluating Tier-1 NPS corporate contributions under Section 80CCD(2) versus traditional tax shelters in the revised fiscal regime.",
+        "keyTakeaways": [
+            "The New Tax Regime eliminated Section 80C deductions (PPF, ELSS, home loan principal), but preserved Section 80CCD(2) employer NPS contributions.",
+            "Corporate NPS allows up to 14% of Basic Salary contributed by employers to be fully tax-exempt for central government and private sector employees.",
+            "PPF remains a premier risk-free debt compounding tool offering EEE (Exempt-Exempt-Exempt) status for conservative long-term wealth."
+        ],
+        "content": """
+<p class="lead">With the New Tax Regime emerging as the default and most lucrative choice for the vast majority of salaried earners, many assumed that tax-advantaged investing had been rendered obsolete. In reality, the strategic battlefield has simply shifted.</p>
+
+<h3>The Power of Section 80CCD(2) Corporate NPS</h3>
+<p>While Section 80C's ₹1.5 lakh deduction is dead under the New Regime, <strong>Section 80CCD(2)</strong> remains alive and kicking. This provision permits your employer to contribute up to 14% of your Basic + DA directly into your Tier-1 National Pension System (NPS) account.</p>
+
+<div class="callout-box">
+  <h4>Instant 30% Tax Savings</h4>
+  <p>For an individual in the 30% tax bracket with a Basic Salary of ₹15,00,000, restructuring your compensation to include ₹2,10,000 (14%) in employer NPS reduces your taxable income by that exact amount, saving over ₹65,000 in immediate income tax each year.</p>
+</div>
+
+<h3>Asset Allocation: Active vs Auto Choice</h3>
+<p>NPS is no longer a boring government bond receptacle. Under "Active Choice," you can allocate up to 75% of your contributions into Equity Schemes (Scheme E), managed by top institutional fund houses at rock-bottom expense ratios under 0.05%.</p>
+<p>Combine disciplined corporate NPS equity allocations with Public Provident Fund (PPF) for sovereign debt stability, and you establish a rock-solid, tax-optimized retirement fortress.</p>
+"""
+    },
+    {
+        "id": "psychology-of-market-drawdowns-loss-aversion",
+        "title": "The Psychology of Market Drawdowns: Staying Invested When Red",
+        "slug": "psychology-of-market-drawdowns-loss-aversion",
+        "category": "Personal Finance",
+        "subCategory": "Behavioral Finance",
+        "author": "T37 Advisory",
+        "datetime": "2026-09-17T14:10:00Z",
+        "readTime": "3 min read",
+        "thumbnail": "assets/thumbnails/personal-finance-behavioral.svg",
+        "excerpt": "Loss aversion makes a 10% market correction feel twice as painful as a 10% rally feels pleasurable. How to automate decision-making to protect compounding.",
+        "keyTakeaways": [
+            "Daniel Kahneman and Amos Tversky proved that the psychological pain of losing money is twice as intense as the pleasure of an equivalent gain.",
+            "Investors who panic-sold during past corrections and missed just the 10 best trading days over a 20-year span saw their total returns cut by 50%.",
+            "Establishing automated systematic rebalancing and turning off portfolio notifications during drawdowns protects compounding."
+        ],
+        "content": """
+<p class="lead">Everyone loves the idea of long-term investing when the Sensex and Nifty are notching all-time highs every week. But true wealth is not forged during bull market celebrations; it is quietly won in the dark valleys of market drawdowns when your portfolio is flashing red.</p>
+
+<h3>The Asymmetry of Loss Aversion</h3>
+<p>Nobel laureates Daniel Kahneman and Amos Tversky discovered that human brains are hardwired with severe <em>loss aversion</em>. Losing ₹1,00,000 hurts emotionally more than twice as much as winning ₹1,00,000 feels good. In evolutionary terms, avoiding physical danger was more urgent than finding surplus food. But in modern capital markets, this ancestral instinct compels retail investors to commit financial self-harm: buying at peak euphoria and dumping at maximum despair.</p>
+
+<h3>The Penalty of Missing the Best Days</h3>
+<p>Historical data on the Nifty 50 over a 20-year horizon reveals a startling reality: the best and most explosive single-day rallies almost always occur within two weeks of the most horrific single-day selloffs. If an investor panicked, went to cash, and missed just the 10 best trading days over two decades, their overall terminal wealth was slashed in half.</p>
+<p>When markets correct, view lower prices not as a destruction of capital, but as a seasonal discount sale on productive businesses. Automate your investments, close the trading apps, and let time do the heavy lifting.</p>
+"""
+    },
+
+    # --- ALGO TRADING (5 Articles) ---
+    {
+        "id": "mean-reversion-python-statistical-arbitrage",
+        "title": "Mean Reversion in Python: Statistical Arbitrage on Index Pairs",
+        "slug": "mean-reversion-python-statistical-arbitrage",
+        "category": "Algo Trading",
+        "subCategory": "Quantitative Models",
+        "author": "T37 Quantitative Desk",
+        "datetime": "2026-09-21T02:45:00Z",
+        "readTime": "4 min read",
+        "thumbnail": "assets/thumbnails/algo-mean-reversion.svg",
+        "excerpt": "Implementing Engle-Granger cointegration tests, z-score threshold execution, and half-life calculations for systematic pairs trading in Python.",
+        "keyTakeaways": [
+            "Correlation measures directional co-movement, whereas cointegration guarantees a stationary, mean-reverting spread between two price series.",
+            "The Ornstein-Uhlenbeck process enables quants to calculate the exact half-life of mean reversion to optimize holding periods.",
+            "Python's statsmodels and numpy libraries provide production-ready tools to automate pairs screening and risk controls."
+        ],
+        "content": """
+<p class="lead">Most retail traders attempt to trade mean reversion by looking at simple indicators like RSI or Bollinger Bands on single stocks. The problem? A growth stock can stay "overbought" for three years, and a distressed firm can stay "oversold" all the way to bankruptcy. Quantitative statistical arbitrage solves this by trading <strong>cointegrated pairs</strong>.</p>
+
+<h3>Correlation vs. Cointegration</h3>
+<p>Two assets can be 90% correlated over a month and then diverge forever. Cointegration, by contrast, means that a specific linear combination of two prices forms a stationary time series with a constant mean and finite variance. Think of a drunk person walking a dog on an elastic leash: both wander unpredictably, but the leash forces the distance between them to revert to equilibrium.</p>
+
+<div class="callout-box">
+  <h4>Testing for Cointegration in Python</h4>
+  <p>We use the Augmented Dickey-Fuller (ADF) test on the residual spread obtained via Ordinary Least Squares (OLS) regression between Asset A and Asset B.</p>
+</div>
+
+<pre><code class="language-python">import numpy as np
+import statsmodels.api as sm
+from statsmodels.tsa.stattools import coint
+
+def test_pair_cointegration(series_y, series_x):
+    score, pvalue, _ = coint(series_y, series_x)
+    if pvalue < 0.05:
+        # Calculate hedge ratio via OLS
+        X = sm.add_constant(series_x)
+        model = sm.OLS(series_y, X).fit()
+        hedge_ratio = model.params[1]
+        spread = series_y - hedge_ratio * series_x
+        z_score = (spread - spread.mean()) / spread.std()
+        return True, hedge_ratio, z_score
+    return False, None, None
+</code></pre>
+
+<h3>Execution Rules</h3>
+<p>When the normalized spread breaches <strong>+2.0 standard deviations (z-score)</strong>, short the outperforming leg and go long the underperforming leg. When the spread reverts to <strong>0.0 (the historical mean)</strong>, close both legs simultaneously to lock in market-neutral profit.</p>
+"""
+    },
+    {
+        "id": "vwap-order-flow-secrets-institutional-execution",
+        "title": "Order Flow & Volume-Weighted Average Price (VWAP) Secrets",
+        "slug": "vwap-order-flow-secrets-institutional-execution",
+        "category": "Algo Trading",
+        "subCategory": "Market Microstructure",
+        "author": "T37 Quantitative Desk",
+        "datetime": "2026-09-20T13:10:00Z",
+        "readTime": "4 min read",
+        "thumbnail": "assets/thumbnails/algo-vwap-orderflow.svg",
+        "excerpt": "How institutional execution algorithms (TWAP, VWAP, POV) operate in practice, and how retail quantitative models can detect institutional footprints.",
+        "keyTakeaways": [
+            "Institutional mutual funds and hedge funds cannot dump 500,000 shares in one market order without triggering catastrophic slippage.",
+            "Execution algorithms slice parent orders into micro child orders paced across the trading day to match the historical intraday volume profile.",
+            "Anchored VWAP (AVWAP) and Point of Control (POC) volume clusters act as dynamic institutional support and resistance benchmarks."
+        ],
+        "content": """
+<p class="lead">If a retail trader wants to buy 100 shares of Reliance or Apple, they press "Market Buy" and get filled within 50 milliseconds. But if an institutional pension fund needs to accumulate 2 million shares, clicking "Market Buy" would immediately clear the entire order book, spiking the price 8% against themselves. This reality created the science of algorithmic execution.</p>
+
+<h3>How Execution Algos Work</h3>
+<p>To mask their footprint, institutional execution desks deploy specialized automated engines:</p>
+<ul>
+  <li><strong>VWAP (Volume-Weighted Average Price):</strong> Matches order pacing to the statistical historical volume curve of the asset (high volume at 9:15 AM and 3:00 PM, lull around 1:00 PM).</li>
+  <li><strong>TWAP (Time-Weighted Average Price):</strong> Slices orders into equal time slices (e.g. 50 shares every 15 seconds) regardless of volume.</li>
+  <li><strong>POV (Percentage of Volume):</strong> Dynamically participates as an exact percentage (e.g. 8%) of live tape volume.</li>
+</ul>
+
+<div class="callout-box">
+  <h4>The Trader's Edge</h4>
+  <p>Because these algorithms are legally mandated to achieve execution at or better than the daily VWAP benchmark, the VWAP line behaves as a magnetic gravity well during the trading session. Prices trading substantially below VWAP incentivize institutional buying algorithms to trigger aggressively.</p>
+</div>
+"""
+    },
+    {
+        "id": "5-fatal-backtesting-pitfalls-quant-trading",
+        "title": "The 5 Fatal Backtesting Pitfalls: Lookahead Bias and Overfitting",
+        "slug": "5-fatal-backtesting-pitfalls-quant-trading",
+        "category": "Algo Trading",
+        "subCategory": "Strategy Validation",
+        "author": "T37 Quantitative Desk",
+        "datetime": "2026-09-19T15:20:00Z",
+        "readTime": "4 min read",
+        "thumbnail": "assets/thumbnails/algo-backtest-pitfalls.svg",
+        "excerpt": "Why 90% of backtested trading strategies with stellar Sharpe ratios fail in live trading: survivorship bias, slippage models, and parameter snooping.",
+        "keyTakeaways": [
+            "Lookahead bias occurs when future data leaks into historical decision calculations (e.g. using daily closing price to trigger intraday open signals).",
+            "Survivorship bias ignores delisted, bankrupt, or merged stocks, painting an artificially profitable historical canvas.",
+            "Walk-forward optimization and Monte Carlo permutation testing are mandatory to ensure statistical significance."
+        ],
+        "content": """
+<p class="lead">Every aspiring algorithmic trader has experienced the euphoric high of designing a strategy in Python or Backtrader that produces a 4.5 Sharpe ratio, a 75% win rate, and a 45-degree equity curve. Then they deploy real capital to live broker APIs, and the system loses 12% in the first three weeks. What happened?</p>
+
+<h3>The 5 Deadly Quant Sins</h3>
+<ol>
+  <li><strong>Lookahead Bias:</strong> Accidentally referencing `df['close'].shift(-1)` or utilizing daily summary indicators calculated with data that was not yet known at 10:00 AM.</li>
+  <li><strong>Survivorship Bias:</strong> Testing an equity strategy only against the current constituents of the Nifty 50 or S&P 500, conveniently ignoring all the failed companies that dropped out of the index over the past 10 years.</li>
+  <li><strong>Unrealistic Slippage & Commission:</strong> Assuming limit orders get filled 100% of the time at the exact bid price without market impact or exchange transaction charges.</li>
+  <li><strong>Overfitting / Curve-Fitting:</strong> Tweaking 14 different parameters (e.g. setting RSI length to 17.3 and moving average to 41.5) until the strategy memorizes past market noise rather than discovering a genuine structural market anomaly.</li>
+  <li><strong>Regime Change Neglect:</strong> Developing a strategy during an uninterrupted 2-year bull market and expecting it to survive a sudden volatility spike or liquidity freeze.</li>
+</ol>
+
+<p>If your strategy hasn't been subjected to out-of-sample stress testing, cross-validation, and execution delay simulation, it isn't ready for real capital.</p>
+"""
+    },
+    {
+        "id": "automating-position-sizing-kelly-criterion",
+        "title": "Automating Dynamic Position Sizing with the Kelly Criterion",
+        "slug": "automating-position-sizing-kelly-criterion",
+        "category": "Algo Trading",
+        "subCategory": "Risk Management",
+        "author": "T37 Quantitative Desk",
+        "datetime": "2026-09-18T14:00:00Z",
+        "readTime": "3 min read",
+        "thumbnail": "assets/thumbnails/algo-kelly-criterion.svg",
+        "excerpt": "Mathematical framework for allocating optimal leverage and fraction-of-capital per trade to maximize logarithmic wealth growth while preventing ruin.",
+        "keyTakeaways": [
+            "The Kelly Criterion calculates the mathematically optimal percentage of capital to risk per trade based on win rate and payoff ratio.",
+            "Full Kelly sizing is too volatile for financial markets due to parameter uncertainty and fat-tailed distribution risks.",
+            "Institutional quantitative desks deploy 'Half-Kelly' or 'Quarter-Kelly' to harvest 75% of maximum growth with only a fraction of the drawdown."
+        ],
+        "content": """
+<p class="lead">Most traders spend 95% of their intellectual energy trying to predict where prices will go next (entry signals) and almost zero time deciding <em>how much capital</em> to commit once a signal triggers. Yet in quantitative finance, position sizing is the primary determinant of whether a system compounds exponentially or goes bust.</p>
+
+<h3>The Kelly Formula</h3>
+<p>Developed by Bell Labs scientist John Larry Kelly Jr. in 1956, the formula calculates the optimal fraction ($f^*$) of wealth to risk:</p>
+
+<div class="callout-box">
+  <h4>Kelly Formula:</h4>
+  <p><strong>f* = (b * p - q) / b</strong></p>
+  <p>Where:<br>
+  • <strong>p</strong> = Probability of a winning trade<br>
+  • <strong>q</strong> = Probability of a losing trade (1 - p)<br>
+  • <strong>b</strong> = Win/Loss payoff ratio (average gain / average loss)
+  </p>
+</div>
+
+<h3>Why Full Kelly is Dangerous in Real Markets</h3>
+<p>If your historical win rate is 55% and your payoff ratio is 1.5, full Kelly suggests wagering roughly 25% of your bankroll on each trade. While this maximizes the long-term expected value of log wealth, a string of 6 bad trades will cause an unbearable 75% drawdown.</p>
+<p>Because financial returns exhibit negative skewness and fat tails (black swans), professional quants universally utilize <strong>Half-Kelly (0.5 * f*)</strong> or <strong>Quarter-Kelly (0.25 * f*)</strong>. This smooths equity drawdowns by 50% while capturing the majority of compound growth.</p>
+"""
+    },
+    {
+        "id": "building-low-latency-event-driven-execution-engine",
+        "title": "Building a Low-Latency Event-Driven Execution Engine in Python",
+        "slug": "building-low-latency-event-driven-execution-engine",
+        "category": "Algo Trading",
+        "subCategory": "Systems Architecture",
+        "author": "T37 Quantitative Desk",
+        "datetime": "2026-09-17T11:00:00Z",
+        "readTime": "5 min read",
+        "thumbnail": "assets/thumbnails/algo-execution-engine.svg",
+        "excerpt": "Architecture breakdown of a multithreaded WebSocket feed listener, real-time tick processor, and automated order routing engine via broker APIs.",
+        "keyTakeaways": [
+            "Event-driven architectures decouple market data ingestion from strategy calculation and order dispatch using queues.",
+            "Asynchronous I/O (`asyncio`) and zero-copy binary serialization keep tick-to-order latency under sub-millisecond thresholds.",
+            "Fail-safe circuit breakers and position reconcile loops are crucial to prevent catastrophic rogue algorithm runaway loops."
+        ],
+        "content": """
+<p class="lead">Beginner algorithmic traders write procedural code: fetch bars, check if moving averages cross, send market order, sleep 60 seconds. In modern markets, that loop is far too slow and brittle. Production trading systems are built on <strong>Event-Driven Architectures</strong>.</p>
+
+<h3>The Core Architecture Components</h3>
+<p>A resilient trading engine segregates responsibilities into distinct decoupled modules connected via in-memory lock-free message queues:</p>
+
+<ol>
+  <li><strong>Market Data Handler:</strong> Connects to exchange or broker WebSockets, parses binary tick data, and pushes normalized `TickEvent` objects into the queue.</li>
+  <li><strong>Strategy Engine:</strong> Consumes `TickEvent`, maintains in-memory rolling state (e.g. order book depth or VWAP), and generates `SignalEvent` when alpha conditions trigger.</li>
+  <li><strong>Risk Management Engine:</strong> Intercepts every `SignalEvent`, validating maximum margin limits, daily loss limits, and fat-finger price collars before generating an approved `OrderEvent`.</li>
+  <li><strong>Execution / Broker Gateway:</strong> Translates `OrderEvent` into broker REST/WebSocket API payloads, manages order states (Pending, Filled, Cancelled), and handles partial fill reconciliations.</li>
+</ol>
+
+<div class="callout-box">
+  <h4>The Golden Rule of Algorithmic Safety</h4>
+  <p>Never deploy an automated execution engine without a hardware-level "Kill Switch" and a hard-coded maximum daily loss limit. If daily losses breach 3% of capital, the system must immediately cancel all open orders, liquidate positions to cash, and disarm itself.</p>
+</div>
+
+<p>When properly architected, an event-driven engine provides complete operational clarity, allowing quants to test strategies on historical tick replays and deploy them to live trading without changing a single line of strategy code.</p>
+"""
+    }
+]
+
+output_path = r"C:\Users\T37\Desktop\T37\wealth\data\articles.json"
+with open(output_path, "w", encoding="utf-8") as f:
+    json.dump(ARTICLES, f, indent=2, ensure_ascii=False)
+
+print(f"Wrote {len(ARTICLES)} articles to {output_path}")

@@ -1,16 +1,19 @@
 {
   "name": "wealth-t37-in",
-  "version": "1.0.0",
-  "description": "T37 Wealth - Private Wealth Advisory & Portfolio Analytics",
+  "version": "2.0.0",
+  "description": "T37 Wealth - Financial Journalism, Markets, Crypto, Personal Finance & Algo Trading",
   "scripts": {
-    "start": "npx serve ."
+    "start": "npx serve .",
+    "publish": "python scripts/publish_article.py"
   },
   "keywords": [
     "wealth",
-    "advisory",
-    "vercel",
-    "python",
-    "html"
+    "financial-blog",
+    "finshots",
+    "crypto",
+    "markets",
+    "algo-trading",
+    "personal-finance"
   ],
   "author": "t37consulting-eng"
 }

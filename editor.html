@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>T37 Wealth | Editorial Studio (Private)</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      background-color: #f4f6f8;
+      color: #1a1a1a;
+      padding-bottom: 80px;
+    }
+    .studio-header {
+      background: #ffffff;
+      border-bottom: 1px solid #e2e8f0;
+      padding: 16px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .studio-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .studio-brand img {
+      height: 32px;
+    }
+    .badge-private {
+      background: #fef3c7;
+      color: #b45309;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 8px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .studio-container {
+      max-width: 1300px;
+      margin: 32px auto;
+      padding: 0 24px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
+    @media (max-width: 1024px) {
+      .studio-container {
+        grid-template-columns: 1fr;
+      }
+    }
+    .editor-panel, .preview-panel {
+      background: #ffffff;
+      border-radius: var(--radius-lg);
+      border: 1px solid #e2e8f0;
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+    }
+    .panel-header {
+      padding: 18px 24px;
+      border-bottom: 1px solid #edf2f7;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #fafbfc;
+    }
+    .panel-header h2 {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: #0f172a;
+    }
+    .form-body {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .form-group label {
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: #334155;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 10px 14px;
+      border: 1px solid #cbd5e1;
+      border-radius: var(--radius-sm);
+      font-family: inherit;
+      font-size: 0.95rem;
+      color: #1e293b;
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--brand-blue);
+      box-shadow: 0 0 0 3px rgba(30, 96, 213, 0.15);
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .word-paste-box {
+      border: 2px dashed #94a3b8;
+      background: #f8fafc;
+      padding: 16px;
+      border-radius: var(--radius-md);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .word-paste-box p {
+      font-size: 0.85rem;
+      color: #64748b;
+    }
+    .clean-btn {
+      align-self: flex-start;
+      background: #0284c7;
+      color: #ffffff;
+      padding: 6px 14px;
+      border-radius: var(--radius-sm);
+      font-size: 0.85rem;
+      font-weight: 600;
+      transition: background 0.15s;
+    }
+    .clean-btn:hover {
+      background: #0369a1;
+    }
+    .thumbnail-presets {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      max-height: 140px;
+      overflow-y: auto;
+      border: 1px solid #e2e8f0;
+      padding: 8px;
+      border-radius: var(--radius-sm);
+    }
+    .preset-item {
+      aspect-ratio: 16/9;
+      border-radius: 4px;
+      overflow: hidden;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: all 0.15s;
+    }
+    .preset-item:hover, .preset-item.selected {
+      border-color: var(--brand-blue);
+      transform: scale(1.02);
+    }
+    .preset-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    /* Actions Bar */
+    .studio-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      padding: 20px 24px;
+      background: #f8fafc;
+      border-top: 1px solid #edf2f7;
+    }
+    .primary-action-btn {
+      background: linear-gradient(135deg, #1e60d5, #0ea5e9);
+      color: #ffffff;
+      padding: 14px 20px;
+      border-radius: var(--radius-md);
+      font-size: 1rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      box-shadow: 0 4px 12px rgba(30, 96, 213, 0.25);
+      transition: all 0.2s;
+    }
+    .primary-action-btn:hover {
+      opacity: 0.95;
+      transform: translateY(-1px);
+    }
+    .secondary-action-btn {
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      color: #334155;
+      padding: 10px 16px;
+      border-radius: var(--radius-sm);
+      font-size: 0.9rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: background 0.15s;
+    }
+    .secondary-action-btn:hover {
+      background: #f1f5f9;
+    }
+    .preview-tabs {
+      display: flex;
+      border-bottom: 1px solid #edf2f7;
+    }
+    .preview-tab {
+      padding: 12px 20px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: #64748b;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+    }
+    .preview-tab.active {
+      color: var(--brand-blue);
+      border-bottom-color: var(--brand-blue);
+    }
+    .preview-content {
+      padding: 24px;
+      max-height: 800px;
+      overflow-y: auto;
+    }
+    .copy-alert {
+      display: none;
+      background: #dcfce7;
+      color: #15803d;
+      padding: 10px 16px;
+      border-radius: var(--radius-sm);
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="studio-header">
+    <div class="studio-brand">
+      <img src="assets/logo.png" alt="T37 Logo">
+      <span class="brand-title" style="font-size: 1.15rem;">WEALTH STUDIO</span>
+      <span class="badge-private">Hidden Admin Form</span>
+    </div>
+    <div>
+      <a href="index.html" class="secondary-action-btn" target="_blank">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+        Open Live Site
+      </a>
+    </div>
+  </header>
+
+  <main class="studio-container">
+    <!-- Left: Authoring Form -->
+    <section class="editor-panel">
+      <div class="panel-header">
+        <h2>New Article Creator</h2>
+        <span style="font-size: 0.8rem; color: #64748b;">Processed via Antigravity</span>
+      </div>
+
+      <form class="form-body" id="article-form" onsubmit="return false;">
+        <div class="form-group">
+          <label for="form-title">Article Title *</label>
+          <input type="text" id="form-title" placeholder="e.g., India's Tech Export Surge in 2026: An Explainer" required>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="form-category">Content Category *</label>
+            <select id="form-category" required>
+              <option value="Markets">Markets</option>
+              <option value="Crypto">Crypto</option>
+              <option value="Personal Finance">Personal Finance</option>
+              <option value="Algo Trading">Algo Trading</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="form-subcategory">Sub-category / Tag</label>
+            <input type="text" id="form-subcategory" placeholder="e.g., Capital Markets, Quantitative, Explainer">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="form-author">Author</label>
+            <input type="text" id="form-author" value="T37 Research Desk">
+          </div>
+          <div class="form-group">
+            <label for="form-datetime">Date & Time</label>
+            <input type="datetime-local" id="form-datetime">
+          </div>
+        </div>
+
+        <!-- Thumbnail Selector -->
+        <div class="form-group">
+          <label>Thumbnail Image *</label>
+          <div class="thumbnail-presets" id="thumbnail-presets">
+            <!-- Preset items loaded by JS -->
+          </div>
+          <div style="display: flex; gap: 8px; margin-top: 8px;">
+            <input type="text" id="form-thumbnail" placeholder="Selected thumbnail path or custom URL" value="assets/thumbnails/markets-nse-ipo.svg">
+            <label for="thumbnail-file-input" class="secondary-action-btn" style="cursor: pointer; white-space: nowrap;">
+              Upload File
+            </label>
+            <input type="file" id="thumbnail-file-input" accept="image/*" style="display: none;">
+          </div>
+        </div>
+
+        <!-- Key Takeaways ("In a nutshell") -->
+        <div class="form-group">
+          <label>Key Takeaways (Finshots "In a nutshell" 3 points)</label>
+          <input type="text" id="takeaway-1" placeholder="Takeaway point 1" style="margin-bottom: 6px;">
+          <input type="text" id="takeaway-2" placeholder="Takeaway point 2" style="margin-bottom: 6px;">
+          <input type="text" id="takeaway-3" placeholder="Takeaway point 3">
+        </div>
+
+        <!-- Excerpt -->
+        <div class="form-group">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <label for="form-excerpt">Excerpt / Card Summary</label>
+            <button type="button" id="auto-excerpt-btn" style="font-size: 0.75rem; color: var(--brand-blue); font-weight: 600;">Auto-generate from content</button>
+          </div>
+          <textarea id="form-excerpt" rows="2" placeholder="Short 2-line hook for the article card..."></textarea>
+        </div>
+
+        <!-- Word Document Paste Area -->
+        <div class="word-paste-box">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <strong style="font-size: 0.9rem; color: #1e293b;">📄 Paste Word Content Here</strong>
+            <button type="button" class="clean-btn" id="clean-word-btn">✨ Clean & Convert Word Content</button>
+          </div>
+          <p>Copy from Microsoft Word or Google Docs and paste directly into this box. Clicking "Clean & Convert" converts headings, bold/italics, bullet points, and paragraphs into clean semantic HTML.</p>
+          <div id="word-paste-editor" contenteditable="true" style="min-height: 120px; max-height: 220px; overflow-y: auto; background: #ffffff; border: 1px solid #cbd5e1; border-radius: 4px; padding: 12px; font-size: 0.95rem;"></div>
+        </div>
+
+        <!-- Final HTML Content -->
+        <div class="form-group">
+          <label for="form-content">Article HTML Content (Final Body)</label>
+          <textarea id="form-content" rows="10" placeholder="<p class='lead'>First paragraph...</p><h3>Section Heading</h3><p>Paragraph text...</p>"></textarea>
+          <span id="read-time-indicator" style="font-size: 0.8rem; color: #64748b; margin-top: 4px;">Estimated Read Time: 3 min read</span>
+        </div>
+      </form>
+
+      <!-- Actions -->
+      <div class="studio-actions">
+        <div class="copy-alert" id="copy-alert">
+          ✓ Copied prompt to clipboard! Paste it into your Antigravity chat to publish.
+        </div>
+        <button type="button" class="primary-action-btn" id="copy-antigravity-btn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+          Copy Antigravity Publishing Prompt
+        </button>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+          <button type="button" class="secondary-action-btn" id="download-json-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            Download JSON
+          </button>
+          <button type="button" class="secondary-action-btn" id="copy-cli-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 17 10 11 4 5"></polyline><line x1="12" y1="19" x2="20" y2="19"></line></svg>
+            Copy CLI Command
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Right: Live Preview Panel -->
+    <section class="preview-panel">
+      <div class="panel-header" style="padding-bottom: 0;">
+        <h2>Live Preview</h2>
+        <div class="preview-tabs">
+          <div class="preview-tab active" data-tab="card">Card Preview</div>
+          <div class="preview-tab" data-tab="reader">Reader Preview</div>
+        </div>
+      </div>
+
+      <div class="preview-content">
+        <!-- Card Preview Container -->
+        <div id="preview-card-pane">
+          <p style="font-size: 0.85rem; color: #64748b; margin-bottom: 16px;">How this article appears in the 3-column grid:</p>
+          <div style="max-width: 380px;">
+            <article class="article-card" id="live-card">
+              <div class="card-thumbnail">
+                <img id="card-preview-thumb" src="assets/thumbnails/markets-nse-ipo.svg" alt="Thumbnail Preview">
+              </div>
+              <div class="card-body">
+                <div class="card-category" id="card-preview-cat">MARKETS</div>
+                <h2 class="card-title" id="card-preview-title">Article Title Preview</h2>
+                <p class="card-excerpt" id="card-preview-excerpt">The article excerpt will appear here as a 2-line summary.</p>
+                <div class="card-meta">
+                  <span id="card-preview-date">Sep 21, 2026</span>
+                  <span class="dot">•</span>
+                  <span id="card-preview-time">3 min read</span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <!-- Reader Preview Container -->
+        <div id="preview-reader-pane" style="display: none;">
+          <div class="reader-category-pill" id="reader-preview-cat">MARKETS</div>
+          <h1 class="reader-title" id="reader-preview-title" style="font-size: 1.85rem;">Article Title Preview</h1>
+          <div class="reader-meta-bar" style="margin-bottom: 20px;">
+            <div class="author-info">
+              <div class="author-avatar" id="reader-preview-avatar">T</div>
+              <div>
+                <div class="author-name" id="reader-preview-author">T37 Research Desk</div>
+                <div class="article-datetime" id="reader-preview-meta">Sep 21, 2026 • 3 min read</div>
+              </div>
+            </div>
+          </div>
+          <div class="reader-hero-img" style="margin-bottom: 24px;">
+            <img id="reader-preview-thumb" src="assets/thumbnails/markets-nse-ipo.svg" alt="Hero">
+          </div>
+          <div class="takeaways-box" id="reader-preview-takeaways">
+            <h4>In a nutshell</h4>
+            <ul id="reader-preview-takeaways-list">
+              <li>Key point 1</li>
+              <li>Key point 2</li>
+              <li>Key point 3</li>
+            </ul>
+          </div>
+          <div class="article-body" id="reader-preview-body">
+            <p>Paste or type your article body to see the live typography preview here.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    (function () {
+      const PRESETS = [
+        "assets/thumbnails/markets-nse-ipo.svg",
+        "assets/thumbnails/markets-treasury-buyback.svg",
+        "assets/thumbnails/markets-semiconductor.svg",
+        "assets/thumbnails/markets-fii-flows.svg",
+        "assets/thumbnails/markets-fmcg-margins.svg",
+        "assets/thumbnails/crypto-btc-halving.svg",
+        "assets/thumbnails/crypto-eth-l2.svg",
+        "assets/thumbnails/crypto-stablecoins.svg",
+        "assets/thumbnails/crypto-defi-yield.svg",
+        "assets/thumbnails/crypto-regulations.svg",
+        "assets/thumbnails/personal-finance-mutual-funds.svg",
+        "assets/thumbnails/personal-finance-budgeting.svg",
+        "assets/thumbnails/personal-finance-insurance.svg",
+        "assets/thumbnails/personal-finance-taxation.svg",
+        "assets/thumbnails/personal-finance-behavioral.svg",
+        "assets/thumbnails/algo-mean-reversion.svg",
+        "assets/thumbnails/algo-vwap-orderflow.svg",
+        "assets/thumbnails/algo-backtest-pitfalls.svg",
+        "assets/thumbnails/algo-kelly-criterion.svg",
+        "assets/thumbnails/algo-execution-engine.svg"
+      ];
+
+      // Form Elements
+      const titleInput = document.getElementById('form-title');
+      const catSelect = document.getElementById('form-category');
+      const subcatInput = document.getElementById('form-subcategory');
+      const authorInput = document.getElementById('form-author');
+      const datetimeInput = document.getElementById('form-datetime');
+      const thumbInput = document.getElementById('form-thumbnail');
+      const thumbFileInput = document.getElementById('thumbnail-file-input');
+      const takeaway1 = document.getElementById('takeaway-1');
+      const takeaway2 = document.getElementById('takeaway-2');
+      const takeaway3 = document.getElementById('takeaway-3');
+      const excerptInput = document.getElementById('form-excerpt');
+      const wordEditor = document.getElementById('word-paste-editor');
+      const cleanWordBtn = document.getElementById('clean-word-btn');
+      const contentTextarea = document.getElementById('form-content');
+      const readTimeIndicator = document.getElementById('read-time-indicator');
+      const autoExcerptBtn = document.getElementById('auto-excerpt-btn');
+
+      // Set initial datetime
+      const now = new Date();
+      now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
+      datetimeInput.value = now.toISOString().slice(0, 16);
+
+      // Populate Presets Gallery
+      const presetsContainer = document.getElementById('thumbnail-presets');
+      PRESETS.forEach(path => {
+        const div = document.createElement('div');
+        div.className = 'preset-item' + (path === thumbInput.value ? ' selected' : '');
+        div.innerHTML = `<img src="${path}" alt="Preset">`;
+        div.addEventListener('click', () => {
+          document.querySelectorAll('.preset-item').forEach(p => p.classList.remove('selected'));
+          div.classList.add('selected');
+          thumbInput.value = path;
+          updatePreview();
+        });
+        presetsContainer.appendChild(div);
+      });
+
+      // Handle File Upload to Base64 Data URL
+      thumbFileInput.addEventListener('change', (e) => {
+        const file = e.target.files[0];
+        if (file) {
+          const reader = new FileReader();
+          reader.onload = (event) => {
+            thumbInput.value = event.target.result;
+            updatePreview();
+          };
+          reader.readAsDataURL(file);
+        }
+      });
+
+      // Clean Word Document Content
+      cleanWordBtn.addEventListener('click', () => {
+        const rawHtml = wordEditor.innerHTML;
+        if (!rawHtml.trim()) return;
+
+        let clean = rawHtml;
+        // Strip XML namespaces & Word tags
+        clean = clean.replace(/<!--[\s\S]*?-->/g, '');
+        clean = clean.replace(/<o:p>[\s\S]*?<\/o:p>/gi, '');
+        clean = clean.replace(/<font[^>]*>([\s\S]*?)<\/font>/gi, '$1');
+        clean = clean.replace(/<span[^>]*style="[^"]*mso-[^"]*"[^>]*>([\s\S]*?)<\/span>/gi, '$1');
+        clean = clean.replace(/style="[^"]*"/gi, '');
+        clean = clean.replace(/class="Mso[^"]*"/gi, '');
+        clean = clean.replace(/&nbsp;/gi, ' ');
+        clean = clean.replace(/<h1[^>]*>([\s\S]*?)<\/h1>/gi, '<h3>$1</h3>');
+        clean = clean.replace(/<h2[^>]*>([\s\S]*?)<\/h2>/gi, '<h3>$1</h3>');
+        clean = clean.replace(/<h3[^>]*>([\s\S]*?)<\/h3>/gi, '<h4>$1</h4>');
+        clean = clean.replace(/<p[^>]*>\s*<\/p>/gi, '');
+        
+        // Ensure lead paragraph class
+        if (clean.includes('<p>') && !clean.includes('class="lead"')) {
+          clean = clean.replace('<p>', '<p class="lead">');
+        }
+
+        contentTextarea.value = clean.trim();
+        updatePreview();
+      });
+
+      // Auto Excerpt
+      autoExcerptBtn.addEventListener('click', () => {
+        const tempDiv = document.createElement('div');
+        tempDiv.innerHTML = contentTextarea.value || wordEditor.innerHTML;
+        const text = tempDiv.textContent || tempDiv.innerText || '';
+        const sentences = text.split('.').filter(s => s.trim().length > 10);
+        if (sentences.length > 0) {
+          excerptInput.value = (sentences.slice(0, 2).join('. ') + '.').trim();
+          updatePreview();
+        }
+      });
+
+      // Calculate Reading Time
+      function calculateReadTime(text) {
+        const words = text.trim().split(/\s+/).filter(Boolean).length;
+        const mins = Math.max(1, Math.ceil(words / 200));
+        return `${mins} min read`;
+      }
+
+      // Live Preview Updater
+      function updatePreview() {
+        const title = titleInput.value.trim() || 'Article Title Preview';
+        const category = catSelect.value;
+        const subcategory = subcatInput.value.trim() || category;
+        const author = authorInput.value.trim() || 'T37 Research Desk';
+        const dateVal = datetimeInput.value ? new Date(datetimeInput.value).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : 'Sep 21, 2026';
+        const thumb = thumbInput.value.trim() || 'assets/thumbnails/markets-nse-ipo.svg';
+        const excerpt = excerptInput.value.trim() || 'The article excerpt will appear here as a 2-line summary.';
+        const content = contentTextarea.value.trim() || '<p class="lead">Your article content will render here.</p>';
+        const readTime = calculateReadTime(contentTextarea.value);
+
+        readTimeIndicator.textContent = `Estimated Read Time: ${readTime}`;
+
+        // Card Preview
+        document.getElementById('card-preview-thumb').src = thumb;
+        document.getElementById('card-preview-cat').textContent = subcategory.toUpperCase();
+        document.getElementById('card-preview-title').textContent = title;
+        document.getElementById('card-preview-excerpt').textContent = excerpt;
+        document.getElementById('card-preview-date').textContent = dateVal;
+        document.getElementById('card-preview-time').textContent = readTime;
+
+        // Reader Preview
+        document.getElementById('reader-preview-cat').textContent = `${category.toUpperCase()} • ${subcategory}`;
+        document.getElementById('reader-preview-title').textContent = title;
+        document.getElementById('reader-preview-author').textContent = author;
+        document.getElementById('reader-preview-avatar').textContent = author.charAt(0);
+        document.getElementById('reader-preview-meta').textContent = `${dateVal} • ${readTime}`;
+        document.getElementById('reader-preview-thumb').src = thumb;
+        document.getElementById('reader-preview-body').innerHTML = content;
+
+        // Takeaways
+        const points = [takeaway1.value.trim(), takeaway2.value.trim(), takeaway3.value.trim()].filter(Boolean);
+        const takeawaysBox = document.getElementById('reader-preview-takeaways');
+        const takeawaysList = document.getElementById('reader-preview-takeaways-list');
+        if (points.length > 0) {
+          takeawaysBox.style.display = 'block';
+          takeawaysList.innerHTML = points.map(p => `<li>${p}</li>`).join('');
+        } else {
+          takeawaysBox.style.display = 'none';
+        }
+      }
+
+      // Generate Article Object
+      function getArticleData() {
+        const title = titleInput.value.trim();
+        const slug = title.toLowerCase()
+          .replace(/[^\w\s-]/g, '')
+          .replace(/[\s_-]+/g, '-')
+          .replace(/^-+|-+$/g, '');
+        
+        const takeaways = [takeaway1.value.trim(), takeaway2.value.trim(), takeaway3.value.trim()].filter(Boolean);
+        const readTime = calculateReadTime(contentTextarea.value);
+
+        return {
+          id: slug,
+          title: title,
+          slug: slug,
+          category: catSelect.value,
+          subCategory: subcatInput.value.trim() || catSelect.value,
+          author: authorInput.value.trim() || 'T37 Research Desk',
+          datetime: datetimeInput.value ? new Date(datetimeInput.value).toISOString() : new Date().toISOString(),
+          readTime: readTime,
+          thumbnail: thumbInput.value.trim() || 'assets/thumbnails/markets-nse-ipo.svg',
+          excerpt: excerptInput.value.trim(),
+          keyTakeaways: takeaways,
+          content: contentTextarea.value.trim()
+        };
+      }
+
+      // Copy Antigravity Publishing Prompt
+      document.getElementById('copy-antigravity-btn').addEventListener('click', () => {
+        const data = getArticleData();
+        if (!data.title) {
+          alert('Please enter an Article Title first.');
+          return;
+        }
+
+        const prompt = `Antigravity, please publish this new article to wealth.t37.in:\n\n` + JSON.stringify(data, null, 2);
+        navigator.clipboard.writeText(prompt);
+
+        const alertBox = document.getElementById('copy-alert');
+        alertBox.style.display = 'block';
+        setTimeout(() => { alertBox.style.display = 'none'; }, 4000);
+      });
+
+      // Download JSON
+      document.getElementById('download-json-btn').addEventListener('click', () => {
+        const data = getArticleData();
+        if (!data.title) {
+          alert('Please enter an Article Title first.');
+          return;
+        }
+        const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = `article-${data.slug}.json`;
+        a.click();
+      });
+
+      // Copy CLI Command
+      document.getElementById('copy-cli-btn').addEventListener('click', () => {
+        const data = getArticleData();
+        const escaped = JSON.stringify(data).replace(/"/g, '\\"');
+        const cmd = `python scripts/publish_article.py --json "${escaped}"`;
+        navigator.clipboard.writeText(cmd);
+        alert('Copied python CLI publishing command to clipboard!');
+      });
+
+      // Preview Tabs
+      document.querySelectorAll('.preview-tab').forEach(tab => {
+        tab.addEventListener('click', () => {
+          document.querySelectorAll('.preview-tab').forEach(t => t.classList.remove('active'));
+          tab.classList.add('active');
+          const isCard = tab.dataset.tab === 'card';
+          document.getElementById('preview-card-pane').style.display = isCard ? 'block' : 'none';
+          document.getElementById('preview-reader-pane').style.display = isCard ? 'none' : 'block';
+        });
+      });
+
+      // Listeners for live update
+      [titleInput, catSelect, subcatInput, authorInput, datetimeInput, thumbInput, takeaway1, takeaway2, takeaway3, excerptInput, contentTextarea]
+        .forEach(el => el.addEventListener('input', updatePreview));
+
+      // Initial call
+      updatePreview();
+    })();
+  </script>
+</body>
+</html>

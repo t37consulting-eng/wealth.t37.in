@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="100%" height="100%">
+  <defs>
+    <linearGradient id="grad_algo-m" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.06"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="450" fill="url(#grad_algo-m)"/>
+  <rect width="800" height="450" fill="url(#grid)"/>
+  
+  
+            <!-- Bollinger / Z-score Bands & Oscillator -->
+            <line x1="160" y1="225" x2="640" y2="225" stroke="#64748b" stroke-width="4" stroke-dasharray="6 6"/>
+            <line x1="160" y1="140" x2="640" y2="140" stroke="#f43f5e" stroke-width="4"/>
+            <line x1="160" y1="310" x2="640" y2="310" stroke="#34d399" stroke-width="4"/>
+            <path d="M160,225 Q220,110 280,225 T400,330 T520,120 T640,225" fill="none" stroke="#38bdf8" stroke-width="10" stroke-linecap="round"/>
+            <!-- Signal Points -->
+            <circle cx="250" cy="140" r="12" fill="#f43f5e"/>
+            <circle cx="430" cy="310" r="12" fill="#34d399"/>
+            <text x="600" y="130" font-family="monospace" font-size="16" fill="#f87171">+2σ SELL</text>
+            <text x="600" y="335" font-family="monospace" font-size="16" fill="#4ade80">-2σ BUY</text>
+        
+  
+  <!-- Subtle Category Tag on graphic -->
+  <g transform="translate(40, 40)">
+    <rect x="0" y="0" width="160" height="32" rx="16" fill="#ffffff" opacity="0.18"/>
+    <text x="80" y="21" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#ffffff" text-anchor="middle" letter-spacing="0.5">STATISTICAL ARBITRAGE</text>
+  </g>
+</svg>

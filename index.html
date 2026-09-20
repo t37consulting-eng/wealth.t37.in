@@ -1,173 +1,189 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>T37 Wealth | Strategic Investment & Advisory</title>
-    <meta name="description" content="T37 Wealth provides institutional-grade portfolio management and private wealth advisory.">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>T37 Wealth | 3-Min Financial Reads, Markets, Crypto & Algo Trading</title>
+  
+  <!-- SEO & Meta -->
+  <meta name="description" content="T37 Wealth delivers 3-minute, actionable, easy-to-understand financial insights on Indian and global markets, crypto developments, personal finance, and quantitative algorithmic trading.">
+  <meta name="keywords" content="financial blog, Indian stock market, crypto news, personal finance, algorithmic trading, NSE, Finshots alternative, quantitative finance, T37">
+  <meta name="author" content="T37 Consulting">
+  <link rel="canonical" href="https://wealth.t37.in">
+  
+  <!-- OpenGraph / Social Sharing -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://wealth.t37.in">
+  <meta property="og:title" content="T37 Wealth | Financial Insights Made Simple">
+  <meta property="og:description" content="3-minute fun, insightful, and easy-to-understand reads on Markets, Crypto, Personal Finance, and Algo Trading.">
+  <meta property="og:image" content="https://wealth.t37.in/assets/logo.png">
+  
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicons/favicon-16x16.png">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="theme-color" content="#ffffff">
+  
+  <!-- Fonts & Stylesheet -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Navbar -->
-    <header class="header">
-        <div class="container nav-container">
-            <a href="#" class="logo">
-                <span class="logo-badge">T37</span>
-                <span class="logo-text">Wealth</span>
-            </a>
-            <nav class="nav-links">
-                <a href="#services">Services</a>
-                <a href="#calculator">Calculator</a>
-                <a href="#performance">Performance</a>
-                <a href="#contact" class="btn btn-outline">Schedule Consultation</a>
-            </nav>
+
+  <!-- Site Header (Finshots Style) -->
+  <header class="site-header">
+    <div class="header-container">
+      <a href="#" class="header-brand" title="T37 Wealth Home">
+        <img src="assets/logo.png" alt="T37 Logo" class="brand-logo-img">
+        <span class="brand-title">WEALTH</span>
+      </a>
+
+      <!-- Center Category Navigation -->
+      <nav class="main-nav" aria-label="Main Navigation">
+        <a href="#latest" class="nav-link active" data-category="latest">Latest</a>
+        <a href="#markets" class="nav-link" data-category="markets">Markets</a>
+        <a href="#crypto" class="nav-link" data-category="crypto">Crypto</a>
+        <a href="#personal-finance" class="nav-link" data-category="personal-finance">Personal Finance</a>
+        <a href="#algo-trading" class="nav-link" data-category="algo-trading">Algo Trading</a>
+      </nav>
+
+      <!-- Right Search & Actions -->
+      <div class="header-actions">
+        <button class="search-trigger-btn" id="search-trigger-btn" aria-label="Search Articles" title="Search (Press /)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </button>
+        <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Open Navigation Menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div class="mobile-nav-drawer" id="mobile-nav-drawer">
+      <a href="#latest" class="nav-link active" data-category="latest">Latest</a>
+      <a href="#markets" class="nav-link" data-category="markets">Markets</a>
+      <a href="#crypto" class="nav-link" data-category="crypto">Crypto</a>
+      <a href="#personal-finance" class="nav-link" data-category="personal-finance">Personal Finance</a>
+      <a href="#algo-trading" class="nav-link" data-category="algo-trading">Algo Trading</a>
+    </div>
+  </header>
+
+  <!-- Hero Category Section -->
+  <section class="hero-section" id="hero-section">
+    <h1 class="hero-title" id="hero-title">Latest Reads</h1>
+    <p class="hero-subtitle" id="hero-subtitle">
+      3 Min reads that are fun, insightful and easy to understand.
+      <span class="highlight">This is T37 Wealth as you know it.</span>
+    </p>
+  </section>
+
+  <!-- Main Articles Grid (Finshots 3-Column Layout) -->
+  <main class="main-content">
+    <div class="articles-grid" id="articles-grid">
+      <!-- Cards injected dynamically via script.js -->
+    </div>
+  </main>
+
+  <!-- Article Reader Modal (Deep-linkable) -->
+  <div class="reader-modal" id="reader-modal" role="dialog" aria-modal="true">
+    <div class="reader-container">
+      <div class="reader-top-bar">
+        <button class="back-btn" id="back-btn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+          Back to all reads
+        </button>
+        <button class="close-reader-btn" id="close-reader-btn" aria-label="Close Article">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+      <article class="reader-article" id="reader-content">
+        <!-- Content injected dynamically via script.js -->
+      </article>
+    </div>
+  </div>
+
+  <!-- Instant Search Modal -->
+  <div class="search-modal" id="search-modal" role="dialog" aria-modal="true">
+    <div class="search-dialog">
+      <div class="search-input-wrapper">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <input type="text" id="search-input" class="search-input" placeholder="Search articles, topics, keywords..." autocomplete="off">
+        <button id="close-search-btn" style="color: #9ca3af; padding: 4px;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+      <div class="search-results" id="search-results">
+        <!-- Live search matches injected dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Site Footer (Screenshot 2 Finshots Style) -->
+  <footer class="site-footer">
+    <div class="footer-top">
+      <div class="footer-left">
+        <div class="footer-brand">
+          <img src="assets/logo.png" alt="T37 Logo" class="footer-logo-img">
+          <span class="brand-title" style="font-size: 1.2rem;">WEALTH</span>
         </div>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container hero-content">
-            <div class="badge">Institutional-Grade Private Wealth</div>
-            <h1 class="hero-title">Precision wealth management designed for generational growth.</h1>
-            <p class="hero-subtitle">
-                At T37 Wealth, we engineer customized portfolio strategies, private equity access, and algorithmic asset allocation tailored to your financial horizons.
-            </p>
-            <div class="hero-actions">
-                <a href="#calculator" class="btn btn-primary">Try Investment Calculator</a>
-                <a href="#services" class="btn btn-secondary">Explore Services</a>
+        <div class="footer-store-badges">
+          <a href="#" class="store-badge" title="Download on App Store">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.37c.62-.75 1.04-1.8 0.92-2.85-.9.04-1.99.6-2.64 1.35-.58.66-1.09 1.73-.95 2.76 1 .08 2.05-.51 2.67-1.26z"/></svg>
+            <div class="store-badge-text">
+              <span class="store-badge-sub">Download on the</span>
+              <span class="store-badge-main">App Store</span>
             </div>
-            
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <span class="stat-num">$1.4B+</span>
-                    <span class="stat-label">Assets Advised</span>
-                </div>
-                <div class="stat-card">
-                    <span class="stat-num">18.4%</span>
-                    <span class="stat-label">5-Yr Avg Net IRR</span>
-                </div>
-                <div class="stat-card">
-                    <span class="stat-num">99.2%</span>
-                    <span class="stat-label">Client Retention</span>
-                </div>
-                <div class="stat-card">
-                    <span class="stat-num">24/7</span>
-                    <span class="stat-label">Dedicated Advisory</span>
-                </div>
+          </a>
+          <a href="#" class="store-badge" title="Get it on Google Play">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M3.609 1.814L13.792 12 3.61 22.186c-.368-.328-.61-.818-.61-1.378V3.192c0-.56.242-1.05.609-1.378zm11.248 11.251l2.428 2.428-11.75 6.78 9.322-9.208zm0-2.13L5.535 1.727l11.75 6.78-2.428 2.428zm1.066 1.065l3.228-1.864c.789-.456.789-1.2 0-1.656l-3.228-1.864-1.854 1.854 1.854 1.854z"/></svg>
+            <div class="store-badge-text">
+              <span class="store-badge-sub">GET IT ON</span>
+              <span class="store-badge-main">Google Play</span>
             </div>
+          </a>
         </div>
-    </section>
+      </div>
 
-    <!-- Services Section -->
-    <section id="services" class="services">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Core Disciplines</span>
-                <h2>End-to-End Asset Management</h2>
-                <p>Comprehensive solutions tailored for family offices, high-net-worth individuals, and corporate treasuries.</p>
-            </div>
-            
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">📊</div>
-                    <h3>Global Equities & Fixed Income</h3>
-                    <p>Dynamic tactical asset allocation combining deep fundamental analysis with algorithmic risk modeling.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🏛️</div>
-                    <h3>Private Equity & Real Assets</h3>
-                    <p>Exclusive co-investment opportunities across early-stage technology, industrial infrastructure, and prime real estate.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🛡️</div>
-                    <h3>Estate & Trust Architecture</h3>
-                    <p>Cross-jurisdictional tax optimization, legacy planning, and multi-generational wealth preservation frameworks.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+      <!-- Social Media Icons (YouTube, X, LinkedIn, Instagram) -->
+      <div class="footer-right">
+        <a href="https://youtube.com/@t37" class="social-link yt" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+        </a>
+        <a href="https://x.com/t37" class="social-link x" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </a>
+        <a href="https://linkedin.com/company/t37" class="social-link li" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+        </a>
+        <a href="https://instagram.com/t37" class="social-link ig" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        </a>
+      </div>
+    </div>
 
-    <!-- Calculator Section -->
-    <section id="calculator" class="calculator-section">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Interactive Modeling</span>
-                <h2>Portfolio Compound Growth Calculator</h2>
-                <p>Forecast the growth of your investments based on capital commitment and duration.</p>
-            </div>
+    <!-- Bottom Bar Credits -->
+    <div class="footer-bottom">
+      <div class="footer-tagline">
+        <a href="https://wealth.t37.in">wealth.t37.in</a> — Part of T37 Consulting • Insights & Advisory
+      </div>
+      <div class="footer-credit">
+        Made with <span style="color: #ef4444;">❤️</span> in India
+      </div>
+    </div>
+  </footer>
 
-            <div class="calculator-card">
-                <div class="calc-inputs">
-                    <div class="form-group">
-                        <label for="initialAmount">Initial Investment ($): <span id="initialAmountVal" class="val-highlight">$50,000</span></label>
-                        <input type="range" id="initialAmount" min="5000" max="1000000" step="5000" value="50000">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="monthlyContribution">Monthly Contribution ($): <span id="monthlyVal" class="val-highlight">$1,000</span></label>
-                        <input type="range" id="monthlyContribution" min="0" max="25000" step="250" value="1000">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="expectedReturn">Expected Annual Return (%): <span id="returnVal" class="val-highlight">12%</span></label>
-                        <input type="range" id="expectedReturn" min="4" max="24" step="0.5" value="12">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="investmentYears">Investment Horizon: <span id="yearsVal" class="val-highlight">10 Years</span></label>
-                        <input type="range" id="investmentYears" min="1" max="30" step="1" value="10">
-                    </div>
-                </div>
-
-                <div class="calc-results">
-                    <div class="result-box">
-                        <span class="result-label">Projected Future Value</span>
-                        <h3 id="futureValueResult" class="result-value">$386,412</h3>
-                    </div>
-                    <div class="result-breakdown">
-                        <div class="breakdown-item">
-                            <span>Total Principal Contributed:</span>
-                            <strong id="totalPrincipalResult">$170,000</strong>
-                        </div>
-                        <div class="breakdown-item">
-                            <span>Total Compound Interest:</span>
-                            <strong id="totalInterestResult" class="text-green">$216,412</strong>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- API Health / System Check (Serverless Integration) -->
-    <section class="api-demo">
-        <div class="container">
-            <div class="api-card">
-                <div class="api-info">
-                    <h4>Cloud Serverless API Integration</h4>
-                    <p>Backed by Python runtime on Vercel Edge Serverless functions.</p>
-                </div>
-                <button id="checkApiBtn" class="btn btn-sm btn-outline">Check API Status</button>
-            </div>
-            <div id="apiResult" class="api-result hidden"></div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container footer-content">
-            <p>&copy; <span id="currentYear">2026</span> T37 Wealth. All rights reserved. Deployed seamlessly via Vercel & GitHub.</p>
-            <div class="footer-links">
-                <a href="#">Privacy Policy</a>
-                <a href="#">Terms of Advisory</a>
-                <a href="https://github.com/t37consulting-eng/wealth.t37.in" target="_blank" rel="noopener">GitHub Repository</a>
-            </div>
-        </div>
-    </footer>
-
-    <script src="script.js"></script>
+  <!-- Application Script -->
+  <script src="script.js"></script>
 </body>
 </html>

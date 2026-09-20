@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="100%" height="100%">
+  <defs>
+    <linearGradient id="grad_crypto" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#78350f"/>
+      <stop offset="100%" stop-color="#d97706"/>
+    </linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.06"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="450" fill="url(#grad_crypto)"/>
+  <rect width="800" height="450" fill="url(#grid)"/>
+  
+  
+            <!-- Bitcoin Emblem & Institutional Columns -->
+            <circle cx="400" cy="210" r="110" fill="#b45309" stroke="#fde68a" stroke-width="10"/>
+            <text x="400" y="240" font-family="system-ui, sans-serif" font-size="95" font-weight="900" fill="#ffffff" text-anchor="middle">₿</text>
+            <!-- Halving Slash & ETF Pillar -->
+            <line x1="260" y1="70" x2="540" y2="350" stroke="#fef08a" stroke-width="12" stroke-linecap="round" opacity="0.85"/>
+            <!-- 21M hard cap badge -->
+            <rect x="320" y="340" width="160" height="44" rx="22" fill="#1e293b"/>
+            <text x="400" y="369" font-family="monospace" font-size="20" font-weight="bold" fill="#fde68a" text-anchor="middle">21M RESERVE</text>
+        
+  
+  <!-- Subtle Category Tag on graphic -->
+  <g transform="translate(40, 40)">
+    <rect x="0" y="0" width="160" height="32" rx="16" fill="#ffffff" opacity="0.18"/>
+    <text x="80" y="21" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#ffffff" text-anchor="middle" letter-spacing="0.5">DIGITAL ASSETS</text>
+  </g>
+</svg>
