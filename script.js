@@ -12,7 +12,7 @@
   let currentCategory = 'latest';
   let activeArticle = null;
 
-  // Category Configuration
+  // Category Configuration (Latest, Markets, Crypto, Personal Finance)
   const CATEGORY_META = {
     'latest': {
       title: 'Latest Reads',
@@ -34,11 +34,6 @@
       title: 'Personal Finance',
       subtitle: 'Smart money strategies, tax optimization, retirement planning, and financial independence.',
       filter: (a) => a.category.toLowerCase() === 'personal finance'
-    },
-    'algo-trading': {
-      title: 'Algo Trading',
-      subtitle: 'Quantitative models, systematic trading strategies, Python execution, and mathematical risk management.',
-      filter: (a) => a.category.toLowerCase() === 'algo trading'
     }
   };
 
@@ -78,6 +73,9 @@
       if (!res.ok) throw new Error('Failed to fetch articles');
       allArticles = await res.json();
       
+      // Ensure all articles reflect T37 Editor Desk
+      allArticles.forEach(a => { a.author = 'T37 Editor Desk'; });
+
       // Sort newest first
       allArticles.sort((a, b) => new Date(b.datetime) - new Date(a.datetime));
 
@@ -194,8 +192,8 @@
       "datePublished": article.datetime,
       "dateModified": article.datetime,
       "author": [{
-        "@type": "Person",
-        "name": article.author || "T37 Research Desk"
+        "@type": "Organization",
+        "name": "T37 Editor Desk"
       }],
       "publisher": {
         "@type": "Organization",
@@ -279,9 +277,9 @@
       
       <div class="reader-meta-bar">
         <div class="author-info">
-          <div class="author-avatar">${article.author ? article.author.charAt(0) : 'T'}</div>
+          <div class="author-avatar">T</div>
           <div>
-            <div class="author-name">${article.author || 'T37 Research Desk'}</div>
+            <div class="author-name">T37 Editor Desk</div>
             <div class="article-datetime">${formatDate(article.datetime)} • ${article.readTime || '3 min read'}</div>
           </div>
         </div>
@@ -346,7 +344,7 @@
     document.body.style.overflow = '';
     activeArticle = null;
     removeArticleSchema();
-    document.title = 'T37 Wealth | Financial Insights, Markets, Crypto & Algo Trading';
+    document.title = 'T37 Wealth | Financial Insights, Markets & Crypto';
 
     if (updateUrl) {
       if (currentCategory === 'latest') {

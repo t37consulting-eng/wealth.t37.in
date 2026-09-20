@@ -21,7 +21,6 @@ def generate_slug(title):
     return slug.strip('-')
 
 def calculate_read_time(content):
-    # Strip HTML tags
     text = re.sub(r'<[^>]+>', ' ', content)
     words = len(re.findall(r'\w+', text))
     mins = max(1, (words + 199) // 200)
@@ -57,7 +56,7 @@ def publish_article(article_dict, push_to_git=False):
         "slug": slug,
         "category": category,
         "subCategory": article_dict.get("subCategory", category),
-        "author": article_dict.get("author", "T37 Research Desk"),
+        "author": "T37 Editor Desk",
         "datetime": article_dict.get("datetime") or datetime.utcnow().isoformat() + "Z",
         "readTime": article_dict.get("readTime") or calculate_read_time(content),
         "thumbnail": article_dict.get("thumbnail", "assets/thumbnails/markets-nse-ipo.svg"),
@@ -90,9 +89,9 @@ def main():
     parser.add_argument("--json-file", help="Path to JSON file containing article data")
     parser.add_argument("--json", help="Direct JSON string containing article data")
     parser.add_argument("--title", help="Article title")
-    parser.add_argument("--category", choices=["Markets", "Crypto", "Personal Finance", "Algo Trading"], default="Markets")
+    parser.add_argument("--category", choices=["Markets", "Crypto", "Personal Finance"], default="Markets")
     parser.add_argument("--subcategory", help="Sub-category or tag")
-    parser.add_argument("--author", default="T37 Research Desk")
+    parser.add_argument("--author", default="T37 Editor Desk")
     parser.add_argument("--thumbnail", default="assets/thumbnails/markets-nse-ipo.svg")
     parser.add_argument("--content-file", help="Path to raw text/html/markdown content file")
     parser.add_argument("--push", action="store_true", help="Push to git origin after adding")
@@ -115,7 +114,7 @@ def main():
             "title": args.title,
             "category": args.category,
             "subCategory": args.subcategory or args.category,
-            "author": args.author,
+            "author": "T37 Editor Desk",
             "thumbnail": args.thumbnail,
             "content": content
         }
