@@ -299,35 +299,23 @@
         <div class="author-info">
           <div class="author-avatar">T</div>
           <div>
-            <div class="author-name">
-              <span>T37 Editor Desk</span>
-              <span class="verified-editorial-badge" title="Verified Financial Editorial Desk">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-                Verified
-              </span>
-            </div>
+            <div class="author-name">T37 Editor Desk</div>
             <div class="article-datetime">
               <time datetime="${article.datetime}">${formatDate(article.datetime)}</time> • ${article.readTime || '3 min read'}
             </div>
           </div>
         </div>
         
-        <div class="reader-actions-group">
-          <a class="gnews-pill-btn" href="https://news.google.com" target="_blank" rel="noopener noreferrer" title="Follow T37 Wealth on Google News">
-            <svg class="gnews-icon" width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z" fill="#4285F4"/><path d="M11 7h8v2h-8zM11 11h8v2h-8zM11 15h5v2h-5z" fill="#fff"/><circle cx="7" cy="11" r="2" fill="#fff"/></svg>
-            <span>Google News</span>
+        <div class="share-buttons">
+          <a class="share-btn" href="https://twitter.com/intent/tweet?text=${shareTitle}&url=${shareUrl}" target="_blank" rel="noopener noreferrer" title="Share on X" aria-label="Share on X">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
           </a>
-          <div class="share-buttons">
-            <a class="share-btn" href="https://twitter.com/intent/tweet?text=${shareTitle}&url=${shareUrl}" target="_blank" rel="noopener noreferrer" title="Share on X" aria-label="Share on X">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-            </a>
-            <a class="share-btn" href="https://api.whatsapp.com/send?text=${shareTitle}%20${shareUrl}" target="_blank" rel="noopener noreferrer" title="Share on WhatsApp" aria-label="Share on WhatsApp">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
-            </a>
-            <button class="share-btn" id="copy-link-btn" title="Copy Link" aria-label="Copy Link">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
-            </button>
-          </div>
+          <a class="share-btn" href="https://api.whatsapp.com/send?text=${shareTitle}%20${shareUrl}" target="_blank" rel="noopener noreferrer" title="Share on WhatsApp" aria-label="Share on WhatsApp">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+          </a>
+          <button class="share-btn" id="copy-link-btn" title="Copy Link" aria-label="Copy Link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+          </button>
         </div>
       </div>
       
@@ -341,29 +329,12 @@
         ${article.content}
       </div>
 
-      <div class="article-trust-box">
-        <div class="trust-box-header">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          <strong>Verified Editorial & Fact-Checking</strong>
-        </div>
-        <p>This report was researched and verified using primary exchange filings (NSE/BSE), statutory notifications (RBI/SEBI), and audited quarterly corporate disclosures. Read our <button type="button" class="inline-policy-link" id="article-factcheck-link">Editorial Integrity & Verification Standards</button>.</p>
-        <div class="trust-box-footer">
-          <span>Noticed an inaccuracy? Submit a correction notice to <a href="mailto:admin@mail.t37.in?subject=Correction%20Request:%20${encodeURIComponent(article.title)}">admin@mail.t37.in</a>.</span>
-        </div>
-      </div>
-
-      <div class="article-disclaimer-card">
-        <strong>Statutory YMYL Disclaimer:</strong> T37 Wealth is an independent financial journalism and educational publication owned by T37 Consulting. The analysis presented does NOT constitute personalized financial advice, stock recommendations, or portfolio advisory services under SEBI regulations. Readers should consult a SEBI-registered financial planner prior to making capital allocation decisions.
+      <div class="article-editorial-footnote">
+        <p><em>Disclaimer: Content published on T37 Wealth is strictly educational and does not constitute investment advice. Researched from official corporate & regulatory filings (NSE/BSE/RBI/SEBI). Report corrections to <a href="mailto:admin@mail.t37.in?subject=Correction%20Request:%20${encodeURIComponent(article.title)}">admin@mail.t37.in</a>.</em></p>
       </div>
       
       ${relatedHtml}
     `;
-
-    // Inline fact-check link trigger
-    const articleFactcheckLink = document.getElementById('article-factcheck-link');
-    if (articleFactcheckLink) {
-      articleFactcheckLink.addEventListener('click', openEditorialModal);
-    }
 
     // Copy link event
     document.getElementById('copy-link-btn').addEventListener('click', () => {
@@ -644,6 +615,14 @@
   if (footerCorrectionsBtn) footerCorrectionsBtn.addEventListener('click', openEditorialModal);
   if (closeEditorialBtn) closeEditorialBtn.addEventListener('click', closeEditorialModal);
   if (editorialModalOkBtn) editorialModalOkBtn.addEventListener('click', closeEditorialModal);
+  const cookiesToEditorialBtn = document.getElementById('cookies-to-editorial-btn');
+  if (cookiesToEditorialBtn) {
+    cookiesToEditorialBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      closeCookiesModal();
+      openEditorialModal();
+    });
+  }
   if (editorialModal) {
     editorialModal.addEventListener('click', (e) => {
       if (e.target === editorialModal) closeEditorialModal();
