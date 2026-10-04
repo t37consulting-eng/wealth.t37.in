@@ -16,31 +16,27 @@
   const CATEGORY_META = {
     'latest': {
       title: 'Latest Reads',
-      subtitle: '3 Min reads that are fun, insightful and easy to understand. <span class="highlight">This is T37 Wealth as you know it.</span>',
-      quote: '“An investment in knowledge pays the best interest.”',
-      author: '— Benjamin Franklin',
+      quote: '“Action cures hesitation. The market doesn’t reward what you intend to do—it pays for what you ruthlessly execute right now.”',
+      author: '— Paul Tudor Jones',
       filter: () => true,
       limit: 20
     },
     'markets': {
       title: 'Markets',
-      subtitle: 'Daily pulse of Indian & global financial markets, IPO valuations, macroeconomics, and corporate earnings.',
-      quote: '“In the short run, the market is a voting machine, but in the long run, it is a weighing machine.”',
-      author: '— Benjamin Graham',
+      quote: '“When you have high conviction, you don’t test the water—you go for the jugular. The market punishes the timid and rewards the bold.”',
+      author: '— George Soros',
       filter: (a) => a.category.toLowerCase() === 'markets'
     },
     'crypto': {
       title: 'Crypto',
-      subtitle: 'Decentralized networks, Bitcoin market cycles, Ethereum Layer 2 economics, and digital asset regulation.',
-      quote: '“The blockchain does one thing: it replaces third-party trust with mathematical proof.”',
-      author: '— Naval Ravikant',
+      quote: '“If you don’t get it or don’t believe it, I don’t have time to convince you. The future belongs to those who take the asymmetric risk first.”',
+      author: '— Satoshi Nakamoto',
       filter: (a) => a.category.toLowerCase() === 'crypto'
     },
     'personal-finance': {
       title: 'Personal Finance',
-      subtitle: 'Smart money strategies, tax optimization, retirement planning, and financial independence.',
-      quote: '“Do not save what is left after spending, but spend what is left after saving.”',
-      author: '— Warren Buffett',
+      quote: '“The first $100,000 is a brutal battle, but you must conquer it. Scrap, sacrifice, and stack capital now—freedom is won today, not in 40 years.”',
+      author: '— Charlie Munger',
       filter: (a) => a.category.toLowerCase() === 'personal finance'
     }
   };
@@ -48,7 +44,6 @@
   // DOM Elements
   const articlesGrid = document.getElementById('articles-grid');
   const heroTitle = document.getElementById('hero-title');
-  const heroSubtitle = document.getElementById('hero-subtitle');
   const heroQuoteText = document.getElementById('hero-quote-text');
   const heroQuoteAuthor = document.getElementById('hero-quote-author');
   const navLinks = document.querySelectorAll('.nav-link');
@@ -134,7 +129,6 @@
 
     // Update Hero Section
     heroTitle.textContent = config.title;
-    heroSubtitle.innerHTML = config.subtitle;
     if (heroQuoteText && config.quote) {
       heroQuoteText.textContent = config.quote;
     }
