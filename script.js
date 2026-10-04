@@ -67,13 +67,7 @@
   const closeCookiesBtn = document.getElementById('close-cookies-btn');
   const cookiesModalOkBtn = document.getElementById('cookies-modal-ok-btn');
   const footerCookiesBtn = document.getElementById('footer-cookies-btn');
-  const editorialModal = document.getElementById('editorial-modal');
-  const closeEditorialBtn = document.getElementById('close-editorial-btn');
-  const editorialModalOkBtn = document.getElementById('editorial-modal-ok-btn');
-  const trustPolicyTrigger = document.getElementById('trust-policy-trigger');
-  const footerEditorialBtn = document.getElementById('footer-editorial-btn');
-  const footerFactcheckBtn = document.getElementById('footer-factcheck-btn');
-  const footerCorrectionsBtn = document.getElementById('footer-corrections-btn');
+
 
   // Format Date (e.g., "Sep 21, 2026")
   function formatDate(dateStr) {
@@ -212,25 +206,24 @@
     const cleanText = (article.content || '').replace(/<[^>]+>/g, ' ').slice(0, 500);
     existing.textContent = JSON.stringify({
       "@context": "https://schema.org",
-      "@type": "NewsArticle",
+      "@type": "Article",
       "headline": article.title,
       "image": [window.location.origin + "/" + article.thumbnail],
       "datePublished": article.datetime,
       "dateModified": article.datetime,
       "author": [{
         "@type": "Organization",
-        "name": "T37 Editor Desk",
-        "url": window.location.origin + "/#editorial-policy"
+        "name": "T37 Wealth",
+        "url": window.location.origin
       }],
       "publisher": {
-        "@type": "NewsMediaOrganization",
+        "@type": "Organization",
         "name": "T37 Wealth",
         "url": "https://wealth.t37.in",
         "logo": {
           "@type": "ImageObject",
           "url": "https://wealth.t37.in/assets/logo.png"
-        },
-        "publishingPrinciples": "https://wealth.t37.in/#editorial-policy"
+        }
       },
       "inLanguage": "en-US",
       "isAccessibleForFree": true,
@@ -239,10 +232,6 @@
       "mainEntityOfPage": {
         "@type": "WebPage",
         "@id": window.location.origin + "/#article/" + article.slug
-      },
-      "speakable": {
-        "@type": "SpeakableSpecification",
-        "cssSelector": [".reader-title", ".takeaways-box"]
       }
     });
   }
@@ -384,7 +373,7 @@
       </div>
 
       <div class="article-editorial-footnote">
-        <p><em>Disclaimer: Content published on T37 Wealth is strictly educational and does not constitute investment advice. Researched from official corporate & regulatory filings (NSE/BSE/RBI/SEBI). Report corrections to <a href="mailto:admin@mail.t37.in?subject=Correction%20Request:%20${encodeURIComponent(article.title)}">admin@mail.t37.in</a>.</em></p>
+        <p><em>Disclaimer: Content published on T37 Wealth is strictly for educational and informational purposes only and does not constitute financial or investment advice.</em></p>
       </div>
 
       <div class="article-like-cta">
@@ -563,10 +552,7 @@
       return;
     }
 
-    if (['editorial-policy', 'fact-checking', 'corrections', 'disclaimer'].includes(hash)) {
-      openEditorialModal();
-      return;
-    }
+
 
     if (hash.startsWith('article/')) {
       const slug = hash.replace('article/', '');
@@ -655,31 +641,10 @@
     }
   }
 
-  // Editorial & Transparency Modal Logic
-  function openEditorialModal() {
-    if (editorialModal) {
-      editorialModal.classList.add('active');
-      document.body.style.overflow = 'hidden';
-    }
-  }
-
-  function closeEditorialModal() {
-    if (editorialModal) {
-      editorialModal.classList.remove('active');
-      if (!readerModal.classList.contains('active')) {
-        document.body.style.overflow = '';
-      }
-      if (['editorial-policy', 'fact-checking', 'corrections', 'disclaimer'].includes(window.location.hash.slice(1))) {
-        history.pushState(null, '', window.location.pathname);
-      }
-    }
-  }
-
   // Keyboard Shortcuts
   window.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
       if (pushPromptContainer && pushPromptContainer.classList.contains('active')) closePushPrompt();
-      else if (editorialModal && editorialModal.classList.contains('active')) closeEditorialModal();
       else if (cookiesModal && cookiesModal.classList.contains('active')) closeCookiesModal();
       else if (searchModal.classList.contains('active')) closeSearch();
       else if (readerModal.classList.contains('active')) closeReader();
@@ -704,27 +669,6 @@
   if (cookiesModal) {
     cookiesModal.addEventListener('click', (e) => {
       if (e.target === cookiesModal) closeCookiesModal();
-    });
-  }
-
-  // Editorial Modal Listeners
-  if (trustPolicyTrigger) trustPolicyTrigger.addEventListener('click', openEditorialModal);
-  if (footerEditorialBtn) footerEditorialBtn.addEventListener('click', openEditorialModal);
-  if (footerFactcheckBtn) footerFactcheckBtn.addEventListener('click', openEditorialModal);
-  if (footerCorrectionsBtn) footerCorrectionsBtn.addEventListener('click', openEditorialModal);
-  if (closeEditorialBtn) closeEditorialBtn.addEventListener('click', closeEditorialModal);
-  if (editorialModalOkBtn) editorialModalOkBtn.addEventListener('click', closeEditorialModal);
-  const cookiesToEditorialBtn = document.getElementById('cookies-to-editorial-btn');
-  if (cookiesToEditorialBtn) {
-    cookiesToEditorialBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      closeCookiesModal();
-      openEditorialModal();
-    });
-  }
-  if (editorialModal) {
-    editorialModal.addEventListener('click', (e) => {
-      if (e.target === editorialModal) closeEditorialModal();
     });
   }
 
