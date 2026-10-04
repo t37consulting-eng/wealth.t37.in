@@ -1,7 +1,7 @@
 {
   "name": "wealth-t37-in",
   "version": "2.0.0",
-  "description": "T37 Wealth - Financial Journalism, Markets, Crypto, Personal Finance & Algo Trading",
+  "description": "T37 Wealth - Financial Journalism, Markets and Personal Finance",
   "scripts": {
     "start": "npx serve .",
     "publish": "python scripts/publish_article.py"
@@ -10,9 +10,7 @@
     "wealth",
     "financial-blog",
     "finshots",
-    "crypto",
     "markets",
-    "algo-trading",
     "personal-finance"
   ],
   "author": "t37consulting-eng"

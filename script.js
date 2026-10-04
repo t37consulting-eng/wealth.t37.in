@@ -12,7 +12,7 @@
   let currentCategory = 'latest';
   let activeArticle = null;
 
-  // Category Configuration (Latest, Markets, Crypto, Personal Finance)
+  // Category Configuration (Latest, Markets, Personal Finance)
   const CATEGORY_META = {
     'latest': {
       title: 'Latest Reads',
@@ -24,11 +24,6 @@
       title: 'Markets',
       subtitle: 'Daily pulse of Indian & global financial markets, IPO valuations, macroeconomics, and corporate earnings.',
       filter: (a) => a.category.toLowerCase() === 'markets'
-    },
-    'crypto': {
-      title: 'Crypto',
-      subtitle: 'Navigating the blockchain frontier, tokenomics, DeFi innovations, and institutional digital asset flows.',
-      filter: (a) => a.category.toLowerCase() === 'crypto'
     },
     'personal-finance': {
       title: 'Personal Finance',
@@ -54,6 +49,21 @@
   const mobileMenuBtn = document.getElementById('mobile-menu-btn');
   const mobileNavDrawer = document.getElementById('mobile-nav-drawer');
   const mobileNavBackdrop = document.getElementById('mobile-nav-backdrop');
+  const cookieBanner = document.getElementById('cookie-banner');
+  const cookieAcceptBtn = document.getElementById('cookie-accept-btn');
+  const cookieDeclineBtn = document.getElementById('cookie-decline-btn');
+  const cookiePolicyBannerLink = document.getElementById('cookie-policy-banner-link');
+  const cookiesModal = document.getElementById('cookies-modal');
+  const closeCookiesBtn = document.getElementById('close-cookies-btn');
+  const cookiesModalOkBtn = document.getElementById('cookies-modal-ok-btn');
+  const footerCookiesBtn = document.getElementById('footer-cookies-btn');
+  const editorialModal = document.getElementById('editorial-modal');
+  const closeEditorialBtn = document.getElementById('close-editorial-btn');
+  const editorialModalOkBtn = document.getElementById('editorial-modal-ok-btn');
+  const trustPolicyTrigger = document.getElementById('trust-policy-trigger');
+  const footerEditorialBtn = document.getElementById('footer-editorial-btn');
+  const footerFactcheckBtn = document.getElementById('footer-factcheck-btn');
+  const footerCorrectionsBtn = document.getElementById('footer-corrections-btn');
 
   // Format Date (e.g., "Sep 21, 2026")
   function formatDate(dateStr) {
@@ -94,8 +104,9 @@
 
   // Set Active Category
   function setCategory(catKey, pushState = true) {
-    const config = CATEGORY_META[catKey] || CATEGORY_META['latest'];
-    currentCategory = catKey;
+    const validKey = CATEGORY_META[catKey] ? catKey : 'latest';
+    const config = CATEGORY_META[validKey];
+    currentCategory = validKey;
 
     // Update nav active states (both desktop and mobile)
     navLinks.forEach(link => {
@@ -174,7 +185,7 @@
     });
   }
 
-  // Inject NewsArticle Schema for SEO & AI Search Engines
+  // Inject NewsArticle Schema for SEO & Google News Crawlers
   function injectArticleSchema(article) {
     let existing = document.getElementById('article-schema');
     if (!existing) {
@@ -193,21 +204,30 @@
       "dateModified": article.datetime,
       "author": [{
         "@type": "Organization",
-        "name": "T37 Editor Desk"
+        "name": "T37 Editor Desk",
+        "url": window.location.origin + "/#editorial-policy"
       }],
       "publisher": {
-        "@type": "Organization",
+        "@type": "NewsMediaOrganization",
         "name": "T37 Wealth",
+        "url": "https://wealth.t37.in",
         "logo": {
           "@type": "ImageObject",
           "url": "https://wealth.t37.in/assets/logo.png"
-        }
+        },
+        "publishingPrinciples": "https://wealth.t37.in/#editorial-policy"
       },
+      "inLanguage": "en-US",
+      "isAccessibleForFree": true,
       "description": article.excerpt || cleanText,
       "articleBody": cleanText,
       "mainEntityOfPage": {
         "@type": "WebPage",
         "@id": window.location.origin + "/#article/" + article.slug
+      },
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [".reader-title", ".takeaways-box"]
       }
     });
   }
@@ -279,21 +299,35 @@
         <div class="author-info">
           <div class="author-avatar">T</div>
           <div>
-            <div class="author-name">T37 Editor Desk</div>
-            <div class="article-datetime">${formatDate(article.datetime)} • ${article.readTime || '3 min read'}</div>
+            <div class="author-name">
+              <span>T37 Editor Desk</span>
+              <span class="verified-editorial-badge" title="Verified Financial Editorial Desk">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                Verified
+              </span>
+            </div>
+            <div class="article-datetime">
+              <time datetime="${article.datetime}">${formatDate(article.datetime)}</time> • ${article.readTime || '3 min read'}
+            </div>
           </div>
         </div>
         
-        <div class="share-buttons">
-          <a class="share-btn" href="https://twitter.com/intent/tweet?text=${shareTitle}&url=${shareUrl}" target="_blank" rel="noopener noreferrer" title="Share on X" aria-label="Share on X">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        <div class="reader-actions-group">
+          <a class="gnews-pill-btn" href="https://news.google.com" target="_blank" rel="noopener noreferrer" title="Follow T37 Wealth on Google News">
+            <svg class="gnews-icon" width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z" fill="#4285F4"/><path d="M11 7h8v2h-8zM11 11h8v2h-8zM11 15h5v2h-5z" fill="#fff"/><circle cx="7" cy="11" r="2" fill="#fff"/></svg>
+            <span>Google News</span>
           </a>
-          <a class="share-btn" href="https://api.whatsapp.com/send?text=${shareTitle}%20${shareUrl}" target="_blank" rel="noopener noreferrer" title="Share on WhatsApp" aria-label="Share on WhatsApp">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
-          </a>
-          <button class="share-btn" id="copy-link-btn" title="Copy Link" aria-label="Copy Link">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
-          </button>
+          <div class="share-buttons">
+            <a class="share-btn" href="https://twitter.com/intent/tweet?text=${shareTitle}&url=${shareUrl}" target="_blank" rel="noopener noreferrer" title="Share on X" aria-label="Share on X">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a class="share-btn" href="https://api.whatsapp.com/send?text=${shareTitle}%20${shareUrl}" target="_blank" rel="noopener noreferrer" title="Share on WhatsApp" aria-label="Share on WhatsApp">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+            </a>
+            <button class="share-btn" id="copy-link-btn" title="Copy Link" aria-label="Copy Link">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+            </button>
+          </div>
         </div>
       </div>
       
@@ -306,9 +340,30 @@
       <div class="article-body">
         ${article.content}
       </div>
+
+      <div class="article-trust-box">
+        <div class="trust-box-header">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <strong>Verified Editorial & Fact-Checking</strong>
+        </div>
+        <p>This report was researched and verified using primary exchange filings (NSE/BSE), statutory notifications (RBI/SEBI), and audited quarterly corporate disclosures. Read our <button type="button" class="inline-policy-link" id="article-factcheck-link">Editorial Integrity & Verification Standards</button>.</p>
+        <div class="trust-box-footer">
+          <span>Noticed an inaccuracy? Submit a correction notice to <a href="mailto:admin@mail.t37.in?subject=Correction%20Request:%20${encodeURIComponent(article.title)}">admin@mail.t37.in</a>.</span>
+        </div>
+      </div>
+
+      <div class="article-disclaimer-card">
+        <strong>Statutory YMYL Disclaimer:</strong> T37 Wealth is an independent financial journalism and educational publication owned by T37 Consulting. The analysis presented does NOT constitute personalized financial advice, stock recommendations, or portfolio advisory services under SEBI regulations. Readers should consult a SEBI-registered financial planner prior to making capital allocation decisions.
+      </div>
       
       ${relatedHtml}
     `;
+
+    // Inline fact-check link trigger
+    const articleFactcheckLink = document.getElementById('article-factcheck-link');
+    if (articleFactcheckLink) {
+      articleFactcheckLink.addEventListener('click', openEditorialModal);
+    }
 
     // Copy link event
     document.getElementById('copy-link-btn').addEventListener('click', () => {
@@ -344,7 +399,7 @@
     document.body.style.overflow = '';
     activeArticle = null;
     removeArticleSchema();
-    document.title = 'T37 Wealth | Financial Insights, Markets & Crypto';
+    document.title = 'T37 Wealth | Financial Insights, Markets & Personal Finance';
 
     if (updateUrl) {
       if (currentCategory === 'latest') {
@@ -434,6 +489,16 @@
       return;
     }
 
+    if (hash === 'cookies-policy') {
+      openCookiesModal();
+      return;
+    }
+
+    if (['editorial-policy', 'fact-checking', 'corrections', 'disclaimer'].includes(hash)) {
+      openEditorialModal();
+      return;
+    }
+
     if (hash.startsWith('article/')) {
       const slug = hash.replace('article/', '');
       openArticle(slug, false);
@@ -488,10 +553,65 @@
     renderSearchResults(e.target.value);
   });
 
+  // Cookies Policy & Consent Logic
+  function initCookieBanner() {
+    if (!localStorage.getItem('t37_cookies_accepted')) {
+      setTimeout(() => {
+        if (cookieBanner) cookieBanner.classList.add('active');
+      }, 800);
+    }
+  }
+
+  function acceptCookies(type) {
+    localStorage.setItem('t37_cookies_accepted', type);
+    if (cookieBanner) cookieBanner.classList.remove('active');
+  }
+
+  function openCookiesModal() {
+    if (cookiesModal) {
+      cookiesModal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  function closeCookiesModal() {
+    if (cookiesModal) {
+      cookiesModal.classList.remove('active');
+      if (!readerModal.classList.contains('active')) {
+        document.body.style.overflow = '';
+      }
+      if (window.location.hash === '#cookies-policy') {
+        history.pushState(null, '', window.location.pathname);
+      }
+    }
+  }
+
+  // Editorial & Transparency Modal Logic
+  function openEditorialModal() {
+    if (editorialModal) {
+      editorialModal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  function closeEditorialModal() {
+    if (editorialModal) {
+      editorialModal.classList.remove('active');
+      if (!readerModal.classList.contains('active')) {
+        document.body.style.overflow = '';
+      }
+      if (['editorial-policy', 'fact-checking', 'corrections', 'disclaimer'].includes(window.location.hash.slice(1))) {
+        history.pushState(null, '', window.location.pathname);
+      }
+    }
+  }
+
   // Keyboard Shortcuts
   window.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
-      if (searchModal.classList.contains('active')) closeSearch();
+      if (editorialModal && editorialModal.classList.contains('active')) closeEditorialModal();
+      else if (cookiesModal && cookiesModal.classList.contains('active')) closeCookiesModal();
+      else if (searchModal.classList.contains('active')) closeSearch();
       else if (readerModal.classList.contains('active')) closeReader();
       else closeMobileMenu();
     }
@@ -500,6 +620,35 @@
       openSearch();
     }
   });
+
+  // Cookie Listeners
+  if (cookieAcceptBtn) cookieAcceptBtn.addEventListener('click', () => acceptCookies('all'));
+  if (cookieDeclineBtn) cookieDeclineBtn.addEventListener('click', () => acceptCookies('essential'));
+  if (cookiePolicyBannerLink) cookiePolicyBannerLink.addEventListener('click', (e) => {
+    e.preventDefault();
+    openCookiesModal();
+  });
+  if (footerCookiesBtn) footerCookiesBtn.addEventListener('click', openCookiesModal);
+  if (closeCookiesBtn) closeCookiesBtn.addEventListener('click', closeCookiesModal);
+  if (cookiesModalOkBtn) cookiesModalOkBtn.addEventListener('click', closeCookiesModal);
+  if (cookiesModal) {
+    cookiesModal.addEventListener('click', (e) => {
+      if (e.target === cookiesModal) closeCookiesModal();
+    });
+  }
+
+  // Editorial Modal Listeners
+  if (trustPolicyTrigger) trustPolicyTrigger.addEventListener('click', openEditorialModal);
+  if (footerEditorialBtn) footerEditorialBtn.addEventListener('click', openEditorialModal);
+  if (footerFactcheckBtn) footerFactcheckBtn.addEventListener('click', openEditorialModal);
+  if (footerCorrectionsBtn) footerCorrectionsBtn.addEventListener('click', openEditorialModal);
+  if (closeEditorialBtn) closeEditorialBtn.addEventListener('click', closeEditorialModal);
+  if (editorialModalOkBtn) editorialModalOkBtn.addEventListener('click', closeEditorialModal);
+  if (editorialModal) {
+    editorialModal.addEventListener('click', (e) => {
+      if (e.target === editorialModal) closeEditorialModal();
+    });
+  }
 
   // Popstate / Hashchange
   window.addEventListener('hashchange', handleRoute);
@@ -517,4 +666,5 @@
 
   // Start Application
   loadArticles();
+  initCookieBanner();
 })();

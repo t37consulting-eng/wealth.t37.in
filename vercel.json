@@ -2,6 +2,11 @@
   "version": 2,
   "cleanUrls": true,
   "trailingSlash": false,
+  "rewrites": [
+    { "source": "/robot.txt", "destination": "/robots.txt" },
+    { "source": "/feed", "destination": "/feed.xml" },
+    { "source": "/rss", "destination": "/rss.xml" }
+  ],
   "headers": [
     {
       "source": "/(.*)",
@@ -9,6 +14,13 @@
         { "key": "X-Content-Type-Options", "value": "nosniff" },
         { "key": "X-Frame-Options", "value": "DENY" },
         { "key": "X-XSS-Protection", "value": "1; mode=block" }
+      ]
+    },
+    {
+      "source": "/(feed\\.xml|rss\\.xml|sitemap\\.xml|news-sitemap\\.xml)",
+      "headers": [
+        { "key": "Content-Type", "value": "application/xml; charset=utf-8" },
+        { "key": "Cache-Control", "value": "public, max-age=600, stale-while-revalidate=1800" }
       ]
     },
     {

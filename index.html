@@ -3,25 +3,32 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-  <title>T37 Wealth | Financial Insights, Markets, Crypto & Personal Finance</title>
+  <title>T37 Wealth | Financial Insights, Markets & Personal Finance</title>
   
   <!-- SEO & Search Engine Crawlers -->
-  <meta name="description" content="T37 Wealth delivers 3-minute, actionable, easy-to-understand financial journalism covering Indian & global markets, crypto infrastructure, and personal finance strategies.">
-  <meta name="keywords" content="financial blog, Indian stock market, crypto news, personal finance, NSE IPO, Finshots alternative, mutual funds, T37 wealth">
+  <meta name="description" content="T37 Wealth delivers 3-minute, actionable, easy-to-understand financial journalism covering Indian & global markets and personal finance strategies.">
+  <meta name="keywords" content="financial blog, Indian stock market, personal finance, NSE IPO, Finshots alternative, mutual funds, T37 wealth">
+  <meta name="news_keywords" content="Indian Stock Market, NSE, BSE, Nifty, Sensex, Mutual Funds, Personal Finance, RBI, IPO, Economy">
   <meta name="author" content="T37 Editor Desk">
+  <meta name="syndication-source" content="https://wealth.t37.in">
+  <meta name="original-source" content="https://wealth.t37.in">
   <link rel="canonical" href="https://wealth.t37.in">
   <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
+  <link rel="sitemap" type="application/xml" title="Google News Sitemap" href="/news-sitemap.xml">
+  <link rel="alternate" type="application/rss+xml" title="T37 Wealth RSS Feed" href="https://wealth.t37.in/feed.xml">
+  <link rel="alternate" type="application/rss+xml" title="T37 Wealth RSS 2.0" href="https://wealth.t37.in/rss.xml">
   
   <!-- Robots & AI Crawlers (Google, ChatGPT, Perplexity, Claude, Apple) -->
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="googlebot-news" content="index, follow">
   
   <!-- OpenGraph / Social Sharing -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="T37 Wealth">
   <meta property="og:url" content="https://wealth.t37.in">
   <meta property="og:title" content="T37 Wealth | 3-Min Financial Reads & Market Insights">
-  <meta property="og:description" content="3-minute insightful, fun, and easy-to-understand reads on Markets, Crypto, and Personal Finance.">
+  <meta property="og:description" content="3-minute insightful, fun, and easy-to-understand reads on Markets and Personal Finance.">
   <meta property="og:image" content="https://wealth.t37.in/assets/logo.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -29,10 +36,8 @@
   
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:site" content="@t37">
-  <meta name="twitter:creator" content="@t37">
   <meta name="twitter:title" content="T37 Wealth | 3-Min Financial Reads">
-  <meta name="twitter:description" content="Actionable intelligence on Markets, Crypto, and Personal Finance.">
+  <meta name="twitter:description" content="Actionable intelligence on Markets and Personal Finance.">
   <meta name="twitter:image" content="https://wealth.t37.in/assets/logo.png">
   
   <!-- Circular Favicons Suite (Vector SVG + PNG Multi-Res) -->
@@ -44,7 +49,7 @@
   <link rel="manifest" href="manifest.webmanifest">
   <meta name="theme-color" content="#ffffff">
   
-  <!-- Structured Data (Schema.org JSON-LD for Google & AI Search Engines) -->
+  <!-- Structured Data (Schema.org JSON-LD for Google News & AI Search Engines) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -54,7 +59,7 @@
         "@id": "https://wealth.t37.in/#website",
         "url": "https://wealth.t37.in",
         "name": "T37 Wealth",
-        "description": "3-minute actionable financial journalism on Markets, Crypto, and Personal Finance.",
+        "description": "3-minute actionable financial journalism on Markets and Personal Finance.",
         "publisher": {
           "@id": "https://wealth.t37.in/#organization"
         },
@@ -65,26 +70,43 @@
         }
       },
       {
-        "@type": "Organization",
+        "@type": "NewsMediaOrganization",
         "@id": "https://wealth.t37.in/#organization",
-        "name": "T37 Consulting LLP",
+        "name": "T37 Wealth",
+        "legalName": "T37 Consulting",
         "url": "https://wealth.t37.in",
         "logo": {
           "@type": "ImageObject",
-          "url": "https://wealth.t37.in/assets/logo.png"
+          "url": "https://wealth.t37.in/assets/logo.png",
+          "width": 512,
+          "height": 512
         },
-        "email": "hello@mail.t37.in",
+        "email": "admin@mail.t37.in",
+        "publishingPrinciples": "https://wealth.t37.in/#editorial-policy",
+        "correctionsPolicy": "https://wealth.t37.in/#editorial-policy",
+        "ethicsPolicy": "https://wealth.t37.in/#editorial-policy",
+        "diversityPolicy": "https://wealth.t37.in/#editorial-policy",
+        "actionableFeedbackPolicy": "https://wealth.t37.in/#editorial-policy",
+        "knowsAbout": [
+          "Indian Stock Market",
+          "National Stock Exchange of India",
+          "Bombay Stock Exchange",
+          "Reserve Bank of India",
+          "Securities and Exchange Board of India",
+          "Personal Finance",
+          "Mutual Funds",
+          "Macroeconomics"
+        ],
         "sameAs": [
-          "https://youtube.com/@t37",
-          "https://x.com/t37",
-          "https://instagram.com/t37",
-          "https://t.me/t37consulting"
+          "https://www.youtube.com/@wealth.t37",
+          "https://instagram.com/wealth.t37",
+          "https://t.me/wealth_t37"
         ]
       },
       {
         "@type": "Blog",
         "@id": "https://wealth.t37.in/#blog",
-        "name": "T37 Wealth Blog",
+        "name": "T37 Wealth News & Financial Insights",
         "url": "https://wealth.t37.in",
         "description": "Latest financial intelligence, market dynamics, and personal wealth strategies.",
         "publisher": {
@@ -98,7 +120,7 @@
   <!-- Typography & Styling -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Kanit:ital,wght@1,800;1,900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -111,11 +133,10 @@
         <span class="brand-title">WEALTH</span>
       </a>
 
-      <!-- Center Category Navigation (Removed Algo Trading) -->
+      <!-- Center Category Navigation (Removed Algo Trading & Crypto) -->
       <nav class="main-nav" aria-label="Main Navigation">
         <a href="#latest" class="nav-link active" data-category="latest">Latest</a>
         <a href="#markets" class="nav-link" data-category="markets">Markets</a>
-        <a href="#crypto" class="nav-link" data-category="crypto">Crypto</a>
         <a href="#personal-finance" class="nav-link" data-category="personal-finance">Personal Finance</a>
       </nav>
 
@@ -142,10 +163,29 @@
     <div class="mobile-nav-drawer" id="mobile-nav-drawer">
       <a href="#latest" class="nav-link active" data-category="latest">Latest</a>
       <a href="#markets" class="nav-link" data-category="markets">Markets</a>
-      <a href="#crypto" class="nav-link" data-category="crypto">Crypto</a>
       <a href="#personal-finance" class="nav-link" data-category="personal-finance">Personal Finance</a>
     </div>
   </header>
+
+  <!-- Google News & E-E-A-T Editorial Trust Strip -->
+  <aside class="editorial-trust-strip" aria-label="Editorial Standards and Verification">
+    <div class="trust-strip-container">
+      <div class="trust-strip-left">
+        <span class="trust-pulse-dot"></span>
+        <span class="trust-label">VERIFIED FINANCIAL JOURNALISM</span>
+        <span class="trust-sep">•</span>
+        <span class="trust-desc">
+          <svg class="trust-badge-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          Primary Sources: NSE • BSE • RBI • SEBI Filings
+        </span>
+      </div>
+      <div class="trust-strip-right">
+        <button type="button" class="trust-policy-trigger" id="trust-policy-trigger">
+          Editorial & Fact-Checking Policy &rarr;
+        </button>
+      </div>
+    </div>
+  </aside>
 
   <!-- Hero Category Section -->
   <section class="hero-section" id="hero-section">
@@ -197,7 +237,7 @@
     </div>
   </div>
 
-  <!-- Site Footer (Updated: Contact mailto, Telegram Icon, T37 Consulting LLP) -->
+  <!-- Site Footer (Updated: Contact mailto, Telegram Icon, T37 Consulting) -->
   <footer class="site-footer">
     <div class="footer-top">
       <div class="footer-left">
@@ -208,43 +248,219 @@
         
         <!-- Contact Button with Mailto -->
         <div class="footer-contact">
-          <a href="mailto:hello@mail.t37.in" class="footer-contact-link" title="Send email to hello@mail.t37.in">
+          <a href="mailto:admin@mail.t37.in" class="footer-contact-link" title="Send email to admin@mail.t37.in">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <rect width="20" height="16" x="2" y="4" rx="2"></rect>
               <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
             </svg>
-            <span>hello@mail.t37.in</span>
+            <span>admin@mail.t37.in</span>
           </a>
         </div>
       </div>
 
-      <!-- Social Media Icons (YouTube, X, Instagram, Telegram) -->
+      <!-- Social Media Icons (YouTube, Instagram, Telegram) -->
       <div class="footer-right">
-        <a href="https://youtube.com/@t37" class="social-link yt" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+        <a href="https://www.youtube.com/@wealth.t37" class="social-link yt" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
         </a>
-        <a href="https://x.com/t37" class="social-link x" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-        </a>
-        <a href="https://instagram.com/t37" class="social-link ig" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <a href="https://instagram.com/wealth.t37" class="social-link ig" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
         </a>
-        <a href="https://t.me/t37consulting" class="social-link tg" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
+        <a href="https://t.me/wealth_t37" class="social-link tg" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M21.5 2.5a1.2 1.2 0 0 0-1.25-.13L2.75 10.37a1.2 1.2 0 0 0 .08 2.22l5.12 1.83 2.15 6.45a1.2 1.2 0 0 0 2.05.39l3.07-3.32 4.97 3.65a1.2 1.2 0 0 0 1.89-.78l3-17a1.2 1.2 0 0 0-.58-1.31zM9.54 13.57l7.74-6.84-6.31 8.08-.28 3.52-1.15-4.76z"/></svg>
         </a>
       </div>
     </div>
 
-    <!-- Bottom Bar Credits (Updated with LLP) -->
+    <!-- Bottom Bar Credits -->
     <div class="footer-bottom">
       <div class="footer-tagline">
-        <a href="https://wealth.t37.in">wealth.t37.in</a> — Part of T37 Consulting LLP • Insights & Advisory
+        <a href="https://wealth.t37.in">wealth.t37.in</a> — Part of T37 Consulting
       </div>
-      <div class="footer-credit">
-        Made with <span style="color: #ef4444;">❤️</span> in India
+      <div class="footer-links">
+        <button type="button" class="footer-legal-btn" id="footer-editorial-btn">Editorial Policy</button>
+        <span class="footer-sep">•</span>
+        <button type="button" class="footer-legal-btn" id="footer-factcheck-btn">Fact-Checking</button>
+        <span class="footer-sep">•</span>
+        <button type="button" class="footer-legal-btn" id="footer-corrections-btn">Corrections</button>
+        <span class="footer-sep">•</span>
+        <button type="button" class="footer-legal-btn" id="footer-cookies-btn">Cookies Policy</button>
+        <span class="footer-sep">•</span>
+        <a href="/robots.txt" target="_blank" rel="noopener">Robots.txt</a>
+        <span class="footer-sep">•</span>
+        <a href="/sitemap.xml" target="_blank" rel="noopener">Sitemap</a>
+        <span class="footer-sep">•</span>
+        <a href="/news-sitemap.xml" target="_blank" rel="noopener">News Sitemap</a>
+        <span class="footer-sep">•</span>
+        <a href="/feed.xml" target="_blank" rel="noopener">RSS Feed</a>
       </div>
     </div>
   </footer>
+
+  <!-- Cookie Consent Banner -->
+  <div class="cookie-banner" id="cookie-banner" role="region" aria-label="Cookie Consent">
+    <div class="cookie-banner-content">
+      <div class="cookie-banner-text">
+        <strong>Cookie Notice:</strong> We use essential cookies to maintain site security, speed, and remember your reading preferences. Learn more in our <button type="button" class="cookie-link-btn" id="cookie-policy-banner-link">Cookies Policy</button>.
+      </div>
+      <div class="cookie-banner-actions">
+        <button type="button" class="cookie-btn cookie-btn-accept" id="cookie-accept-btn">Accept</button>
+        <button type="button" class="cookie-btn cookie-btn-decline" id="cookie-decline-btn">Decline</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cookies Policy Modal -->
+  <div class="cookies-modal" id="cookies-modal" role="dialog" aria-modal="true" aria-labelledby="cookies-modal-title">
+    <div class="cookies-modal-container">
+      <div class="cookies-modal-header">
+        <div class="cookies-modal-badge">LEGAL NOTICE</div>
+        <h2 id="cookies-modal-title" class="cookies-modal-title">Cookies & Tracking Policy</h2>
+        <p class="cookies-modal-meta">Last updated: October 2026 • T37 Consulting</p>
+        <button type="button" class="close-cookies-btn" id="close-cookies-btn" aria-label="Close Cookies Policy">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+      <div class="cookies-modal-body">
+        <section class="policy-section">
+          <h3>1. What Are Cookies?</h3>
+          <p>Cookies are small text files placed on your device (computer, tablet, or smartphone) when you browse websites. They help websites recognize your device, maintain essential performance, and analyze how visitors interact with content.</p>
+        </section>
+
+        <section class="policy-section">
+          <h3>2. How T37 Wealth Uses Cookies</h3>
+          <p>T37 Wealth values your privacy. We do not use intrusive cross-site tracking, third-party advertisers, or data-broker profiling. We classify cookies and local storage items into the following categories:</p>
+          
+          <div class="cookie-types-grid">
+            <div class="cookie-type-card">
+              <div class="cookie-type-header">
+                <span class="cookie-type-tag essential">Strictly Necessary</span>
+                <strong>Essential Operations</strong>
+              </div>
+              <p>Required for fundamental website operations, navigation routing (such as deep linking to articles), responsive layout rendering, and storing your cookie consent preference (<code>t37_cookies_accepted</code>).</p>
+            </div>
+
+            <div class="cookie-type-card">
+              <div class="cookie-type-header">
+                <span class="cookie-type-tag preference">Preferences</span>
+                <strong>Reading Experience</strong>
+              </div>
+              <p>Enables local state retention, such as remembering your active category filter (Markets vs Personal Finance), scroll positions, and instant search queries without requiring an account.</p>
+            </div>
+
+            <div class="cookie-type-card">
+              <div class="cookie-type-header">
+                <span class="cookie-type-tag performance">Performance</span>
+                <strong>Telemetry & Speed</strong>
+              </div>
+              <p>Aggregated, anonymized telemetry that helps our editorial team identify popular financial topics, page speed bottlenecks, and device responsiveness. No personal financial information is ever tracked.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="policy-section">
+          <h3>3. Third-Party Services</h3>
+          <p>To deliver high performance and clean typography, T37 Wealth uses Google Fonts CDN and static edge caching. These services may log technical requests strictly for font caching and DDoS mitigation.</p>
+        </section>
+
+        <section class="policy-section">
+          <h3>4. Managing Your Cookie Preferences</h3>
+          <p>You have full control over cookies. You can manage or disable them at any time through:</p>
+          <ul>
+            <li><strong>Browser Settings:</strong> Adjusting preferences in your web browser (Chrome, Safari, Firefox, Edge) to reject or delete cookies.</li>
+            <li><strong>Clearing Site Data:</strong> Clearing your browser's local storage and cache will reset your consent preferences.</li>
+            <li><strong>Incognito / Private Browsing:</strong> Visiting T37 Wealth in Private Browsing mode will discard all cookies and session storage upon closing your window.</li>
+          </ul>
+        </section>
+
+        <section class="policy-section">
+          <h3>5. Contact Us</h3>
+          <p>If you have any questions about this Cookies Policy or our data handling practices, feel free to reach out:</p>
+          <div class="policy-contact">
+            <strong>T37 Consulting</strong><br>
+            Email: <a href="mailto:admin@mail.t37.in">admin@mail.t37.in</a><br>
+            Website: <a href="https://wealth.t37.in">wealth.t37.in</a>
+          </div>
+        </section>
+      </div>
+      <div class="cookies-modal-footer">
+        <button type="button" class="btn-primary" id="cookies-modal-ok-btn">Understood</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Editorial & Transparency Policy Modal (Google News E-E-A-T Compliance) -->
+  <div class="editorial-modal" id="editorial-modal" role="dialog" aria-modal="true" aria-labelledby="editorial-modal-title">
+    <div class="editorial-modal-container">
+      <div class="editorial-modal-header">
+        <div class="editorial-modal-badge">EDITORIAL INTEGRITY & TRUST</div>
+        <h2 id="editorial-modal-title" class="editorial-modal-title">Editorial Policy, Fact-Checking & Standards</h2>
+        <p class="editorial-modal-meta">Published by T37 Consulting • Last updated: October 2026</p>
+        <button type="button" class="close-editorial-btn" id="close-editorial-btn" aria-label="Close Editorial Policy">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+      <div class="editorial-modal-body">
+        <section class="policy-section">
+          <h3>1. Mission & Editorial Independence</h3>
+          <p>T37 Wealth (published by T37 Consulting) is an independent financial journalism platform dedicated to delivering concise, rigorous, 3-minute actionable reads on Indian & global financial markets and personal finance strategies.</p>
+          <p>Our editorial team operates with strict independence. We do not accept paid consideration, promotional compensation, or undisclosed sponsorships in exchange for coverage, stock commentary, or commercial bias.</p>
+        </section>
+
+        <section class="policy-section">
+          <h3>2. Fact-Checking & Primary Verification Methodology</h3>
+          <p>Accuracy is the core requirement of trusted financial reporting. Every claim, valuation metric, and market statistic is validated against verifiable primary sources prior to publication:</p>
+          <div class="trust-verification-grid">
+            <div class="trust-verification-item">
+              <strong>Primary Exchange Filings:</strong> Corporate disclosures and filings from the National Stock Exchange of India (NSE) and Bombay Stock Exchange (BSE).
+            </div>
+            <div class="trust-verification-item">
+              <strong>Statutory & Regulatory Data:</strong> Official circulars, monetary policy statements, and press releases from the Reserve Bank of India (RBI) and Securities and Exchange Board of India (SEBI).
+            </div>
+            <div class="trust-verification-item">
+              <strong>Audited Statements:</strong> Quarterly financial results, annual reports, and Red Herring Prospectuses (DRHP / RHP) filed with market authorities.
+            </div>
+          </div>
+        </section>
+
+        <section class="policy-section">
+          <h3>3. Transparent Corrections Policy</h3>
+          <p>We believe in immediate and open accountability. If an error of fact is detected in any published piece:</p>
+          <ul>
+            <li>We update the story promptly with a visible <em>Correction Note</em> stating what was amended and when.</li>
+            <li>Readers, analysts, and companies can submit correction requests to <a href="mailto:admin@mail.t37.in">admin@mail.t37.in</a> with the subject line <code>Correction: [Article Title]</code>.</li>
+          </ul>
+        </section>
+
+        <section class="policy-section">
+          <h3>4. Financial Conflicts & Ethics Policy</h3>
+          <p>Writers and editors are prohibited from front-running, trading on non-public material information, or receiving benefits from companies covered. When a writer holds an active position in an asset mentioned, a mandatory disclosure is appended.</p>
+        </section>
+
+        <section class="policy-section">
+          <h3>5. Non-Advisory & Statutory YMYL Disclaimer</h3>
+          <div class="statutory-disclaimer-card">
+            <strong>Important Regulatory Notice:</strong>
+            <p>T37 Wealth is an educational and financial news analysis publication. Content published on <code>wealth.t37.in</code> is for informational purposes only and does NOT constitute personalized investment advice, financial planning, or recommendations to buy or sell securities.</p>
+            <p>T37 Wealth is not a SEBI-registered Investment Adviser (RIA) or Research Analyst (RA). Financial investments are subject to market risks. Please consult a qualified SEBI-registered advisor before executing transactions.</p>
+          </div>
+        </section>
+
+        <section class="policy-section">
+          <h3>6. Editorial Desk & Syndication Contact</h3>
+          <div class="policy-contact">
+            <strong>T37 Wealth Editorial Desk</strong><br>
+            Publisher: T37 Consulting<br>
+            Direct Inquiries: <a href="mailto:admin@mail.t37.in">admin@mail.t37.in</a><br>
+            Syndication: <a href="/feed.xml" target="_blank" rel="noopener">RSS 2.0 Feed</a> • <a href="/news-sitemap.xml" target="_blank" rel="noopener">Google News Sitemap</a>
+          </div>
+        </section>
+      </div>
+      <div class="editorial-modal-footer">
+        <button type="button" class="btn-primary" id="editorial-modal-ok-btn">Understood</button>
+      </div>
+    </div>
+  </div>
 
   <!-- Application Script -->
   <script src="script.js"></script>

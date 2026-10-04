@@ -11,7 +11,7 @@
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Kanit:ital,wght@1,800;1,900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <style>
     body {
@@ -233,7 +233,6 @@
           <select id="category-hint" class="category-select">
             <option value="Auto-detect">✨ Auto-detect from content</option>
             <option value="Markets">Markets</option>
-            <option value="Crypto">Crypto</option>
             <option value="Personal Finance">Personal Finance</option>
           </select>
         </div>
@@ -297,7 +296,7 @@ The Reserve Bank of India kept the repo rate unchanged at 6.5% today while signa
 
         const categoryVal = categoryHint.value;
         const categoryInstruction = categoryVal === 'Auto-detect' 
-          ? 'Determine the best category (Markets, Crypto, or Personal Finance).'
+          ? 'Determine the best category (Markets or Personal Finance).'
           : `Assign category to '${categoryVal}'.`;
 
         const prompt = `Antigravity, please process and publish this new article to wealth.t37.in:

@@ -9,7 +9,7 @@ import os
 import json
 import re
 import argparse
-from datetime import datetime
+from datetime import datetime, timezone
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 PROJECT_ROOT = os.path.dirname(SCRIPT_DIR)
@@ -57,7 +57,7 @@ def publish_article(article_dict, push_to_git=False):
         "category": category,
         "subCategory": article_dict.get("subCategory", category),
         "author": "T37 Editor Desk",
-        "datetime": article_dict.get("datetime") or datetime.utcnow().isoformat() + "Z",
+        "datetime": article_dict.get("datetime") or datetime.now(timezone.utc).isoformat() + "Z",
         "readTime": article_dict.get("readTime") or calculate_read_time(content),
         "thumbnail": article_dict.get("thumbnail", "assets/thumbnails/markets-nse-ipo.svg"),
         "excerpt": article_dict.get("excerpt") or auto_excerpt(content),
@@ -75,9 +75,15 @@ def publish_article(article_dict, push_to_git=False):
 
     print(f" Successfully published article: '{title}' ({slug}) to {ARTICLES_FILE}")
 
+    # Regenerate Google News sitemaps and RSS feed automatically
+    sitemap_script = os.path.join(PROJECT_ROOT, "scripts", "generate_sitemap.py")
+    feed_script = os.path.join(PROJECT_ROOT, "scripts", "generate_rss_feed.py")
+    os.system(f'python "{sitemap_script}"')
+    os.system(f'python "{feed_script}"')
+
     if push_to_git:
         print("Staging and pushing changes to git origin main...")
-        os.system(f'git -C "{PROJECT_ROOT}" add data/articles.json')
+        os.system(f'git -C "{PROJECT_ROOT}" add data/articles.json sitemap.xml news-sitemap.xml feed.xml rss.xml')
         os.system(f'git -C "{PROJECT_ROOT}" commit -m "Publish article: {title}"')
         os.system(f'git -C "{PROJECT_ROOT}" push origin main')
         print(" Pushed to GitHub! Live site wealth.t37.in will update automatically.")
@@ -89,7 +95,7 @@ def main():
     parser.add_argument("--json-file", help="Path to JSON file containing article data")
     parser.add_argument("--json", help="Direct JSON string containing article data")
     parser.add_argument("--title", help="Article title")
-    parser.add_argument("--category", choices=["Markets", "Crypto", "Personal Finance"], default="Markets")
+    parser.add_argument("--category", choices=["Markets", "Personal Finance"], default="Markets")
     parser.add_argument("--subcategory", help="Sub-category or tag")
     parser.add_argument("--author", default="T37 Editor Desk")
     parser.add_argument("--thumbnail", default="assets/thumbnails/markets-nse-ipo.svg")
