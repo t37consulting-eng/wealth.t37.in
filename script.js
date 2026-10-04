@@ -12,22 +12,35 @@
   let currentCategory = 'latest';
   let activeArticle = null;
 
-  // Category Configuration (Latest, Markets, Personal Finance)
+  // Category Configuration (Latest, Markets, Crypto, Personal Finance)
   const CATEGORY_META = {
     'latest': {
       title: 'Latest Reads',
       subtitle: '3 Min reads that are fun, insightful and easy to understand. <span class="highlight">This is T37 Wealth as you know it.</span>',
+      quote: '“An investment in knowledge pays the best interest.”',
+      author: '— Benjamin Franklin',
       filter: () => true,
       limit: 20
     },
     'markets': {
       title: 'Markets',
       subtitle: 'Daily pulse of Indian & global financial markets, IPO valuations, macroeconomics, and corporate earnings.',
+      quote: '“In the short run, the market is a voting machine, but in the long run, it is a weighing machine.”',
+      author: '— Benjamin Graham',
       filter: (a) => a.category.toLowerCase() === 'markets'
+    },
+    'crypto': {
+      title: 'Crypto',
+      subtitle: 'Decentralized networks, Bitcoin market cycles, Ethereum Layer 2 economics, and digital asset regulation.',
+      quote: '“The blockchain does one thing: it replaces third-party trust with mathematical proof.”',
+      author: '— Naval Ravikant',
+      filter: (a) => a.category.toLowerCase() === 'crypto'
     },
     'personal-finance': {
       title: 'Personal Finance',
       subtitle: 'Smart money strategies, tax optimization, retirement planning, and financial independence.',
+      quote: '“Do not save what is left after spending, but spend what is left after saving.”',
+      author: '— Warren Buffett',
       filter: (a) => a.category.toLowerCase() === 'personal finance'
     }
   };
@@ -36,6 +49,8 @@
   const articlesGrid = document.getElementById('articles-grid');
   const heroTitle = document.getElementById('hero-title');
   const heroSubtitle = document.getElementById('hero-subtitle');
+  const heroQuoteText = document.getElementById('hero-quote-text');
+  const heroQuoteAuthor = document.getElementById('hero-quote-author');
   const navLinks = document.querySelectorAll('.nav-link');
   const readerModal = document.getElementById('reader-modal');
   const readerContent = document.getElementById('reader-content');
@@ -120,6 +135,12 @@
     // Update Hero Section
     heroTitle.textContent = config.title;
     heroSubtitle.innerHTML = config.subtitle;
+    if (heroQuoteText && config.quote) {
+      heroQuoteText.textContent = config.quote;
+    }
+    if (heroQuoteAuthor && config.author) {
+      heroQuoteAuthor.textContent = config.author;
+    }
 
     // Filter Articles
     let filtered = allArticles.filter(config.filter);

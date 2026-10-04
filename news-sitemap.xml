@@ -2,6 +2,28 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
   <url>
+    <loc>https://wealth.t37.in/#article/direct-mutual-funds-vs-regular-sip-difference</loc>
+    <news:news>
+      <news:publication>
+        <news:name>T37 Wealth</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2026-09-21T03:00:00Z</news:publication_date>
+      <news:title>Direct Mutual Funds vs Regular: The ₹1.2 Crore Compounding Difference</news:title>
+    </news:news>
+  </url>
+  <url>
+    <loc>https://wealth.t37.in/#article/mean-reversion-python-statistical-arbitrage</loc>
+    <news:news>
+      <news:publication>
+        <news:name>T37 Wealth</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2026-09-21T02:45:00Z</news:publication_date>
+      <news:title>Mean Reversion in Python: Statistical Arbitrage on Index Pairs</news:title>
+    </news:news>
+  </url>
+  <url>
     <loc>https://wealth.t37.in/#article/nse-ipo-fairly-valued-explainer</loc>
     <news:news>
       <news:publication>
@@ -10,6 +32,17 @@
       </news:publication>
       <news:publication_date>2026-09-21T02:00:00Z</news:publication_date>
       <news:title>Is NSE’s IPO Really Fairly Valued? An Explainer on the Exchange's Mega Listing</news:title>
+    </news:news>
+  </url>
+  <url>
+    <loc>https://wealth.t37.in/#article/bitcoin-halving-cycles-institutional-etf-inflows</loc>
+    <news:news>
+      <news:publication>
+        <news:name>T37 Wealth</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2026-09-21T01:15:00Z</news:publication_date>
+      <news:title>Bitcoin Halving Cycles: How Institutional ETF Inflows Altered the Math</news:title>
     </news:news>
   </url>
   <url>
@@ -24,6 +57,61 @@
     </news:news>
   </url>
   <url>
+    <loc>https://wealth.t37.in/#article/vwap-order-flow-secrets-institutional-execution</loc>
+    <news:news>
+      <news:publication>
+        <news:name>T37 Wealth</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2026-09-20T13:10:00Z</news:publication_date>
+      <news:title>Order Flow &amp; Volume-Weighted Average Price (VWAP) Secrets</news:title>
+    </news:news>
+  </url>
+  <url>
+    <loc>https://wealth.t37.in/#article/50-30-20-budgeting-rule-inflation-adaptation</loc>
+    <news:news>
+      <news:publication>
+        <news:name>T37 Wealth</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2026-09-20T11:45:00Z</news:publication_date>
+      <news:title>The 50/30/20 Budgeting Rule: Recalibrating for Modern Inflation</news:title>
+    </news:news>
+  </url>
+  <url>
+    <loc>https://wealth.t37.in/#article/ethereum-layer-2-gas-economics-blobspace</loc>
+    <news:news>
+      <news:publication>
+        <news:name>T37 Wealth</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2026-09-20T10:00:00Z</news:publication_date>
+      <news:title>Ethereum Layer 2 Gas Economics: The Impact of Blob Space</news:title>
+    </news:news>
+  </url>
+  <url>
+    <loc>https://wealth.t37.in/#article/5-fatal-backtesting-pitfalls-quant-trading</loc>
+    <news:news>
+      <news:publication>
+        <news:name>T37 Wealth</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2026-09-19T15:20:00Z</news:publication_date>
+      <news:title>The 5 Fatal Backtesting Pitfalls: Lookahead Bias and Overfitting</news:title>
+    </news:news>
+  </url>
+  <url>
+    <loc>https://wealth.t37.in/#article/stablecoins-trillion-dollar-global-settlement</loc>
+    <news:news>
+      <news:publication>
+        <news:name>T37 Wealth</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2026-09-19T13:40:00Z</news:publication_date>
+      <news:title>Stablecoins as Global Clearinghouses: The Trillion-Dollar Settlement Shift</news:title>
+    </news:news>
+  </url>
+  <url>
     <loc>https://wealth.t37.in/#article/india-semiconductor-manufacturing-push</loc>
     <news:news>
       <news:publication>
@@ -32,6 +120,50 @@
       </news:publication>
       <news:publication_date>2026-09-19T11:00:00Z</news:publication_date>
       <news:title>India's Semiconductor Push: From Blueprint to Silicon Reality</news:title>
+    </news:news>
+  </url>
+  <url>
+    <loc>https://wealth.t37.in/#article/term-insurance-fine-print-claims-rejection</loc>
+    <news:news>
+      <news:publication>
+        <news:name>T37 Wealth</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2026-09-19T07:20:00Z</news:publication_date>
+      <news:title>Term Insurance Fine Print: Exclusions Every Policyholder Must Verify</news:title>
+    </news:news>
+  </url>
+  <url>
+    <loc>https://wealth.t37.in/#article/defi-real-yield-protocol-cash-flows</loc>
+    <news:news>
+      <news:publication>
+        <news:name>T37 Wealth</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2026-09-18T16:15:00Z</news:publication_date>
+      <news:title>The Decentralized Finance (DeFi) Real Yield Shift</news:title>
+    </news:news>
+  </url>
+  <url>
+    <loc>https://wealth.t37.in/#article/automating-position-sizing-kelly-criterion</loc>
+    <news:news>
+      <news:publication>
+        <news:name>T37 Wealth</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2026-09-18T14:00:00Z</news:publication_date>
+      <news:title>Automating Dynamic Position Sizing with the Kelly Criterion</news:title>
+    </news:news>
+  </url>
+  <url>
+    <loc>https://wealth.t37.in/#article/nps-vs-ppf-vs-epf-tax-optimization-2026</loc>
+    <news:news>
+      <news:publication>
+        <news:name>T37 Wealth</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2026-09-18T12:30:00Z</news:publication_date>
+      <news:title>NPS vs PPF vs EPF: Optimizing Tax Slabs Under the New Tax Regime</news:title>
     </news:news>
   </url>
   <url>
@@ -57,50 +189,6 @@
     </news:news>
   </url>
   <url>
-    <loc>https://wealth.t37.in/#article/direct-mutual-funds-vs-regular-sip-difference</loc>
-    <news:news>
-      <news:publication>
-        <news:name>T37 Wealth</news:name>
-        <news:language>en</news:language>
-      </news:publication>
-      <news:publication_date>2026-09-21T03:00:00Z</news:publication_date>
-      <news:title>Direct Mutual Funds vs Regular: The ₹1.2 Crore Compounding Difference</news:title>
-    </news:news>
-  </url>
-  <url>
-    <loc>https://wealth.t37.in/#article/50-30-20-budgeting-rule-inflation-adaptation</loc>
-    <news:news>
-      <news:publication>
-        <news:name>T37 Wealth</news:name>
-        <news:language>en</news:language>
-      </news:publication>
-      <news:publication_date>2026-09-20T11:45:00Z</news:publication_date>
-      <news:title>The 50/30/20 Budgeting Rule: Recalibrating for Modern Inflation</news:title>
-    </news:news>
-  </url>
-  <url>
-    <loc>https://wealth.t37.in/#article/term-insurance-fine-print-claims-rejection</loc>
-    <news:news>
-      <news:publication>
-        <news:name>T37 Wealth</news:name>
-        <news:language>en</news:language>
-      </news:publication>
-      <news:publication_date>2026-09-19T07:20:00Z</news:publication_date>
-      <news:title>Term Insurance Fine Print: Exclusions Every Policyholder Must Verify</news:title>
-    </news:news>
-  </url>
-  <url>
-    <loc>https://wealth.t37.in/#article/nps-vs-ppf-vs-epf-tax-optimization-2026</loc>
-    <news:news>
-      <news:publication>
-        <news:name>T37 Wealth</news:name>
-        <news:language>en</news:language>
-      </news:publication>
-      <news:publication_date>2026-09-18T12:30:00Z</news:publication_date>
-      <news:title>NPS vs PPF vs EPF: Optimizing Tax Slabs Under the New Tax Regime</news:title>
-    </news:news>
-  </url>
-  <url>
     <loc>https://wealth.t37.in/#article/psychology-of-market-drawdowns-loss-aversion</loc>
     <news:news>
       <news:publication>
@@ -112,50 +200,6 @@
     </news:news>
   </url>
   <url>
-    <loc>https://wealth.t37.in/#article/mean-reversion-python-statistical-arbitrage</loc>
-    <news:news>
-      <news:publication>
-        <news:name>T37 Wealth</news:name>
-        <news:language>en</news:language>
-      </news:publication>
-      <news:publication_date>2026-09-21T02:45:00Z</news:publication_date>
-      <news:title>Mean Reversion in Python: Statistical Arbitrage on Index Pairs</news:title>
-    </news:news>
-  </url>
-  <url>
-    <loc>https://wealth.t37.in/#article/vwap-order-flow-secrets-institutional-execution</loc>
-    <news:news>
-      <news:publication>
-        <news:name>T37 Wealth</news:name>
-        <news:language>en</news:language>
-      </news:publication>
-      <news:publication_date>2026-09-20T13:10:00Z</news:publication_date>
-      <news:title>Order Flow &amp; Volume-Weighted Average Price (VWAP) Secrets</news:title>
-    </news:news>
-  </url>
-  <url>
-    <loc>https://wealth.t37.in/#article/5-fatal-backtesting-pitfalls-quant-trading</loc>
-    <news:news>
-      <news:publication>
-        <news:name>T37 Wealth</news:name>
-        <news:language>en</news:language>
-      </news:publication>
-      <news:publication_date>2026-09-19T15:20:00Z</news:publication_date>
-      <news:title>The 5 Fatal Backtesting Pitfalls: Lookahead Bias and Overfitting</news:title>
-    </news:news>
-  </url>
-  <url>
-    <loc>https://wealth.t37.in/#article/automating-position-sizing-kelly-criterion</loc>
-    <news:news>
-      <news:publication>
-        <news:name>T37 Wealth</news:name>
-        <news:language>en</news:language>
-      </news:publication>
-      <news:publication_date>2026-09-18T14:00:00Z</news:publication_date>
-      <news:title>Automating Dynamic Position Sizing with the Kelly Criterion</news:title>
-    </news:news>
-  </url>
-  <url>
     <loc>https://wealth.t37.in/#article/building-low-latency-event-driven-execution-engine</loc>
     <news:news>
       <news:publication>
@@ -164,6 +208,17 @@
       </news:publication>
       <news:publication_date>2026-09-17T11:00:00Z</news:publication_date>
       <news:title>Building a Low-Latency Event-Driven Execution Engine in Python</news:title>
+    </news:news>
+  </url>
+  <url>
+    <loc>https://wealth.t37.in/#article/crypto-regulatory-frameworks-global-divergence</loc>
+    <news:news>
+      <news:publication>
+        <news:name>T37 Wealth</news:name>
+        <news:language>en</news:language>
+      </news:publication>
+      <news:publication_date>2026-09-17T08:30:00Z</news:publication_date>
+      <news:title>Crypto Regulatory Frameworks: The Global Divergence</news:title>
     </news:news>
   </url>
 </urlset>

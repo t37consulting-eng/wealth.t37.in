@@ -11,7 +11,7 @@
     <description>3-minute actionable, verified financial journalism covering Indian &amp; global markets, macroeconomics, and personal finance strategies.</description>
     <language>en-us</language>
     <copyright>Copyright 2026 T37 Consulting</copyright>
-    <lastBuildDate>Sun, 04 Oct 2026 13:34:17 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 04 Oct 2026 13:50:54 +0000</lastBuildDate>
     <docs>https://cyber.harvard.edu/rss/rss.html</docs>
     <generator>T37 Wealth RSS Generator</generator>
     <image>
@@ -19,6 +19,77 @@
       <title>T37 Wealth</title>
       <link>https://wealth.t37.in</link>
     </image>
+    <item>
+      <title>Direct Mutual Funds vs Regular: The ₹1.2 Crore Compounding Difference</title>
+      <link>https://wealth.t37.in/#article/direct-mutual-funds-vs-regular-sip-difference</link>
+      <guid isPermaLink="true">https://wealth.t37.in/#article/direct-mutual-funds-vs-regular-sip-difference</guid>
+      <pubDate>Mon, 21 Sep 2026 03:00:00 +0000</pubDate>
+      <dc:creator><![CDATA[T37 Editor Desk]]></dc:creator>
+      <category><![CDATA[Personal Finance]]></category>
+      <description><![CDATA[A 1% distributor commission sounds harmless until you compound it over a 25-year SIP horizon. Here are the exact numbers that could change your retirement corpus.]]></description>
+      <content:encoded><![CDATA[
+<p class="lead">If your bank relationship manager or distributor suggested a mutual fund scheme for your portfolio, chances are virtually 100% that they placed you into a <strong>Regular Plan</strong> rather than a <strong>Direct Plan</strong>. They did not do this out of malice; they did it because the Regular Plan pays them a recurring commission taken straight out of your investments every single day.</p>
+
+<h3>The Mathematics of the 1% Leakage</h3>
+<p>Let's run the exact mathematics. Assume you start a disciplined SIP of ₹25,000 per month for 25 years, expecting an equity compounding rate of 12% per annum before expense deductions:</p>
+
+<div class="callout-box">
+  <h4>The 25-Year Corpus Comparison</h4>
+  <ul>
+    <li><strong>Direct Plan (Expense Ratio 0.6%):</strong> Net return 11.4% → Final Corpus: <strong>₹4.12 Crore</strong></li>
+    <li><strong>Regular Plan (Expense Ratio 1.6%):</strong> Net return 10.4% → Final Corpus: <strong>₹2.88 Crore</strong></li>
+    <li><strong>The Gap:</strong> You forfeit <strong>₹1.24 Crore</strong> in lifetime compounding wealth to your intermediary!</li>
+  </ul>
+</div>
+
+<p>That distributor fee isn't charged only on your profits; it is sliced from your total accumulated asset value 365 days a year, even when the market crashes 20%.</p>
+
+<h3>How to Switch Today</h3>
+<p>Check your latest Mutual Fund Consolidated Account Statement (CAS). If you see the word "Regular" next to your fund names, you are paying this unnecessary toll. Switching to "Direct" takes less than 10 minutes on modern direct platforms, instantly unlocking full compounding power for your financial freedom.</p>
+]]></content:encoded>
+      <enclosure url="https://wealth.t37.in/assets/thumbnails/personal-finance-mutual-funds.svg" type="image/svg+xml" length="1024" />
+    </item>
+    <item>
+      <title>Mean Reversion in Python: Statistical Arbitrage on Index Pairs</title>
+      <link>https://wealth.t37.in/#article/mean-reversion-python-statistical-arbitrage</link>
+      <guid isPermaLink="true">https://wealth.t37.in/#article/mean-reversion-python-statistical-arbitrage</guid>
+      <pubDate>Mon, 21 Sep 2026 02:45:00 +0000</pubDate>
+      <dc:creator><![CDATA[T37 Editor Desk]]></dc:creator>
+      <category><![CDATA[Markets]]></category>
+      <description><![CDATA[Implementing Engle-Granger cointegration tests, z-score threshold execution, and half-life calculations for systematic pairs trading in Python.]]></description>
+      <content:encoded><![CDATA[
+<p class="lead">Most retail traders attempt to trade mean reversion by looking at simple indicators like RSI or Bollinger Bands on single stocks. The problem? A growth stock can stay "overbought" for three years, and a distressed firm can stay "oversold" all the way to bankruptcy. Quantitative statistical arbitrage solves this by trading <strong>cointegrated pairs</strong>.</p>
+
+<h3>Correlation vs. Cointegration</h3>
+<p>Two assets can be 90% correlated over a month and then diverge forever. Cointegration, by contrast, means that a specific linear combination of two prices forms a stationary time series with a constant mean and finite variance. Think of a drunk person walking a dog on an elastic leash: both wander unpredictably, but the leash forces the distance between them to revert to equilibrium.</p>
+
+<div class="callout-box">
+  <h4>Testing for Cointegration in Python</h4>
+  <p>We use the Augmented Dickey-Fuller (ADF) test on the residual spread obtained via Ordinary Least Squares (OLS) regression between Asset A and Asset B.</p>
+</div>
+
+<pre><code class="language-python">import numpy as np
+import statsmodels.api as sm
+from statsmodels.tsa.stattools import coint
+
+def test_pair_cointegration(series_y, series_x):
+    score, pvalue, _ = coint(series_y, series_x)
+    if pvalue < 0.05:
+        # Calculate hedge ratio via OLS
+        X = sm.add_constant(series_x)
+        model = sm.OLS(series_y, X).fit()
+        hedge_ratio = model.params[1]
+        spread = series_y - hedge_ratio * series_x
+        z_score = (spread - spread.mean()) / spread.std()
+        return True, hedge_ratio, z_score
+    return False, None, None
+</code></pre>
+
+<h3>Execution Rules</h3>
+<p>When the normalized spread breaches <strong>+2.0 standard deviations (z-score)</strong>, short the outperforming leg and go long the underperforming leg. When the spread reverts to <strong>0.0 (the historical mean)</strong>, close both legs simultaneously to lock in market-neutral profit.</p>
+]]></content:encoded>
+      <enclosure url="https://wealth.t37.in/assets/thumbnails/algo-mean-reversion.svg" type="image/svg+xml" length="1024" />
+    </item>
     <item>
       <title>Is NSE’s IPO Really Fairly Valued? An Explainer on the Exchange's Mega Listing</title>
       <link>https://wealth.t37.in/#article/nse-ipo-fairly-valued-explainer</link>
@@ -57,6 +128,30 @@
       <enclosure url="https://wealth.t37.in/assets/thumbnails/markets-nse-ipo.svg" type="image/svg+xml" length="1024" />
     </item>
     <item>
+      <title>Bitcoin Halving Cycles: How Institutional ETF Inflows Altered the Math</title>
+      <link>https://wealth.t37.in/#article/bitcoin-halving-cycles-institutional-etf-inflows</link>
+      <guid isPermaLink="true">https://wealth.t37.in/#article/bitcoin-halving-cycles-institutional-etf-inflows</guid>
+      <pubDate>Mon, 21 Sep 2026 01:15:00 +0000</pubDate>
+      <dc:creator><![CDATA[T37 Editor Desk]]></dc:creator>
+      <category><![CDATA[Crypto]]></category>
+      <description><![CDATA[Traditional 4-year halving cycle models relied on retail cycles and miner liquidation pressure. Spot ETFs and institutional custodial reserves have fundamentally altered price dynamics.]]></description>
+      <content:encoded><![CDATA[
+<p class="lead">For over a decade, Bitcoin's macroeconomic cadence was governed by a deterministic line in Satoshi Nakamoto's code: every 210,000 blocks (~4 years), the block subsidy awarded to miners cuts in half. But the post-2024 landscape has witnessed a structural break from historical precedent.</p>
+
+<h3>The Supply Squeeze Equation</h3>
+<p>Following the latest halving, daily new issuance dropped to roughly 450 BTC per day (or ~164,000 BTC annually). Against this capped trickle, Wall Street spot ETF issuers (BlackRock, Fidelity, Bitwise) regularly absorb between 2,000 and 5,000 BTC per day during periods of sustained inflows.</p>
+
+<div class="callout-box">
+  <h4>The Structural Multiplier</h4>
+  <p>When daily net institutional purchases exceed daily newly minted supply by 5x to 10x, buyers must bid directly into illiquid secondary market order books, creating sharp convex price reactions.</p>
+</div>
+
+<h3>The Shift from Retail Euphoria to Balance Sheet Hedging</h3>
+<p>In previous cycles (2017 and 2021), price discovery was catalyzed by leveraged retail derivatives on offshore exchanges. Today, institutional custodial reserves dominate. Corporate treasuries and sovereign wealth funds treat digital gold not as a speculative chip, but as an uncorrelated sovereign hedge against fiat debasement.</p>
+]]></content:encoded>
+      <enclosure url="https://wealth.t37.in/assets/thumbnails/crypto-btc-halving.svg" type="image/svg+xml" length="1024" />
+    </item>
+    <item>
       <title>US Treasury Bond Buybacks: Why Washington is Buying Its Own Debt</title>
       <link>https://wealth.t37.in/#article/us-treasury-bond-buybacks-liquidity</link>
       <guid isPermaLink="true">https://wealth.t37.in/#article/us-treasury-bond-buybacks-liquidity</guid>
@@ -85,6 +180,128 @@
       <enclosure url="https://wealth.t37.in/assets/thumbnails/markets-treasury-buyback.svg" type="image/svg+xml" length="1024" />
     </item>
     <item>
+      <title>Order Flow &amp; Volume-Weighted Average Price (VWAP) Secrets</title>
+      <link>https://wealth.t37.in/#article/vwap-order-flow-secrets-institutional-execution</link>
+      <guid isPermaLink="true">https://wealth.t37.in/#article/vwap-order-flow-secrets-institutional-execution</guid>
+      <pubDate>Sun, 20 Sep 2026 13:10:00 +0000</pubDate>
+      <dc:creator><![CDATA[T37 Editor Desk]]></dc:creator>
+      <category><![CDATA[Markets]]></category>
+      <description><![CDATA[How institutional execution algorithms (TWAP, VWAP, POV) operate in practice, and how retail quantitative models can detect institutional footprints.]]></description>
+      <content:encoded><![CDATA[
+<p class="lead">If a retail trader wants to buy 100 shares of Reliance or Apple, they press "Market Buy" and get filled within 50 milliseconds. But if an institutional pension fund needs to accumulate 2 million shares, clicking "Market Buy" would immediately clear the entire order book, spiking the price 8% against themselves. This reality created the science of algorithmic execution.</p>
+
+<h3>How Execution Algos Work</h3>
+<p>To mask their footprint, institutional execution desks deploy specialized automated engines:</p>
+<ul>
+  <li><strong>VWAP (Volume-Weighted Average Price):</strong> Matches order pacing to the statistical historical volume curve of the asset (high volume at 9:15 AM and 3:00 PM, lull around 1:00 PM).</li>
+  <li><strong>TWAP (Time-Weighted Average Price):</strong> Slices orders into equal time slices (e.g. 50 shares every 15 seconds) regardless of volume.</li>
+  <li><strong>POV (Percentage of Volume):</strong> Dynamically participates as an exact percentage (e.g. 8%) of live tape volume.</li>
+</ul>
+
+<div class="callout-box">
+  <h4>The Trader's Edge</h4>
+  <p>Because these algorithms are legally mandated to achieve execution at or better than the daily VWAP benchmark, the VWAP line behaves as a magnetic gravity well during the trading session. Prices trading substantially below VWAP incentivize institutional buying algorithms to trigger aggressively.</p>
+</div>
+]]></content:encoded>
+      <enclosure url="https://wealth.t37.in/assets/thumbnails/algo-vwap-orderflow.svg" type="image/svg+xml" length="1024" />
+    </item>
+    <item>
+      <title>The 50/30/20 Budgeting Rule: Recalibrating for Modern Inflation</title>
+      <link>https://wealth.t37.in/#article/50-30-20-budgeting-rule-inflation-adaptation</link>
+      <guid isPermaLink="true">https://wealth.t37.in/#article/50-30-20-budgeting-rule-inflation-adaptation</guid>
+      <pubDate>Sun, 20 Sep 2026 11:45:00 +0000</pubDate>
+      <dc:creator><![CDATA[T37 Editor Desk]]></dc:creator>
+      <category><![CDATA[Personal Finance]]></category>
+      <description><![CDATA[Why 50% for needs fails in metropolitan rental markets, and how dynamic budgeting frameworks safeguard your savings rate in 2026.]]></description>
+      <content:encoded><![CDATA[
+<p class="lead">For over two decades, financial textbooks preached the golden rule of budgeting: 50% of your take-home pay for essential Needs, 30% for discretionary Wants, and 20% for Savings. But try telling a young professional renting an apartment in Mumbai, Bengaluru, or Delhi NCR that rent, utilities, groceries, and medical insurance should only total 50% of their salary.</p>
+
+<h3>The Realities of Modern Urban Cost of Living</h3>
+<p>Between soaring urban real estate rentals, quality healthcare premiums, and education inflation, essential expenses routinely consume 60% or more of net monthly compensation. When people find it impossible to stick to the textbook 50%, they often abandon budgeting entirely.</p>
+
+<h3>The Modern Solution: The Inverted Budget</h3>
+<p>Instead of calculating your savings from whatever crumbs remain at the end of the month, flip the formula upside down:</p>
+<ol>
+  <li><strong>Automate Savings First (25-30%):</strong> Schedule your mutual fund SIPs, PPF contributions, and emergency fund transfers on the 2nd day after your salary credit.</li>
+  <li><strong>Obligations & Needs (50-55%):</strong> Cover rent, loan EMIs, groceries, utility bills, and insurance premiums.</li>
+  <li><strong>Guilt-Free Spending (The Remainder):</strong> Whatever sits in your discretionary account can be spent on dining out, travel, gadgets, and concerts without financial guilt.</li>
+</ol>
+<p>When your future self is paid first, lifestyle inflation can never compromise your long-term compounding.</p>
+]]></content:encoded>
+      <enclosure url="https://wealth.t37.in/assets/thumbnails/personal-finance-budgeting.svg" type="image/svg+xml" length="1024" />
+    </item>
+    <item>
+      <title>Ethereum Layer 2 Gas Economics: The Impact of Blob Space</title>
+      <link>https://wealth.t37.in/#article/ethereum-layer-2-gas-economics-blobspace</link>
+      <guid isPermaLink="true">https://wealth.t37.in/#article/ethereum-layer-2-gas-economics-blobspace</guid>
+      <pubDate>Sun, 20 Sep 2026 10:00:00 +0000</pubDate>
+      <dc:creator><![CDATA[T37 Editor Desk]]></dc:creator>
+      <category><![CDATA[Crypto]]></category>
+      <description><![CDATA[Layer 2 rollups now settle transactions for fractions of a cent using blob space. But what does ultra-cheap data availability mean for Layer 1 fee burn and staking yield?]]></description>
+      <content:encoded><![CDATA[
+<p class="lead">Remember paying $50 to swap tokens on Uniswap during the height of the 2021 bull run? Today, transacting on Ethereum's leading Layer 2 networks—such as Arbitrum, Base, and Optimism—costs less than two cents. That monumental leap in user experience was powered by one architectural breakthrough: <strong>Blob Space</strong>.</p>
+
+<h3>How Proto-Danksharding Solved the Data Bottleneck</h3>
+<p>Previously, rollups had to compress thousands of transactions and post them directly to Ethereum's expensive `calldata` storage, competing with ordinary L1 users for gas. With proto-danksharding, Ethereum created temporary data sidecars called "blobs". Blobs persist on the network for just 18 days—long enough for fraud proofs or validity checks—before being pruned.</p>
+
+<h3>The Economic Dilemma for L1 Stakers</h3>
+<p>While users celebrated negligible fees, the upgrade triggered an intriguing macroeconomic dilemma for ETH holders:</p>
+<ul>
+  <li><strong>EIP-1559 Fee Burn:</strong> When L1 gas fees drop, fewer ETH are burned, nudging net token issuance slightly positive.</li>
+  <li><strong>Staking Yields:</strong> Validator priority fees diminish when network congestion moves off the main chain.</li>
+</ul>
+<p>The bull case relies on a classic Jevons paradox: making transactions virtually free stimulates such a colossal explosion in decentralized applications, gaming, and tokenized real-world assets (RWAs) that blob space eventually becomes saturated, restoring sustainable value accrual to Ethereum.</p>
+]]></content:encoded>
+      <enclosure url="https://wealth.t37.in/assets/thumbnails/crypto-eth-l2.svg" type="image/svg+xml" length="1024" />
+    </item>
+    <item>
+      <title>The 5 Fatal Backtesting Pitfalls: Lookahead Bias and Overfitting</title>
+      <link>https://wealth.t37.in/#article/5-fatal-backtesting-pitfalls-quant-trading</link>
+      <guid isPermaLink="true">https://wealth.t37.in/#article/5-fatal-backtesting-pitfalls-quant-trading</guid>
+      <pubDate>Sat, 19 Sep 2026 15:20:00 +0000</pubDate>
+      <dc:creator><![CDATA[T37 Editor Desk]]></dc:creator>
+      <category><![CDATA[Markets]]></category>
+      <description><![CDATA[Why 90% of backtested trading strategies with stellar Sharpe ratios fail in live trading: survivorship bias, slippage models, and parameter snooping.]]></description>
+      <content:encoded><![CDATA[
+<p class="lead">Every aspiring algorithmic trader has experienced the euphoric high of designing a strategy in Python or Backtrader that produces a 4.5 Sharpe ratio, a 75% win rate, and a 45-degree equity curve. Then they deploy real capital to live broker APIs, and the system loses 12% in the first three weeks. What happened?</p>
+
+<h3>The 5 Deadly Quant Sins</h3>
+<ol>
+  <li><strong>Lookahead Bias:</strong> Accidentally referencing `df['close'].shift(-1)` or utilizing daily summary indicators calculated with data that was not yet known at 10:00 AM.</li>
+  <li><strong>Survivorship Bias:</strong> Testing an equity strategy only against the current constituents of the Nifty 50 or S&P 500, conveniently ignoring all the failed companies that dropped out of the index over the past 10 years.</li>
+  <li><strong>Unrealistic Slippage & Commission:</strong> Assuming limit orders get filled 100% of the time at the exact bid price without market impact or exchange transaction charges.</li>
+  <li><strong>Overfitting / Curve-Fitting:</strong> Tweaking 14 different parameters (e.g. setting RSI length to 17.3 and moving average to 41.5) until the strategy memorizes past market noise rather than discovering a genuine structural market anomaly.</li>
+  <li><strong>Regime Change Neglect:</strong> Developing a strategy during an uninterrupted 2-year bull market and expecting it to survive a sudden volatility spike or liquidity freeze.</li>
+</ol>
+
+<p>If your strategy hasn't been subjected to out-of-sample stress testing, cross-validation, and execution delay simulation, it isn't ready for real capital.</p>
+]]></content:encoded>
+      <enclosure url="https://wealth.t37.in/assets/thumbnails/algo-backtest-pitfalls.svg" type="image/svg+xml" length="1024" />
+    </item>
+    <item>
+      <title>Stablecoins as Global Clearinghouses: The Trillion-Dollar Settlement Shift</title>
+      <link>https://wealth.t37.in/#article/stablecoins-trillion-dollar-global-settlement</link>
+      <guid isPermaLink="true">https://wealth.t37.in/#article/stablecoins-trillion-dollar-global-settlement</guid>
+      <pubDate>Sat, 19 Sep 2026 13:40:00 +0000</pubDate>
+      <dc:creator><![CDATA[T37 Editor Desk]]></dc:creator>
+      <category><![CDATA[Crypto]]></category>
+      <description><![CDATA[USDT and USDC now settle more annualized volume than Visa. We examine cross-border remittance cost savings, Treasury bill holdings, and central bank responses.]]></description>
+      <content:encoded><![CDATA[
+<p class="lead">If you want to understand where genuine cryptocurrency adoption is occurring right now, look past speculative meme coins and look at the quiet revolution of fiat-backed digital dollars.</p>
+
+<h3>The Unstoppable Dollarization of Emerging Markets</h3>
+<p>In countries grappling with double-digit domestic inflation or strict capital controls—such as Argentina, Turkey, Nigeria, and parts of Southeast Asia—merchants and freelancers no longer wait for slow wire transfers through legacy SWIFT correspondent banking. They accept USDT or USDC directly to a mobile crypto wallet in 3 seconds flat.</p>
+
+<div class="callout-box">
+  <h4>Sovereign Debt Players</h4>
+  <p>With stablecoin market capitalization surpassing $220 billion, reserve custodians hold massive portfolios of 3-month US Treasury bills, earning 4-5% risk-free yields while paying 0% interest on outstanding tokens. It is arguably the most profitable financial business model ever devised.</p>
+</div>
+
+<p>Far from displacing the US Dollar, stablecoins have inadvertently extended American monetary hegemony into the digital age, anchoring global cross-border payments firmly in greenback-denominated units.</p>
+]]></content:encoded>
+      <enclosure url="https://wealth.t37.in/assets/thumbnails/crypto-stablecoins.svg" type="image/svg+xml" length="1024" />
+    </item>
+    <item>
       <title>India's Semiconductor Push: From Blueprint to Silicon Reality</title>
       <link>https://wealth.t37.in/#article/india-semiconductor-manufacturing-push</link>
       <guid isPermaLink="true">https://wealth.t37.in/#article/india-semiconductor-manufacturing-push</guid>
@@ -111,6 +328,104 @@
 <p>If India successfully establishes domestic assembly, testing, and packaging (ATMP) alongside foundry capacity, the geopolitical and economic payoff will echo India’s IT boom of the 1990s.</p>
 ]]></content:encoded>
       <enclosure url="https://wealth.t37.in/assets/thumbnails/markets-semiconductor.svg" type="image/svg+xml" length="1024" />
+    </item>
+    <item>
+      <title>Term Insurance Fine Print: Exclusions Every Policyholder Must Verify</title>
+      <link>https://wealth.t37.in/#article/term-insurance-fine-print-claims-rejection</link>
+      <guid isPermaLink="true">https://wealth.t37.in/#article/term-insurance-fine-print-claims-rejection</guid>
+      <pubDate>Sat, 19 Sep 2026 07:20:00 +0000</pubDate>
+      <dc:creator><![CDATA[T37 Editor Desk]]></dc:creator>
+      <category><![CDATA[Personal Finance]]></category>
+      <description><![CDATA[Non-disclosure clauses, pre-existing conditions, lifestyle definitions, and claim settlement metrics: how to guarantee your family's payout is never contested.]]></description>
+      <content:encoded><![CDATA[
+<p class="lead">Buying a ₹2 Crore term insurance policy costs less than ₹1,500 a month for a healthy 30-year-old. It is the single most cost-effective financial safety net you will ever purchase. Yet, thousands of bereaved families face traumatizing claim disputes every year due to avoidable errors during the application phase.</p>
+
+<h3>The Cardinal Rule: Full Disclosure Beats Lower Premiums</h3>
+<p>Some applicants casually tick "No" when asked if they have ever smoked a cigarette, consumed alcohol, or undergone routine surgery, hoping to save ₹2,000 on annual premiums. This is financial suicide for your dependents.</p>
+<p>If an insurer discovers even an accidental omission during a claim investigation, they possess legal grounds to repudiate the contract. Over-disclose everything: mild hypertension, parent diabetes, past diagnostic tests, and existing policies from other companies.</p>
+
+<div class="callout-box">
+  <h4>The 3-Year Incontestability Shield (Section 45)</h4>
+  <p>Under Indian insurance law, once a life insurance policy has been in force continuously for three full years, the insurer cannot question or reject the claim on any grounds whatsoever, including fraud or non-disclosure. Surviving those initial 36 months with honest disclosures makes your policy bulletproof.</p>
+</div>
+
+<h3>Avoid the "Return of Premium" Trap</h3>
+<p>Insurance agents aggressively push "Term Return of Premium" (TROP) plans, claiming "you get all your money back if you survive!" What they hide is that TROP costs nearly 3x more. If you invest that premium difference into a simple index fund over 30 years, you will accumulate far more wealth than the meager refund the insurer returns.</p>
+]]></content:encoded>
+      <enclosure url="https://wealth.t37.in/assets/thumbnails/personal-finance-insurance.svg" type="image/svg+xml" length="1024" />
+    </item>
+    <item>
+      <title>The Decentralized Finance (DeFi) Real Yield Shift</title>
+      <link>https://wealth.t37.in/#article/defi-real-yield-protocol-cash-flows</link>
+      <guid isPermaLink="true">https://wealth.t37.in/#article/defi-real-yield-protocol-cash-flows</guid>
+      <pubDate>Fri, 18 Sep 2026 16:15:00 +0000</pubDate>
+      <dc:creator><![CDATA[T37 Editor Desk]]></dc:creator>
+      <category><![CDATA[Crypto]]></category>
+      <description><![CDATA[Moving away from hyper-inflationary token emissions to sustainable organic fee generation: how leading automated market makers and money markets survived the crypto winter.]]></description>
+      <content:encoded><![CDATA[
+<p class="lead">During the 2020-2021 "DeFi Summer," decentralized protocols promised 1,000% Annual Percentage Yields (APYs). It did not take a PhD in finance to realize the obvious catch: those yields were paid in freshly minted native tokens that dropped 99% in value once mercenary liquidity providers dumped them.</p>
+
+<h3>The Maturation to Organic Cash Flow</h3>
+<p>Today's battle-tested DeFi protocols operate on traditional economic principles. Lending markets like Aave, decentralized exchange engines like Uniswap, and liquid staking systems like Lido generate billions of dollars in gross annualized fees. When users borrow, trade, or stake, real economic value changes hands.</p>
+
+<p>Leading DAOs have initiated "fee switch" governance proposals, channeling protocol fees into systematic token buy-and-burn mechanics or direct USDC dividend distributions to stakers. By grounding valuations in discounted cash flow (DCF) models rather than narrative buzzwords, decentralized finance has finally earned a seat at the serious institutional table.</p>
+]]></content:encoded>
+      <enclosure url="https://wealth.t37.in/assets/thumbnails/crypto-defi-yield.svg" type="image/svg+xml" length="1024" />
+    </item>
+    <item>
+      <title>Automating Dynamic Position Sizing with the Kelly Criterion</title>
+      <link>https://wealth.t37.in/#article/automating-position-sizing-kelly-criterion</link>
+      <guid isPermaLink="true">https://wealth.t37.in/#article/automating-position-sizing-kelly-criterion</guid>
+      <pubDate>Fri, 18 Sep 2026 14:00:00 +0000</pubDate>
+      <dc:creator><![CDATA[T37 Editor Desk]]></dc:creator>
+      <category><![CDATA[Personal Finance]]></category>
+      <description><![CDATA[Mathematical framework for allocating optimal leverage and fraction-of-capital per trade to maximize logarithmic wealth growth while preventing ruin.]]></description>
+      <content:encoded><![CDATA[
+<p class="lead">Most traders spend 95% of their intellectual energy trying to predict where prices will go next (entry signals) and almost zero time deciding <em>how much capital</em> to commit once a signal triggers. Yet in quantitative finance, position sizing is the primary determinant of whether a system compounds exponentially or goes bust.</p>
+
+<h3>The Kelly Formula</h3>
+<p>Developed by Bell Labs scientist John Larry Kelly Jr. in 1956, the formula calculates the optimal fraction ($f^*$) of wealth to risk:</p>
+
+<div class="callout-box">
+  <h4>Kelly Formula:</h4>
+  <p><strong>f* = (b * p - q) / b</strong></p>
+  <p>Where:<br>
+  • <strong>p</strong> = Probability of a winning trade<br>
+  • <strong>q</strong> = Probability of a losing trade (1 - p)<br>
+  • <strong>b</strong> = Win/Loss payoff ratio (average gain / average loss)
+  </p>
+</div>
+
+<h3>Why Full Kelly is Dangerous in Real Markets</h3>
+<p>If your historical win rate is 55% and your payoff ratio is 1.5, full Kelly suggests wagering roughly 25% of your bankroll on each trade. While this maximizes the long-term expected value of log wealth, a string of 6 bad trades will cause an unbearable 75% drawdown.</p>
+<p>Because financial returns exhibit negative skewness and fat tails (black swans), professional quants universally utilize <strong>Half-Kelly (0.5 * f*)</strong> or <strong>Quarter-Kelly (0.25 * f*)</strong>. This smooths equity drawdowns by 50% while capturing the majority of compound growth.</p>
+]]></content:encoded>
+      <enclosure url="https://wealth.t37.in/assets/thumbnails/algo-kelly-criterion.svg" type="image/svg+xml" length="1024" />
+    </item>
+    <item>
+      <title>NPS vs PPF vs EPF: Optimizing Tax Slabs Under the New Tax Regime</title>
+      <link>https://wealth.t37.in/#article/nps-vs-ppf-vs-epf-tax-optimization-2026</link>
+      <guid isPermaLink="true">https://wealth.t37.in/#article/nps-vs-ppf-vs-epf-tax-optimization-2026</guid>
+      <pubDate>Fri, 18 Sep 2026 12:30:00 +0000</pubDate>
+      <dc:creator><![CDATA[T37 Editor Desk]]></dc:creator>
+      <category><![CDATA[Personal Finance]]></category>
+      <description><![CDATA[Evaluating Tier-1 NPS corporate contributions under Section 80CCD(2) versus traditional tax shelters in the revised fiscal regime.]]></description>
+      <content:encoded><![CDATA[
+<p class="lead">With the New Tax Regime emerging as the default and most lucrative choice for the vast majority of salaried earners, many assumed that tax-advantaged investing had been rendered obsolete. In reality, the strategic battlefield has simply shifted.</p>
+
+<h3>The Power of Section 80CCD(2) Corporate NPS</h3>
+<p>While Section 80C's ₹1.5 lakh deduction is dead under the New Regime, <strong>Section 80CCD(2)</strong> remains alive and kicking. This provision permits your employer to contribute up to 14% of your Basic + DA directly into your Tier-1 National Pension System (NPS) account.</p>
+
+<div class="callout-box">
+  <h4>Instant 30% Tax Savings</h4>
+  <p>For an individual in the 30% tax bracket with a Basic Salary of ₹15,00,000, restructuring your compensation to include ₹2,10,000 (14%) in employer NPS reduces your taxable income by that exact amount, saving over ₹65,000 in immediate income tax each year.</p>
+</div>
+
+<h3>Asset Allocation: Active vs Auto Choice</h3>
+<p>NPS is no longer a boring government bond receptacle. Under "Active Choice," you can allocate up to 75% of your contributions into Equity Schemes (Scheme E), managed by top institutional fund houses at rock-bottom expense ratios under 0.05%.</p>
+<p>Combine disciplined corporate NPS equity allocations with Public Provident Fund (PPF) for sovereign debt stability, and you establish a rock-solid, tax-optimized retirement fortress.</p>
+]]></content:encoded>
+      <enclosure url="https://wealth.t37.in/assets/thumbnails/personal-finance-taxation.svg" type="image/svg+xml" length="1024" />
     </item>
     <item>
       <title>Why Foreign Institutional Investors (FIIs) Are Rebalancing Portfolios</title>
@@ -158,111 +473,6 @@
       <enclosure url="https://wealth.t37.in/assets/thumbnails/markets-fmcg-margins.svg" type="image/svg+xml" length="1024" />
     </item>
     <item>
-      <title>Direct Mutual Funds vs Regular: The ₹1.2 Crore Compounding Difference</title>
-      <link>https://wealth.t37.in/#article/direct-mutual-funds-vs-regular-sip-difference</link>
-      <guid isPermaLink="true">https://wealth.t37.in/#article/direct-mutual-funds-vs-regular-sip-difference</guid>
-      <pubDate>Mon, 21 Sep 2026 03:00:00 +0000</pubDate>
-      <dc:creator><![CDATA[T37 Editor Desk]]></dc:creator>
-      <category><![CDATA[Personal Finance]]></category>
-      <description><![CDATA[A 1% distributor commission sounds harmless until you compound it over a 25-year SIP horizon. Here are the exact numbers that could change your retirement corpus.]]></description>
-      <content:encoded><![CDATA[
-<p class="lead">If your bank relationship manager or distributor suggested a mutual fund scheme for your portfolio, chances are virtually 100% that they placed you into a <strong>Regular Plan</strong> rather than a <strong>Direct Plan</strong>. They did not do this out of malice; they did it because the Regular Plan pays them a recurring commission taken straight out of your investments every single day.</p>
-
-<h3>The Mathematics of the 1% Leakage</h3>
-<p>Let's run the exact mathematics. Assume you start a disciplined SIP of ₹25,000 per month for 25 years, expecting an equity compounding rate of 12% per annum before expense deductions:</p>
-
-<div class="callout-box">
-  <h4>The 25-Year Corpus Comparison</h4>
-  <ul>
-    <li><strong>Direct Plan (Expense Ratio 0.6%):</strong> Net return 11.4% → Final Corpus: <strong>₹4.12 Crore</strong></li>
-    <li><strong>Regular Plan (Expense Ratio 1.6%):</strong> Net return 10.4% → Final Corpus: <strong>₹2.88 Crore</strong></li>
-    <li><strong>The Gap:</strong> You forfeit <strong>₹1.24 Crore</strong> in lifetime compounding wealth to your intermediary!</li>
-  </ul>
-</div>
-
-<p>That distributor fee isn't charged only on your profits; it is sliced from your total accumulated asset value 365 days a year, even when the market crashes 20%.</p>
-
-<h3>How to Switch Today</h3>
-<p>Check your latest Mutual Fund Consolidated Account Statement (CAS). If you see the word "Regular" next to your fund names, you are paying this unnecessary toll. Switching to "Direct" takes less than 10 minutes on modern direct platforms, instantly unlocking full compounding power for your financial freedom.</p>
-]]></content:encoded>
-      <enclosure url="https://wealth.t37.in/assets/thumbnails/personal-finance-mutual-funds.svg" type="image/svg+xml" length="1024" />
-    </item>
-    <item>
-      <title>The 50/30/20 Budgeting Rule: Recalibrating for Modern Inflation</title>
-      <link>https://wealth.t37.in/#article/50-30-20-budgeting-rule-inflation-adaptation</link>
-      <guid isPermaLink="true">https://wealth.t37.in/#article/50-30-20-budgeting-rule-inflation-adaptation</guid>
-      <pubDate>Sun, 20 Sep 2026 11:45:00 +0000</pubDate>
-      <dc:creator><![CDATA[T37 Editor Desk]]></dc:creator>
-      <category><![CDATA[Personal Finance]]></category>
-      <description><![CDATA[Why 50% for needs fails in metropolitan rental markets, and how dynamic budgeting frameworks safeguard your savings rate in 2026.]]></description>
-      <content:encoded><![CDATA[
-<p class="lead">For over two decades, financial textbooks preached the golden rule of budgeting: 50% of your take-home pay for essential Needs, 30% for discretionary Wants, and 20% for Savings. But try telling a young professional renting an apartment in Mumbai, Bengaluru, or Delhi NCR that rent, utilities, groceries, and medical insurance should only total 50% of their salary.</p>
-
-<h3>The Realities of Modern Urban Cost of Living</h3>
-<p>Between soaring urban real estate rentals, quality healthcare premiums, and education inflation, essential expenses routinely consume 60% or more of net monthly compensation. When people find it impossible to stick to the textbook 50%, they often abandon budgeting entirely.</p>
-
-<h3>The Modern Solution: The Inverted Budget</h3>
-<p>Instead of calculating your savings from whatever crumbs remain at the end of the month, flip the formula upside down:</p>
-<ol>
-  <li><strong>Automate Savings First (25-30%):</strong> Schedule your mutual fund SIPs, PPF contributions, and emergency fund transfers on the 2nd day after your salary credit.</li>
-  <li><strong>Obligations & Needs (50-55%):</strong> Cover rent, loan EMIs, groceries, utility bills, and insurance premiums.</li>
-  <li><strong>Guilt-Free Spending (The Remainder):</strong> Whatever sits in your discretionary account can be spent on dining out, travel, gadgets, and concerts without financial guilt.</li>
-</ol>
-<p>When your future self is paid first, lifestyle inflation can never compromise your long-term compounding.</p>
-]]></content:encoded>
-      <enclosure url="https://wealth.t37.in/assets/thumbnails/personal-finance-budgeting.svg" type="image/svg+xml" length="1024" />
-    </item>
-    <item>
-      <title>Term Insurance Fine Print: Exclusions Every Policyholder Must Verify</title>
-      <link>https://wealth.t37.in/#article/term-insurance-fine-print-claims-rejection</link>
-      <guid isPermaLink="true">https://wealth.t37.in/#article/term-insurance-fine-print-claims-rejection</guid>
-      <pubDate>Sat, 19 Sep 2026 07:20:00 +0000</pubDate>
-      <dc:creator><![CDATA[T37 Editor Desk]]></dc:creator>
-      <category><![CDATA[Personal Finance]]></category>
-      <description><![CDATA[Non-disclosure clauses, pre-existing conditions, lifestyle definitions, and claim settlement metrics: how to guarantee your family's payout is never contested.]]></description>
-      <content:encoded><![CDATA[
-<p class="lead">Buying a ₹2 Crore term insurance policy costs less than ₹1,500 a month for a healthy 30-year-old. It is the single most cost-effective financial safety net you will ever purchase. Yet, thousands of bereaved families face traumatizing claim disputes every year due to avoidable errors during the application phase.</p>
-
-<h3>The Cardinal Rule: Full Disclosure Beats Lower Premiums</h3>
-<p>Some applicants casually tick "No" when asked if they have ever smoked a cigarette, consumed alcohol, or undergone routine surgery, hoping to save ₹2,000 on annual premiums. This is financial suicide for your dependents.</p>
-<p>If an insurer discovers even an accidental omission during a claim investigation, they possess legal grounds to repudiate the contract. Over-disclose everything: mild hypertension, parent diabetes, past diagnostic tests, and existing policies from other companies.</p>
-
-<div class="callout-box">
-  <h4>The 3-Year Incontestability Shield (Section 45)</h4>
-  <p>Under Indian insurance law, once a life insurance policy has been in force continuously for three full years, the insurer cannot question or reject the claim on any grounds whatsoever, including fraud or non-disclosure. Surviving those initial 36 months with honest disclosures makes your policy bulletproof.</p>
-</div>
-
-<h3>Avoid the "Return of Premium" Trap</h3>
-<p>Insurance agents aggressively push "Term Return of Premium" (TROP) plans, claiming "you get all your money back if you survive!" What they hide is that TROP costs nearly 3x more. If you invest that premium difference into a simple index fund over 30 years, you will accumulate far more wealth than the meager refund the insurer returns.</p>
-]]></content:encoded>
-      <enclosure url="https://wealth.t37.in/assets/thumbnails/personal-finance-insurance.svg" type="image/svg+xml" length="1024" />
-    </item>
-    <item>
-      <title>NPS vs PPF vs EPF: Optimizing Tax Slabs Under the New Tax Regime</title>
-      <link>https://wealth.t37.in/#article/nps-vs-ppf-vs-epf-tax-optimization-2026</link>
-      <guid isPermaLink="true">https://wealth.t37.in/#article/nps-vs-ppf-vs-epf-tax-optimization-2026</guid>
-      <pubDate>Fri, 18 Sep 2026 12:30:00 +0000</pubDate>
-      <dc:creator><![CDATA[T37 Editor Desk]]></dc:creator>
-      <category><![CDATA[Personal Finance]]></category>
-      <description><![CDATA[Evaluating Tier-1 NPS corporate contributions under Section 80CCD(2) versus traditional tax shelters in the revised fiscal regime.]]></description>
-      <content:encoded><![CDATA[
-<p class="lead">With the New Tax Regime emerging as the default and most lucrative choice for the vast majority of salaried earners, many assumed that tax-advantaged investing had been rendered obsolete. In reality, the strategic battlefield has simply shifted.</p>
-
-<h3>The Power of Section 80CCD(2) Corporate NPS</h3>
-<p>While Section 80C's ₹1.5 lakh deduction is dead under the New Regime, <strong>Section 80CCD(2)</strong> remains alive and kicking. This provision permits your employer to contribute up to 14% of your Basic + DA directly into your Tier-1 National Pension System (NPS) account.</p>
-
-<div class="callout-box">
-  <h4>Instant 30% Tax Savings</h4>
-  <p>For an individual in the 30% tax bracket with a Basic Salary of ₹15,00,000, restructuring your compensation to include ₹2,10,000 (14%) in employer NPS reduces your taxable income by that exact amount, saving over ₹65,000 in immediate income tax each year.</p>
-</div>
-
-<h3>Asset Allocation: Active vs Auto Choice</h3>
-<p>NPS is no longer a boring government bond receptacle. Under "Active Choice," you can allocate up to 75% of your contributions into Equity Schemes (Scheme E), managed by top institutional fund houses at rock-bottom expense ratios under 0.05%.</p>
-<p>Combine disciplined corporate NPS equity allocations with Public Provident Fund (PPF) for sovereign debt stability, and you establish a rock-solid, tax-optimized retirement fortress.</p>
-]]></content:encoded>
-      <enclosure url="https://wealth.t37.in/assets/thumbnails/personal-finance-taxation.svg" type="image/svg+xml" length="1024" />
-    </item>
-    <item>
       <title>The Psychology of Market Drawdowns: Staying Invested When Red</title>
       <link>https://wealth.t37.in/#article/psychology-of-market-drawdowns-loss-aversion</link>
       <guid isPermaLink="true">https://wealth.t37.in/#article/psychology-of-market-drawdowns-loss-aversion</guid>
@@ -281,127 +491,6 @@
 <p>When markets correct, view lower prices not as a destruction of capital, but as a seasonal discount sale on productive businesses. Automate your investments, close the trading apps, and let time do the heavy lifting.</p>
 ]]></content:encoded>
       <enclosure url="https://wealth.t37.in/assets/thumbnails/personal-finance-behavioral.svg" type="image/svg+xml" length="1024" />
-    </item>
-    <item>
-      <title>Mean Reversion in Python: Statistical Arbitrage on Index Pairs</title>
-      <link>https://wealth.t37.in/#article/mean-reversion-python-statistical-arbitrage</link>
-      <guid isPermaLink="true">https://wealth.t37.in/#article/mean-reversion-python-statistical-arbitrage</guid>
-      <pubDate>Mon, 21 Sep 2026 02:45:00 +0000</pubDate>
-      <dc:creator><![CDATA[T37 Editor Desk]]></dc:creator>
-      <category><![CDATA[Markets]]></category>
-      <description><![CDATA[Implementing Engle-Granger cointegration tests, z-score threshold execution, and half-life calculations for systematic pairs trading in Python.]]></description>
-      <content:encoded><![CDATA[
-<p class="lead">Most retail traders attempt to trade mean reversion by looking at simple indicators like RSI or Bollinger Bands on single stocks. The problem? A growth stock can stay "overbought" for three years, and a distressed firm can stay "oversold" all the way to bankruptcy. Quantitative statistical arbitrage solves this by trading <strong>cointegrated pairs</strong>.</p>
-
-<h3>Correlation vs. Cointegration</h3>
-<p>Two assets can be 90% correlated over a month and then diverge forever. Cointegration, by contrast, means that a specific linear combination of two prices forms a stationary time series with a constant mean and finite variance. Think of a drunk person walking a dog on an elastic leash: both wander unpredictably, but the leash forces the distance between them to revert to equilibrium.</p>
-
-<div class="callout-box">
-  <h4>Testing for Cointegration in Python</h4>
-  <p>We use the Augmented Dickey-Fuller (ADF) test on the residual spread obtained via Ordinary Least Squares (OLS) regression between Asset A and Asset B.</p>
-</div>
-
-<pre><code class="language-python">import numpy as np
-import statsmodels.api as sm
-from statsmodels.tsa.stattools import coint
-
-def test_pair_cointegration(series_y, series_x):
-    score, pvalue, _ = coint(series_y, series_x)
-    if pvalue < 0.05:
-        # Calculate hedge ratio via OLS
-        X = sm.add_constant(series_x)
-        model = sm.OLS(series_y, X).fit()
-        hedge_ratio = model.params[1]
-        spread = series_y - hedge_ratio * series_x
-        z_score = (spread - spread.mean()) / spread.std()
-        return True, hedge_ratio, z_score
-    return False, None, None
-</code></pre>
-
-<h3>Execution Rules</h3>
-<p>When the normalized spread breaches <strong>+2.0 standard deviations (z-score)</strong>, short the outperforming leg and go long the underperforming leg. When the spread reverts to <strong>0.0 (the historical mean)</strong>, close both legs simultaneously to lock in market-neutral profit.</p>
-]]></content:encoded>
-      <enclosure url="https://wealth.t37.in/assets/thumbnails/algo-mean-reversion.svg" type="image/svg+xml" length="1024" />
-    </item>
-    <item>
-      <title>Order Flow &amp; Volume-Weighted Average Price (VWAP) Secrets</title>
-      <link>https://wealth.t37.in/#article/vwap-order-flow-secrets-institutional-execution</link>
-      <guid isPermaLink="true">https://wealth.t37.in/#article/vwap-order-flow-secrets-institutional-execution</guid>
-      <pubDate>Sun, 20 Sep 2026 13:10:00 +0000</pubDate>
-      <dc:creator><![CDATA[T37 Editor Desk]]></dc:creator>
-      <category><![CDATA[Markets]]></category>
-      <description><![CDATA[How institutional execution algorithms (TWAP, VWAP, POV) operate in practice, and how retail quantitative models can detect institutional footprints.]]></description>
-      <content:encoded><![CDATA[
-<p class="lead">If a retail trader wants to buy 100 shares of Reliance or Apple, they press "Market Buy" and get filled within 50 milliseconds. But if an institutional pension fund needs to accumulate 2 million shares, clicking "Market Buy" would immediately clear the entire order book, spiking the price 8% against themselves. This reality created the science of algorithmic execution.</p>
-
-<h3>How Execution Algos Work</h3>
-<p>To mask their footprint, institutional execution desks deploy specialized automated engines:</p>
-<ul>
-  <li><strong>VWAP (Volume-Weighted Average Price):</strong> Matches order pacing to the statistical historical volume curve of the asset (high volume at 9:15 AM and 3:00 PM, lull around 1:00 PM).</li>
-  <li><strong>TWAP (Time-Weighted Average Price):</strong> Slices orders into equal time slices (e.g. 50 shares every 15 seconds) regardless of volume.</li>
-  <li><strong>POV (Percentage of Volume):</strong> Dynamically participates as an exact percentage (e.g. 8%) of live tape volume.</li>
-</ul>
-
-<div class="callout-box">
-  <h4>The Trader's Edge</h4>
-  <p>Because these algorithms are legally mandated to achieve execution at or better than the daily VWAP benchmark, the VWAP line behaves as a magnetic gravity well during the trading session. Prices trading substantially below VWAP incentivize institutional buying algorithms to trigger aggressively.</p>
-</div>
-]]></content:encoded>
-      <enclosure url="https://wealth.t37.in/assets/thumbnails/algo-vwap-orderflow.svg" type="image/svg+xml" length="1024" />
-    </item>
-    <item>
-      <title>The 5 Fatal Backtesting Pitfalls: Lookahead Bias and Overfitting</title>
-      <link>https://wealth.t37.in/#article/5-fatal-backtesting-pitfalls-quant-trading</link>
-      <guid isPermaLink="true">https://wealth.t37.in/#article/5-fatal-backtesting-pitfalls-quant-trading</guid>
-      <pubDate>Sat, 19 Sep 2026 15:20:00 +0000</pubDate>
-      <dc:creator><![CDATA[T37 Editor Desk]]></dc:creator>
-      <category><![CDATA[Markets]]></category>
-      <description><![CDATA[Why 90% of backtested trading strategies with stellar Sharpe ratios fail in live trading: survivorship bias, slippage models, and parameter snooping.]]></description>
-      <content:encoded><![CDATA[
-<p class="lead">Every aspiring algorithmic trader has experienced the euphoric high of designing a strategy in Python or Backtrader that produces a 4.5 Sharpe ratio, a 75% win rate, and a 45-degree equity curve. Then they deploy real capital to live broker APIs, and the system loses 12% in the first three weeks. What happened?</p>
-
-<h3>The 5 Deadly Quant Sins</h3>
-<ol>
-  <li><strong>Lookahead Bias:</strong> Accidentally referencing `df['close'].shift(-1)` or utilizing daily summary indicators calculated with data that was not yet known at 10:00 AM.</li>
-  <li><strong>Survivorship Bias:</strong> Testing an equity strategy only against the current constituents of the Nifty 50 or S&P 500, conveniently ignoring all the failed companies that dropped out of the index over the past 10 years.</li>
-  <li><strong>Unrealistic Slippage & Commission:</strong> Assuming limit orders get filled 100% of the time at the exact bid price without market impact or exchange transaction charges.</li>
-  <li><strong>Overfitting / Curve-Fitting:</strong> Tweaking 14 different parameters (e.g. setting RSI length to 17.3 and moving average to 41.5) until the strategy memorizes past market noise rather than discovering a genuine structural market anomaly.</li>
-  <li><strong>Regime Change Neglect:</strong> Developing a strategy during an uninterrupted 2-year bull market and expecting it to survive a sudden volatility spike or liquidity freeze.</li>
-</ol>
-
-<p>If your strategy hasn't been subjected to out-of-sample stress testing, cross-validation, and execution delay simulation, it isn't ready for real capital.</p>
-]]></content:encoded>
-      <enclosure url="https://wealth.t37.in/assets/thumbnails/algo-backtest-pitfalls.svg" type="image/svg+xml" length="1024" />
-    </item>
-    <item>
-      <title>Automating Dynamic Position Sizing with the Kelly Criterion</title>
-      <link>https://wealth.t37.in/#article/automating-position-sizing-kelly-criterion</link>
-      <guid isPermaLink="true">https://wealth.t37.in/#article/automating-position-sizing-kelly-criterion</guid>
-      <pubDate>Fri, 18 Sep 2026 14:00:00 +0000</pubDate>
-      <dc:creator><![CDATA[T37 Editor Desk]]></dc:creator>
-      <category><![CDATA[Personal Finance]]></category>
-      <description><![CDATA[Mathematical framework for allocating optimal leverage and fraction-of-capital per trade to maximize logarithmic wealth growth while preventing ruin.]]></description>
-      <content:encoded><![CDATA[
-<p class="lead">Most traders spend 95% of their intellectual energy trying to predict where prices will go next (entry signals) and almost zero time deciding <em>how much capital</em> to commit once a signal triggers. Yet in quantitative finance, position sizing is the primary determinant of whether a system compounds exponentially or goes bust.</p>
-
-<h3>The Kelly Formula</h3>
-<p>Developed by Bell Labs scientist John Larry Kelly Jr. in 1956, the formula calculates the optimal fraction ($f^*$) of wealth to risk:</p>
-
-<div class="callout-box">
-  <h4>Kelly Formula:</h4>
-  <p><strong>f* = (b * p - q) / b</strong></p>
-  <p>Where:<br>
-  • <strong>p</strong> = Probability of a winning trade<br>
-  • <strong>q</strong> = Probability of a losing trade (1 - p)<br>
-  • <strong>b</strong> = Win/Loss payoff ratio (average gain / average loss)
-  </p>
-</div>
-
-<h3>Why Full Kelly is Dangerous in Real Markets</h3>
-<p>If your historical win rate is 55% and your payoff ratio is 1.5, full Kelly suggests wagering roughly 25% of your bankroll on each trade. While this maximizes the long-term expected value of log wealth, a string of 6 bad trades will cause an unbearable 75% drawdown.</p>
-<p>Because financial returns exhibit negative skewness and fat tails (black swans), professional quants universally utilize <strong>Half-Kelly (0.5 * f*)</strong> or <strong>Quarter-Kelly (0.25 * f*)</strong>. This smooths equity drawdowns by 50% while capturing the majority of compound growth.</p>
-]]></content:encoded>
-      <enclosure url="https://wealth.t37.in/assets/thumbnails/algo-kelly-criterion.svg" type="image/svg+xml" length="1024" />
     </item>
     <item>
       <title>Building a Low-Latency Event-Driven Execution Engine in Python</title>
@@ -432,6 +521,25 @@ def test_pair_cointegration(series_y, series_x):
 <p>When properly architected, an event-driven engine provides complete operational clarity, allowing quants to test strategies on historical tick replays and deploy them to live trading without changing a single line of strategy code.</p>
 ]]></content:encoded>
       <enclosure url="https://wealth.t37.in/assets/thumbnails/algo-execution-engine.svg" type="image/svg+xml" length="1024" />
+    </item>
+    <item>
+      <title>Crypto Regulatory Frameworks: The Global Divergence</title>
+      <link>https://wealth.t37.in/#article/crypto-regulatory-frameworks-global-divergence</link>
+      <guid isPermaLink="true">https://wealth.t37.in/#article/crypto-regulatory-frameworks-global-divergence</guid>
+      <pubDate>Thu, 17 Sep 2026 08:30:00 +0000</pubDate>
+      <dc:creator><![CDATA[T37 Editor Desk]]></dc:creator>
+      <category><![CDATA[Crypto]]></category>
+      <description><![CDATA[How the EU's MiCA, Dubai's VARA, Singapore's MAS, and US court decisions are carving out distinct competitive jurisdictions for digital asset operations.]]></description>
+      <content:encoded><![CDATA[
+<p class="lead">The era of regulatory ambiguity in digital assets is effectively over. In its place, a competitive geopolitical landscape has emerged, where sovereign jurisdictions compete to attract Web3 innovation, capital, and tax revenues while protecting consumer deposits.</p>
+
+<h3>The European Blueprint: MiCA</h3>
+<p>The EU's comprehensive MiCA framework went into full effect, mandating strict capital reserve standards for stablecoin issuers, standardized anti-money laundering (AML) protocols, and clear disclosure guidelines for crypto asset service providers (CASPs). A single passport license in France or Germany grants seamless access to all 450 million European consumers.</p>
+
+<h3>The Middle East & Asia Pacific Hubs</h3>
+<p>Meanwhile, Dubai's Virtual Assets Regulatory Authority (VARA) and the Monetary Authority of Singapore (MAS) have positioned their jurisdictions as the premier centers for quantitative trading firms, institutional custodians, and decentralized infrastructure developers. Clear rules of engagement have replaced the uncertain "regulation by enforcement" approach, setting the stage for predictable institutional growth.</p>
+]]></content:encoded>
+      <enclosure url="https://wealth.t37.in/assets/thumbnails/crypto-regulations.svg" type="image/svg+xml" length="1024" />
     </item>
   </channel>
 </rss>
