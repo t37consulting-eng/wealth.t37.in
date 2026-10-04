@@ -27,11 +27,10 @@ xml_lines = [
     '  </url>'
 ]
 
-# Categories (Latest, Markets, Crypto, Personal Finance)
+# Categories (Latest, Markets, Personal Finance)
 categories = [
     ("latest", "1.0"),
     ("markets", "0.9"),
-    ("crypto", "0.9"),
     ("personal-finance", "0.9")
 ]
 

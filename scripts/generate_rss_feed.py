@@ -56,7 +56,7 @@ rss_xml = f"""<?xml version="1.0" encoding="UTF-8"?>
     <title>T37 Wealth | Financial Insights &amp; Market Intelligence</title>
     <link>https://wealth.t37.in</link>
     <atom:link href="https://wealth.t37.in/feed.xml" rel="self" type="application/rss+xml" />
-    <description>3-minute actionable financial insights covering Indian &amp; global markets, crypto, and personal finance strategies.</description>
+    <description>3-minute actionable financial insights covering Indian &amp; global markets and personal finance strategies.</description>
     <language>en-us</language>
     <copyright>Copyright 2026 T37 Consulting</copyright>
     <lastBuildDate>{now_rfc822}</lastBuildDate>

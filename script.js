@@ -12,7 +12,7 @@
   let currentCategory = 'latest';
   let activeArticle = null;
 
-  // Category Configuration (Latest, Markets, Crypto, Personal Finance)
+  // Category Configuration (Latest, Markets, Personal Finance)
   const CATEGORY_META = {
     'latest': {
       title: 'Latest Reads',
@@ -26,12 +26,6 @@
       quote: '“When you have high conviction, you don’t test the water—you go for the jugular. The market punishes the timid and rewards the bold.”',
       author: '— George Soros',
       filter: (a) => a.category.toLowerCase() === 'markets'
-    },
-    'crypto': {
-      title: 'Crypto',
-      quote: '“If you don’t get it or don’t believe it, I don’t have time to convince you. The future belongs to those who take the asymmetric risk first.”',
-      author: '— Satoshi Nakamoto',
-      filter: (a) => a.category.toLowerCase() === 'crypto'
     },
     'personal-finance': {
       title: 'Personal Finance',

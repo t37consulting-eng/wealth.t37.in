@@ -35,17 +35,6 @@
     </news:news>
   </url>
   <url>
-    <loc>https://wealth.t37.in/#article/bitcoin-halving-cycles-institutional-etf-inflows</loc>
-    <news:news>
-      <news:publication>
-        <news:name>T37 Wealth</news:name>
-        <news:language>en</news:language>
-      </news:publication>
-      <news:publication_date>2026-09-21T01:15:00Z</news:publication_date>
-      <news:title>Bitcoin Halving Cycles: How Institutional ETF Inflows Altered the Math</news:title>
-    </news:news>
-  </url>
-  <url>
     <loc>https://wealth.t37.in/#article/us-treasury-bond-buybacks-liquidity</loc>
     <news:news>
       <news:publication>
@@ -79,17 +68,6 @@
     </news:news>
   </url>
   <url>
-    <loc>https://wealth.t37.in/#article/ethereum-layer-2-gas-economics-blobspace</loc>
-    <news:news>
-      <news:publication>
-        <news:name>T37 Wealth</news:name>
-        <news:language>en</news:language>
-      </news:publication>
-      <news:publication_date>2026-09-20T10:00:00Z</news:publication_date>
-      <news:title>Ethereum Layer 2 Gas Economics: The Impact of Blob Space</news:title>
-    </news:news>
-  </url>
-  <url>
     <loc>https://wealth.t37.in/#article/5-fatal-backtesting-pitfalls-quant-trading</loc>
     <news:news>
       <news:publication>
@@ -98,17 +76,6 @@
       </news:publication>
       <news:publication_date>2026-09-19T15:20:00Z</news:publication_date>
       <news:title>The 5 Fatal Backtesting Pitfalls: Lookahead Bias and Overfitting</news:title>
-    </news:news>
-  </url>
-  <url>
-    <loc>https://wealth.t37.in/#article/stablecoins-trillion-dollar-global-settlement</loc>
-    <news:news>
-      <news:publication>
-        <news:name>T37 Wealth</news:name>
-        <news:language>en</news:language>
-      </news:publication>
-      <news:publication_date>2026-09-19T13:40:00Z</news:publication_date>
-      <news:title>Stablecoins as Global Clearinghouses: The Trillion-Dollar Settlement Shift</news:title>
     </news:news>
   </url>
   <url>
@@ -131,17 +98,6 @@
       </news:publication>
       <news:publication_date>2026-09-19T07:20:00Z</news:publication_date>
       <news:title>Term Insurance Fine Print: Exclusions Every Policyholder Must Verify</news:title>
-    </news:news>
-  </url>
-  <url>
-    <loc>https://wealth.t37.in/#article/defi-real-yield-protocol-cash-flows</loc>
-    <news:news>
-      <news:publication>
-        <news:name>T37 Wealth</news:name>
-        <news:language>en</news:language>
-      </news:publication>
-      <news:publication_date>2026-09-18T16:15:00Z</news:publication_date>
-      <news:title>The Decentralized Finance (DeFi) Real Yield Shift</news:title>
     </news:news>
   </url>
   <url>
@@ -208,17 +164,6 @@
       </news:publication>
       <news:publication_date>2026-09-17T11:00:00Z</news:publication_date>
       <news:title>Building a Low-Latency Event-Driven Execution Engine in Python</news:title>
-    </news:news>
-  </url>
-  <url>
-    <loc>https://wealth.t37.in/#article/crypto-regulatory-frameworks-global-divergence</loc>
-    <news:news>
-      <news:publication>
-        <news:name>T37 Wealth</news:name>
-        <news:language>en</news:language>
-      </news:publication>
-      <news:publication_date>2026-09-17T08:30:00Z</news:publication_date>
-      <news:title>Crypto Regulatory Frameworks: The Global Divergence</news:title>
     </news:news>
   </url>
 </urlset>

@@ -8,10 +8,10 @@
     <title>T37 Wealth | Financial Insights &amp; Market Intelligence</title>
     <link>https://wealth.t37.in</link>
     <atom:link href="https://wealth.t37.in/feed.xml" rel="self" type="application/rss+xml" />
-    <description>3-minute actionable financial insights covering Indian &amp; global markets, crypto, and personal finance strategies.</description>
+    <description>3-minute actionable financial insights covering Indian &amp; global markets and personal finance strategies.</description>
     <language>en-us</language>
     <copyright>Copyright 2026 T37 Consulting</copyright>
-    <lastBuildDate>Sun, 04 Oct 2026 14:19:03 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 04 Oct 2026 14:49:11 +0000</lastBuildDate>
     <docs>https://cyber.harvard.edu/rss/rss.html</docs>
     <generator>T37 Wealth RSS Generator</generator>
     <image>
@@ -128,30 +128,6 @@ def test_pair_cointegration(series_y, series_x):
       <enclosure url="https://wealth.t37.in/assets/thumbnails/markets-nse-ipo.svg" type="image/svg+xml" length="1024" />
     </item>
     <item>
-      <title>Bitcoin Halving Cycles: How Institutional ETF Inflows Altered the Math</title>
-      <link>https://wealth.t37.in/#article/bitcoin-halving-cycles-institutional-etf-inflows</link>
-      <guid isPermaLink="true">https://wealth.t37.in/#article/bitcoin-halving-cycles-institutional-etf-inflows</guid>
-      <pubDate>Mon, 21 Sep 2026 01:15:00 +0000</pubDate>
-      <dc:creator><![CDATA[T37 Editor Desk]]></dc:creator>
-      <category><![CDATA[Crypto]]></category>
-      <description><![CDATA[Traditional 4-year halving cycle models relied on retail cycles and miner liquidation pressure. Spot ETFs and institutional custodial reserves have fundamentally altered price dynamics.]]></description>
-      <content:encoded><![CDATA[
-<p class="lead">For over a decade, Bitcoin's macroeconomic cadence was governed by a deterministic line in Satoshi Nakamoto's code: every 210,000 blocks (~4 years), the block subsidy awarded to miners cuts in half. But the post-2024 landscape has witnessed a structural break from historical precedent.</p>
-
-<h3>The Supply Squeeze Equation</h3>
-<p>Following the latest halving, daily new issuance dropped to roughly 450 BTC per day (or ~164,000 BTC annually). Against this capped trickle, Wall Street spot ETF issuers (BlackRock, Fidelity, Bitwise) regularly absorb between 2,000 and 5,000 BTC per day during periods of sustained inflows.</p>
-
-<div class="callout-box">
-  <h4>The Structural Multiplier</h4>
-  <p>When daily net institutional purchases exceed daily newly minted supply by 5x to 10x, buyers must bid directly into illiquid secondary market order books, creating sharp convex price reactions.</p>
-</div>
-
-<h3>The Shift from Retail Euphoria to Balance Sheet Hedging</h3>
-<p>In previous cycles (2017 and 2021), price discovery was catalyzed by leveraged retail derivatives on offshore exchanges. Today, institutional custodial reserves dominate. Corporate treasuries and sovereign wealth funds treat digital gold not as a speculative chip, but as an uncorrelated sovereign hedge against fiat debasement.</p>
-]]></content:encoded>
-      <enclosure url="https://wealth.t37.in/assets/thumbnails/crypto-btc-halving.svg" type="image/svg+xml" length="1024" />
-    </item>
-    <item>
       <title>US Treasury Bond Buybacks: Why Washington is Buying Its Own Debt</title>
       <link>https://wealth.t37.in/#article/us-treasury-bond-buybacks-liquidity</link>
       <guid isPermaLink="true">https://wealth.t37.in/#article/us-treasury-bond-buybacks-liquidity</guid>
@@ -231,30 +207,6 @@ def test_pair_cointegration(series_y, series_x):
       <enclosure url="https://wealth.t37.in/assets/thumbnails/personal-finance-budgeting.svg" type="image/svg+xml" length="1024" />
     </item>
     <item>
-      <title>Ethereum Layer 2 Gas Economics: The Impact of Blob Space</title>
-      <link>https://wealth.t37.in/#article/ethereum-layer-2-gas-economics-blobspace</link>
-      <guid isPermaLink="true">https://wealth.t37.in/#article/ethereum-layer-2-gas-economics-blobspace</guid>
-      <pubDate>Sun, 20 Sep 2026 10:00:00 +0000</pubDate>
-      <dc:creator><![CDATA[T37 Editor Desk]]></dc:creator>
-      <category><![CDATA[Crypto]]></category>
-      <description><![CDATA[Layer 2 rollups now settle transactions for fractions of a cent using blob space. But what does ultra-cheap data availability mean for Layer 1 fee burn and staking yield?]]></description>
-      <content:encoded><![CDATA[
-<p class="lead">Remember paying $50 to swap tokens on Uniswap during the height of the 2021 bull run? Today, transacting on Ethereum's leading Layer 2 networks—such as Arbitrum, Base, and Optimism—costs less than two cents. That monumental leap in user experience was powered by one architectural breakthrough: <strong>Blob Space</strong>.</p>
-
-<h3>How Proto-Danksharding Solved the Data Bottleneck</h3>
-<p>Previously, rollups had to compress thousands of transactions and post them directly to Ethereum's expensive `calldata` storage, competing with ordinary L1 users for gas. With proto-danksharding, Ethereum created temporary data sidecars called "blobs". Blobs persist on the network for just 18 days—long enough for fraud proofs or validity checks—before being pruned.</p>
-
-<h3>The Economic Dilemma for L1 Stakers</h3>
-<p>While users celebrated negligible fees, the upgrade triggered an intriguing macroeconomic dilemma for ETH holders:</p>
-<ul>
-  <li><strong>EIP-1559 Fee Burn:</strong> When L1 gas fees drop, fewer ETH are burned, nudging net token issuance slightly positive.</li>
-  <li><strong>Staking Yields:</strong> Validator priority fees diminish when network congestion moves off the main chain.</li>
-</ul>
-<p>The bull case relies on a classic Jevons paradox: making transactions virtually free stimulates such a colossal explosion in decentralized applications, gaming, and tokenized real-world assets (RWAs) that blob space eventually becomes saturated, restoring sustainable value accrual to Ethereum.</p>
-]]></content:encoded>
-      <enclosure url="https://wealth.t37.in/assets/thumbnails/crypto-eth-l2.svg" type="image/svg+xml" length="1024" />
-    </item>
-    <item>
       <title>The 5 Fatal Backtesting Pitfalls: Lookahead Bias and Overfitting</title>
       <link>https://wealth.t37.in/#article/5-fatal-backtesting-pitfalls-quant-trading</link>
       <guid isPermaLink="true">https://wealth.t37.in/#article/5-fatal-backtesting-pitfalls-quant-trading</guid>
@@ -277,29 +229,6 @@ def test_pair_cointegration(series_y, series_x):
 <p>If your strategy hasn't been subjected to out-of-sample stress testing, cross-validation, and execution delay simulation, it isn't ready for real capital.</p>
 ]]></content:encoded>
       <enclosure url="https://wealth.t37.in/assets/thumbnails/algo-backtest-pitfalls.svg" type="image/svg+xml" length="1024" />
-    </item>
-    <item>
-      <title>Stablecoins as Global Clearinghouses: The Trillion-Dollar Settlement Shift</title>
-      <link>https://wealth.t37.in/#article/stablecoins-trillion-dollar-global-settlement</link>
-      <guid isPermaLink="true">https://wealth.t37.in/#article/stablecoins-trillion-dollar-global-settlement</guid>
-      <pubDate>Sat, 19 Sep 2026 13:40:00 +0000</pubDate>
-      <dc:creator><![CDATA[T37 Editor Desk]]></dc:creator>
-      <category><![CDATA[Crypto]]></category>
-      <description><![CDATA[USDT and USDC now settle more annualized volume than Visa. We examine cross-border remittance cost savings, Treasury bill holdings, and central bank responses.]]></description>
-      <content:encoded><![CDATA[
-<p class="lead">If you want to understand where genuine cryptocurrency adoption is occurring right now, look past speculative meme coins and look at the quiet revolution of fiat-backed digital dollars.</p>
-
-<h3>The Unstoppable Dollarization of Emerging Markets</h3>
-<p>In countries grappling with double-digit domestic inflation or strict capital controls—such as Argentina, Turkey, Nigeria, and parts of Southeast Asia—merchants and freelancers no longer wait for slow wire transfers through legacy SWIFT correspondent banking. They accept USDT or USDC directly to a mobile crypto wallet in 3 seconds flat.</p>
-
-<div class="callout-box">
-  <h4>Sovereign Debt Players</h4>
-  <p>With stablecoin market capitalization surpassing $220 billion, reserve custodians hold massive portfolios of 3-month US Treasury bills, earning 4-5% risk-free yields while paying 0% interest on outstanding tokens. It is arguably the most profitable financial business model ever devised.</p>
-</div>
-
-<p>Far from displacing the US Dollar, stablecoins have inadvertently extended American monetary hegemony into the digital age, anchoring global cross-border payments firmly in greenback-denominated units.</p>
-]]></content:encoded>
-      <enclosure url="https://wealth.t37.in/assets/thumbnails/crypto-stablecoins.svg" type="image/svg+xml" length="1024" />
     </item>
     <item>
       <title>India's Semiconductor Push: From Blueprint to Silicon Reality</title>
@@ -353,24 +282,6 @@ def test_pair_cointegration(series_y, series_x):
 <p>Insurance agents aggressively push "Term Return of Premium" (TROP) plans, claiming "you get all your money back if you survive!" What they hide is that TROP costs nearly 3x more. If you invest that premium difference into a simple index fund over 30 years, you will accumulate far more wealth than the meager refund the insurer returns.</p>
 ]]></content:encoded>
       <enclosure url="https://wealth.t37.in/assets/thumbnails/personal-finance-insurance.svg" type="image/svg+xml" length="1024" />
-    </item>
-    <item>
-      <title>The Decentralized Finance (DeFi) Real Yield Shift</title>
-      <link>https://wealth.t37.in/#article/defi-real-yield-protocol-cash-flows</link>
-      <guid isPermaLink="true">https://wealth.t37.in/#article/defi-real-yield-protocol-cash-flows</guid>
-      <pubDate>Fri, 18 Sep 2026 16:15:00 +0000</pubDate>
-      <dc:creator><![CDATA[T37 Editor Desk]]></dc:creator>
-      <category><![CDATA[Crypto]]></category>
-      <description><![CDATA[Moving away from hyper-inflationary token emissions to sustainable organic fee generation: how leading automated market makers and money markets survived the crypto winter.]]></description>
-      <content:encoded><![CDATA[
-<p class="lead">During the 2020-2021 "DeFi Summer," decentralized protocols promised 1,000% Annual Percentage Yields (APYs). It did not take a PhD in finance to realize the obvious catch: those yields were paid in freshly minted native tokens that dropped 99% in value once mercenary liquidity providers dumped them.</p>
-
-<h3>The Maturation to Organic Cash Flow</h3>
-<p>Today's battle-tested DeFi protocols operate on traditional economic principles. Lending markets like Aave, decentralized exchange engines like Uniswap, and liquid staking systems like Lido generate billions of dollars in gross annualized fees. When users borrow, trade, or stake, real economic value changes hands.</p>
-
-<p>Leading DAOs have initiated "fee switch" governance proposals, channeling protocol fees into systematic token buy-and-burn mechanics or direct USDC dividend distributions to stakers. By grounding valuations in discounted cash flow (DCF) models rather than narrative buzzwords, decentralized finance has finally earned a seat at the serious institutional table.</p>
-]]></content:encoded>
-      <enclosure url="https://wealth.t37.in/assets/thumbnails/crypto-defi-yield.svg" type="image/svg+xml" length="1024" />
     </item>
     <item>
       <title>Automating Dynamic Position Sizing with the Kelly Criterion</title>
@@ -521,25 +432,6 @@ def test_pair_cointegration(series_y, series_x):
 <p>When properly architected, an event-driven engine provides complete operational clarity, allowing quants to test strategies on historical tick replays and deploy them to live trading without changing a single line of strategy code.</p>
 ]]></content:encoded>
       <enclosure url="https://wealth.t37.in/assets/thumbnails/algo-execution-engine.svg" type="image/svg+xml" length="1024" />
-    </item>
-    <item>
-      <title>Crypto Regulatory Frameworks: The Global Divergence</title>
-      <link>https://wealth.t37.in/#article/crypto-regulatory-frameworks-global-divergence</link>
-      <guid isPermaLink="true">https://wealth.t37.in/#article/crypto-regulatory-frameworks-global-divergence</guid>
-      <pubDate>Thu, 17 Sep 2026 08:30:00 +0000</pubDate>
-      <dc:creator><![CDATA[T37 Editor Desk]]></dc:creator>
-      <category><![CDATA[Crypto]]></category>
-      <description><![CDATA[How the EU's MiCA, Dubai's VARA, Singapore's MAS, and US court decisions are carving out distinct competitive jurisdictions for digital asset operations.]]></description>
-      <content:encoded><![CDATA[
-<p class="lead">The era of regulatory ambiguity in digital assets is effectively over. In its place, a competitive geopolitical landscape has emerged, where sovereign jurisdictions compete to attract Web3 innovation, capital, and tax revenues while protecting consumer deposits.</p>
-
-<h3>The European Blueprint: MiCA</h3>
-<p>The EU's comprehensive MiCA framework went into full effect, mandating strict capital reserve standards for stablecoin issuers, standardized anti-money laundering (AML) protocols, and clear disclosure guidelines for crypto asset service providers (CASPs). A single passport license in France or Germany grants seamless access to all 450 million European consumers.</p>
-
-<h3>The Middle East & Asia Pacific Hubs</h3>
-<p>Meanwhile, Dubai's Virtual Assets Regulatory Authority (VARA) and the Monetary Authority of Singapore (MAS) have positioned their jurisdictions as the premier centers for quantitative trading firms, institutional custodians, and decentralized infrastructure developers. Clear rules of engagement have replaced the uncertain "regulation by enforcement" approach, setting the stage for predictable institutional growth.</p>
-]]></content:encoded>
-      <enclosure url="https://wealth.t37.in/assets/thumbnails/crypto-regulations.svg" type="image/svg+xml" length="1024" />
     </item>
   </channel>
 </rss>
