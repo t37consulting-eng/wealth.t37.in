@@ -237,6 +237,35 @@
     if (existing) existing.remove();
   }
 
+  // Article Like Count Persistence
+  function getArticleLikes(slug) {
+    const stored = localStorage.getItem(`t37_likes_${slug}`);
+    if (stored !== null) return parseInt(stored, 10);
+    let hash = 0;
+    for (let i = 0; i < slug.length; i++) hash = (hash * 31 + slug.charCodeAt(i)) % 100;
+    const initial = 28 + Math.abs(hash);
+    localStorage.setItem(`t37_likes_${slug}`, initial);
+    return initial;
+  }
+
+  function isArticleLiked(slug) {
+    return localStorage.getItem(`t37_liked_${slug}`) === 'true';
+  }
+
+  function toggleArticleLike(slug) {
+    const liked = isArticleLiked(slug);
+    let count = getArticleLikes(slug);
+    if (liked) {
+      count = Math.max(0, count - 1);
+      localStorage.setItem(`t37_liked_${slug}`, 'false');
+    } else {
+      count = count + 1;
+      localStorage.setItem(`t37_liked_${slug}`, 'true');
+    }
+    localStorage.setItem(`t37_likes_${slug}`, count);
+    return { liked: !liked, count };
+  }
+
   // Open Full Article Reader
   function openArticle(slug, pushState = true) {
     const article = allArticles.find(a => a.slug === slug || a.id === slug);
@@ -288,8 +317,8 @@
       </div>
     ` : '';
 
-    const shareUrl = encodeURIComponent(window.location.origin + window.location.pathname + '#article/' + article.slug);
-    const shareTitle = encodeURIComponent(article.title + ' | T37 Wealth');
+    const isLiked = isArticleLiked(article.slug);
+    const likesCount = getArticleLikes(article.slug);
 
     readerContent.innerHTML = `
       <div class="reader-category-pill">${article.category} • ${article.subCategory || 'Insight'}</div>
@@ -306,16 +335,26 @@
           </div>
         </div>
         
-        <div class="share-buttons">
-          <a class="share-btn" href="https://twitter.com/intent/tweet?text=${shareTitle}&url=${shareUrl}" target="_blank" rel="noopener noreferrer" title="Share on X" aria-label="Share on X">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-          </a>
-          <a class="share-btn" href="https://api.whatsapp.com/send?text=${shareTitle}%20${shareUrl}" target="_blank" rel="noopener noreferrer" title="Share on WhatsApp" aria-label="Share on WhatsApp">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
-          </a>
-          <button class="share-btn" id="copy-link-btn" title="Copy Link" aria-label="Copy Link">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+        <div class="reader-actions-group">
+          <button class="article-like-btn ${isLiked ? 'liked' : ''}" id="article-like-btn" title="${isLiked ? 'Unlike' : 'Like this read'}" aria-label="Like article">
+            <svg class="heart-icon" width="16" height="16" viewBox="0 0 24 24" fill="${isLiked ? 'currentColor' : 'none'}" stroke="currentColor" stroke-width="2">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+            </svg>
+            <span class="like-label">${isLiked ? 'Liked' : 'Like'}</span>
+            <span class="like-count" id="article-like-count">${likesCount}</span>
           </button>
+
+          <div class="share-buttons">
+            <a class="share-btn" href="https://twitter.com/intent/tweet?text=${shareTitle}&url=${shareUrl}" target="_blank" rel="noopener noreferrer" title="Share on X" aria-label="Share on X">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a class="share-btn" href="https://api.whatsapp.com/send?text=${shareTitle}%20${shareUrl}" target="_blank" rel="noopener noreferrer" title="Share on WhatsApp" aria-label="Share on WhatsApp">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+            </a>
+            <button class="share-btn" id="copy-link-btn" title="Copy Link" aria-label="Copy Link">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+            </button>
+          </div>
         </div>
       </div>
       
@@ -332,9 +371,53 @@
       <div class="article-editorial-footnote">
         <p><em>Disclaimer: Content published on T37 Wealth is strictly educational and does not constitute investment advice. Researched from official corporate & regulatory filings (NSE/BSE/RBI/SEBI). Report corrections to <a href="mailto:admin@mail.t37.in?subject=Correction%20Request:%20${encodeURIComponent(article.title)}">admin@mail.t37.in</a>.</em></p>
       </div>
+
+      <div class="article-like-cta">
+        <button class="article-like-btn large ${isLiked ? 'liked' : ''}" id="article-like-btn-bottom">
+          <svg class="heart-icon" width="20" height="20" viewBox="0 0 24 24" fill="${isLiked ? 'currentColor' : 'none'}" stroke="currentColor" stroke-width="2">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+          </svg>
+          <span class="like-label">${isLiked ? 'You liked this read' : 'Enjoyed this 3-min read? Tap to like'}</span>
+          <span class="like-count" id="article-like-count-bottom">${likesCount}</span>
+        </button>
+      </div>
       
       ${relatedHtml}
     `;
+
+    // Like buttons interaction
+    function updateLikeUI(result) {
+      const topBtn = document.getElementById('article-like-btn');
+      const btmBtn = document.getElementById('article-like-btn-bottom');
+      const topCount = document.getElementById('article-like-count');
+      const btmCount = document.getElementById('article-like-count-bottom');
+      
+      [topBtn, btmBtn].forEach(btn => {
+        if (!btn) return;
+        const icon = btn.querySelector('.heart-icon');
+        const label = btn.querySelector('.like-label');
+        if (result.liked) {
+          btn.classList.add('liked');
+          if (icon) icon.setAttribute('fill', 'currentColor');
+          if (label) label.textContent = btn.classList.contains('large') ? 'You liked this read' : 'Liked';
+        } else {
+          btn.classList.remove('liked');
+          if (icon) icon.setAttribute('fill', 'none');
+          if (label) label.textContent = btn.classList.contains('large') ? 'Enjoyed this 3-min read? Tap to like' : 'Like';
+        }
+      });
+      if (topCount) topCount.textContent = result.count;
+      if (btmCount) btmCount.textContent = result.count;
+    }
+
+    const topLikeBtn = document.getElementById('article-like-btn');
+    const btmLikeBtn = document.getElementById('article-like-btn-bottom');
+    if (topLikeBtn) {
+      topLikeBtn.addEventListener('click', () => updateLikeUI(toggleArticleLike(article.slug)));
+    }
+    if (btmLikeBtn) {
+      btmLikeBtn.addEventListener('click', () => updateLikeUI(toggleArticleLike(article.slug)));
+    }
 
     // Copy link event
     document.getElementById('copy-link-btn').addEventListener('click', () => {
@@ -580,7 +663,8 @@
   // Keyboard Shortcuts
   window.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
-      if (editorialModal && editorialModal.classList.contains('active')) closeEditorialModal();
+      if (pushPromptContainer && pushPromptContainer.classList.contains('active')) closePushPrompt();
+      else if (editorialModal && editorialModal.classList.contains('active')) closeEditorialModal();
       else if (cookiesModal && cookiesModal.classList.contains('active')) closeCookiesModal();
       else if (searchModal.classList.contains('active')) closeSearch();
       else if (readerModal.classList.contains('active')) closeReader();
@@ -629,6 +713,53 @@
     });
   }
 
+  // Push Notifications Soft-Ask Prompt Logic
+  const pushPromptContainer = document.getElementById('push-prompt-container');
+  const pushBtnDecline = document.getElementById('push-btn-decline');
+  const pushBtnAllow = document.getElementById('push-btn-allow');
+
+  function initPushPrompt() {
+    if (!localStorage.getItem('t37_push_prompt_answered')) {
+      setTimeout(() => {
+        if (pushPromptContainer) pushPromptContainer.classList.add('active');
+      }, 3000);
+    }
+  }
+
+  function closePushPrompt() {
+    if (pushPromptContainer) {
+      pushPromptContainer.classList.remove('active');
+    }
+  }
+
+  if (pushBtnDecline) {
+    pushBtnDecline.addEventListener('click', () => {
+      localStorage.setItem('t37_push_prompt_answered', 'declined');
+      closePushPrompt();
+    });
+  }
+
+  if (pushBtnAllow) {
+    pushBtnAllow.addEventListener('click', async () => {
+      localStorage.setItem('t37_push_prompt_answered', 'allowed');
+      closePushPrompt();
+      if ('Notification' in window) {
+        try {
+          await Notification.requestPermission();
+        } catch (e) {
+          // ignore
+        }
+      }
+    });
+  }
+
+  // Close push prompt on clicking background outside card
+  if (pushPromptContainer) {
+    pushPromptContainer.addEventListener('click', (e) => {
+      if (e.target === pushPromptContainer) closePushPrompt();
+    });
+  }
+
   // Popstate / Hashchange
   window.addEventListener('hashchange', handleRoute);
   window.addEventListener('popstate', handleRoute);
@@ -646,4 +777,5 @@
   // Start Application
   loadArticles();
   initCookieBanner();
+  initPushPrompt();
 })();
