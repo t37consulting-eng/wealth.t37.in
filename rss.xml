@@ -199,7 +199,7 @@ def test_pair_cointegration(series_y, series_x):
 <p>Instead of calculating your savings from whatever crumbs remain at the end of the month, flip the formula upside down:</p>
 <ol>
   <li><strong>Automate Savings First (25-30%):</strong> Schedule your mutual fund SIPs, PPF contributions, and emergency fund transfers on the 2nd day after your salary credit.</li>
-  <li><strong>Obligations & Needs (50-55%):</strong> Cover rent, loan EMIs, groceries, utility bills, and insurance premiums.</li>
+  <li><strong>Obligations &amp; Needs (50-55%):</strong> Cover rent, loan EMIs, groceries, utility bills, and insurance premiums.</li>
   <li><strong>Guilt-Free Spending (The Remainder):</strong> Whatever sits in your discretionary account can be spent on dining out, travel, gadgets, and concerts without financial guilt.</li>
 </ol>
 <p>When your future self is paid first, lifestyle inflation can never compromise your long-term compounding.</p>
@@ -220,8 +220,8 @@ def test_pair_cointegration(series_y, series_x):
 <h3>The 5 Deadly Quant Sins</h3>
 <ol>
   <li><strong>Lookahead Bias:</strong> Accidentally referencing `df['close'].shift(-1)` or utilizing daily summary indicators calculated with data that was not yet known at 10:00 AM.</li>
-  <li><strong>Survivorship Bias:</strong> Testing an equity strategy only against the current constituents of the Nifty 50 or S&P 500, conveniently ignoring all the failed companies that dropped out of the index over the past 10 years.</li>
-  <li><strong>Unrealistic Slippage & Commission:</strong> Assuming limit orders get filled 100% of the time at the exact bid price without market impact or exchange transaction charges.</li>
+  <li><strong>Survivorship Bias:</strong> Testing an equity strategy only against the current constituents of the Nifty 50 or S&amp;P 500, conveniently ignoring all the failed companies that dropped out of the index over the past 10 years.</li>
+  <li><strong>Unrealistic Slippage &amp; Commission:</strong> Assuming limit orders get filled 100% of the time at the exact bid price without market impact or exchange transaction charges.</li>
   <li><strong>Overfitting / Curve-Fitting:</strong> Tweaking 14 different parameters (e.g. setting RSI length to 17.3 and moving average to 41.5) until the strategy memorizes past market noise rather than discovering a genuine structural market anomaly.</li>
   <li><strong>Regime Change Neglect:</strong> Developing a strategy during an uninterrupted 2-year bull market and expecting it to survive a sudden volatility spike or liquidity freeze.</li>
 </ol>
@@ -357,7 +357,7 @@ def test_pair_cointegration(series_y, series_x):
   <p>Global funds manage their emerging market portfolios against benchmarks like the MSCI Emerging Markets Index. If Chinese equities trade at 9x forward earnings while Nifty trades at 22x, institutional asset allocators are mandated to trim winners and rebalance into undervalued regions.</p>
 </div>
 
-<h3>Currency Carry Trades & Interest Differentials</h3>
+<h3>Currency Carry Trades &amp; Interest Differentials</h3>
 <p>FII flows are heavily sensitive to interest rate differentials between the US Federal Reserve and the Reserve Bank of India (RBI). When US yields stay higher for longer, the cost of currency hedging erodes foreign dollar returns, incentivizing institutional treasuries to park capital in risk-free US paper.</p>
 <p>For long-term equity investors, tracking FII panic often yields prime opportunities to accumulate world-class Indian franchises at temporary cyclical discounts.</p>
 ]]></content:encoded>
